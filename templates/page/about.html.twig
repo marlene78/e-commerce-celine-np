@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page.titre }}{% endblock %}
+
+{% block main %}
+
+    <main class="container-fluid pageAbout">
+        <!--page 1 : about---->
+
+        <div class="container">
+            <hr>
+            <h2>Céline NP</h2>
+            <h2>Styliste de mode</h2>
+        </div>
+
+
+
+        <section class="about container">
+
+
+            <article class="container">
+                <img src="{{ vich_uploader_asset(page.articles.get(0).picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ page.articles.get(0).picture.alt }}">
+
+                <div class="contenu">
+                    <h3>{{ page.articles.get(0).titre }}</h3>
+                    <p>{{ page.articles.get(0).contenu | raw('html') }}</p>
+                    <a href="{{ path('creation') }}" class="button1">Découvre mes créations</a>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="container">
+
+
+                <div class="contenu">
+                    <h3>{{ page.articles.get(1).titre }}</h3>
+                    <p>{{ page.articles.get(1).contenu | raw('html') }}</p>
+                </div>
+
+                <img src="{{ vich_uploader_asset(page.articles.get(1).picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ page.articles.get(1).picture.alt }}">
+
+
+            </article>
+
+        </section>
+
+      
+      
+       
+
+
+
+
+    </main>
+
+
+
+
+{% endblock %}
+

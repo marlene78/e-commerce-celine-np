@@ -1,0 +1,50 @@
+{% extends '/admin/index.html.twig'%}
+
+{% block title %}Gestion des finitions{% endblock %}
+
+
+{% block main %}
+
+<main class="container-fluid admin">
+
+ <section class="collections">
+
+    <div class="container">
+        <hr>
+        <h2>Gestion des finitions</h2>
+        <a href="{{ path('finitions_new') }}" class="btn btn-primary">Créer une finition</a>
+
+    </div>
+
+    <article>
+
+        <div class="gallery row">
+            {% for finition in finitions %}
+            <div class="">
+                <div class="card">
+                   <img class="card-img-top" src="{{ vich_uploader_asset(finition.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ finition.picture.alt }}" >
+
+                    <div class="card-body">
+                        <p class="card-text">{{ finition.nom }}</p>
+                        <p class="card-text">{{ finition.prix }}€</p>
+                    </div>
+
+                    <div class="card-footer">
+                    <a href="{{ path('finitions_edit', {'id': finition.id}) }}" class="btn btn-secondary">Éditer</a>
+                    <a href="{{ path('finitions_delete', {'id': finition.id}) }}" class="btn btn-danger">Supression</a>
+                    </div>
+
+                </div>
+            </div>
+            {% else %}
+                <p>Aucunes finitions trouvées</p>
+            {% endfor %}
+        </div>
+
+    </article>
+ </section>
+
+</main>
+
+   
+{% endblock %}

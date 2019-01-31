@@ -1,0 +1,713 @@
+/*
+ *RESET
+ */
+ h1,h2,h3,header,section,nav, a,ul,li,img{
+ 	padding: 0;
+ 	margin: 0;
+ 	border-spacing: border-box;
+ 	list-style: none;
+ 	text-decoration: none;
+ }
+
+/*-----------Général-----------------*/
+ @font-face {
+ font-family: "DaunPenh";
+ src: url("../font/DaunPenh.ttf") format("TrueType")
+}
+ @font-face {
+ font-family: "Roboto-Light";
+ src: url("../font/Roboto/Roboto-Light.ttf") format("TrueType"),
+      url("../font/Roboto/Roboto-Thin.ttf") format("TrueType"),
+      url("../font/Roboto/Roboto-Regular.ttf") format("TrueType");
+}
+ @font-face {
+ font-family: "Parisienne";
+ src: url("../font/Parisienne/Parisienne-Regular.ttf") format("TrueType")
+      
+}
+ @font-face {
+ font-family: "PlayfairDisplay";
+ src: url("../font/PlayfairDisplay/PlayfairDisplay-Bold.ttf") format("TrueType")
+      
+}
+
+
+
+
+html,body{color: black;font-family:'Roboto-Light';overflow-x: hidden; }
+
+a{color:black;text-decoration: none;display: inline-block}
+a:hover{color:#cca789;text-decoration: none;}
+
+.button{background-color: rgba(239,227,213,1);border-radius: 2px}
+.button:hover{background-color: rgba(239,227,213,.5);}
+a.button{font-size: 24px;height: 44px;width: 181px}
+a.button:hover{color:black;}
+
+.button1{background-color: rgba(239,227,213,1);padding:5px;border-radius: 2px}
+.button1:hover{background-color: rgba(239,227,213,.5);}
+a.button1{font-size: 22px;text-align: center;}
+a.button1:hover{color:black;}
+
+.button2{background-color: rgba(0,0,0,.5);}
+.button2:hover{background-color: rgba(0,0,0,.2)}
+a.button2{font-size: 24px;color: white;;padding: 10px;width: 259px;height: 59px;}
+a.button2:hover{color: white}
+
+.button3{background-color:rgba(129,129,129,1);}
+.button3:hover{background-color:rgba(129,129,129,.8)}
+a.button3{font-size: 24px;color: white;padding: 10px;width: 442px;height: 62px;text-align: center;}
+a.button3:hover{color: white;}
+
+hr{background-color: #cca789;}
+main{min-height:80vh }
+h1{font-family:'DaunPenh';font-size: 36px;color: #D5B59D;padding-top: 15px}
+h2,h3{font-family:'Parisienne';}
+
+h2{color: #cca789;text-align: center;}
+h3.lastCollection{font-family: 'Roboto-Regular'}
+
+/*------------------------*/
+
+/************/
+/* Header
+/*************/
+header{background: rgba(255,255,255,.8);padding:5px;font-size: 20px}
+a img[alt*="logo"]{width:101px;height:102px;}
+img[alt*="panier"]{width:34px;height:37px;}
+nav{font-size: 22px;background: rgba(255,255,255,.8)}
+nav a{padding: 0 10px}
+
+
+
+
+/*********/
+/**Footer
+/*********/
+footer{text-align: center;padding: 15px;background-color: #efe3d5;}
+
+
+.info{display: flex;justify-content: space-around;flex-wrap: wrap;}
+.social{background-color: #cca789}
+.contact{display: flex;justify-content: space-around;align-items: center;}
+.bottom{text-align: center;margin-top: 50px;font-size: 10px}
+.icone{color: #F7F3F0;}
+
+/*********************/
+/* FAQ /LIVRAISON    */
+/********************/
+section.information .card,section.livraison .card{border-color:#cca789;}
+
+
+
+/*********/
+/* CONTACT */
+/*********/
+main.pageContact article{margin-top: 5%}
+main.pageContact article .jumbotronBg{background-color: #efe3d5}
+
+
+
+/*********/
+/* ADMIN */
+/*********/
+.admin article{display: flex;justify-content: space-around;margin-bottom: 5%;}
+.admin article .card{border:1px solid #efe3d5;margin-left: 10px}
+.buttonAdmin{background-color: #efe3d5;text-align: center;padding: 5px}
+.admin .jumbotron{background-color: #efe3d5;text-align: center; }
+
+/*****************/
+/* PERSONNALISER */
+/***************/
+.personnaliser .card{border:1px solid #efe3d5;margin-right:3px;}
+.personnaliser select{border:2px solid #efe3d5!important}
+.personnaliser input[type="radio"]{color:#efe3d5;}
+.personnaliser a {padding: 5px}
+
+/*--------------------------------------------------------Ordi --------------------------------------------------------------*/
+@media screen and (min-width: 1024px){
+
+
+
+
+
+/**************/
+/*PAGE ACCUEIL*/
+/**************/
+section.accueil{width:100%;height: 92vh;text-align: center;}
+.imgAccueil{position:fixed;min-width:auto;width: 100%;height: 100%;top:0;left:0;z-index:-1;}
+section.accueil article{margin:0 auto;padding: 5px;position: relative;top:20%;width:750px;height: 250px;}
+section.accueil article h2{text-align: center;font-family: 'Roboto-Thin';color:black;}
+section.accueilSecond{background-color: white;padding-bottom: 10%}
+section.accueilSecond .jumbotron{text-align: center;background-color:white;font-family:'Parisienne';color: #cca789;}
+.jumbotronBg h3,section.accueilSecond .jumbotron p{color: black;font-family:'Roboto-Light'}
+main.accueil .jumbotron h3{font-size: 48px}
+section.accueilSecond .jumbotronBg{background-color: #efe3d5}
+section.accueilSecond article .card{border: 2px solid #efe3d5;}
+section.accueilSecond article .card-body{text-align: center;}
+
+blockquote{font-family:'PlayfairDisplay';text-align: center;}
+.bgWhite{height: 3vh;}
+
+
+
+
+
+
+/******************/
+/*PAGE COLLECTIONS*/
+/******************/
+section.collections article .gallery{margin:10% 0;display: flex;}
+section.collections article .gallery .card{border: none;}
+section.collections article .gallery .position{margin-bottom: 30px}
+
+
+
+/************/
+/*PAGE TENUE */
+/************/
+
+section.tenue article{margin: 50px 0;}
+section.tenue article .modèle .card{margin: 10px 0;}
+section.tenue article .second{margin:20%;}
+section.tenue .card{border: 2px solid #efe3d5;}
+section.tenue .modalModel .card{border:none;}
+
+
+
+
+
+
+
+
+/**************/
+/*PAGE CONCEPT*/
+/**************/
+section.concept article{margin-top: 5%;margin-bottom: 5%;}
+section.concept article .card{border: none;}
+section.concept article .content h3{color:black;font-family: 'Roboto-Light'}
+
+
+
+
+/***************/
+/*PAGE COACHING*/
+/***************/
+section.coaching .container-fluid{padding: 0;margin: 0}
+section.coaching .ItemTextCoaching,.ItemContactCoaching{text-align: center;font-size: 30px;padding: 20px}
+.ItemContactCoaching {margin-bottom: 10%;text-align: center;}
+
+
+
+
+
+/***************/
+/* PAGE ABOUT  */
+/***************/
+main.pageAbout{margin-bottom: 20%}
+main.pageAbout h2,main.pageAbout  h3{font-family: 'Roboto-Light';color: black}
+main.pageAbout h2{text-align: left;}
+section.about{}
+section.about article{ display: flex;margin-top: 5%;justify-content: space-between;}
+section.about article img{max-width: 40%}
+section.about article .contenu{width:50%;}
+
+
+/**************/
+/* MON COMPTE */
+/**************/
+.compte{font-size: 30px}
+.compte article{margin-top: 5%;margin-bottom: 10%;}
+.compte form{font-size: 24px}
+.compte input{border: 1px solid #818181; height: 70px}
+
+
+
+
+/***************/
+/* INSCRIPTION */
+/**************/
+section.inscription{height: 50vh;margin-top: 10%}
+
+
+
+
+
+/***********/
+/* PANIER  */
+/***********/
+.panier section{margin-bottom: 5%}
+.panier .card{margin-top: 5%}
+
+
+
+
+
+
+
+}
+
+
+
+
+
+/*---------------------------------------------------tablette-----------------------------------------------------------*/
+
+@media screen and (min-width:721px) and (max-width: 1023px){
+
+
+/************/
+/* Header
+/*************/
+header{font-size: 18px}
+nav{font-size: 18px;}
+
+
+
+
+/**************/
+/*PAGE ACCUEIL*/
+/**************/
+section.accueil{width:100%;height: 40vh;text-align: center;}
+.slide{position:fixed;min-width:auto;width: 100%;height: 100%;top:0;left:0;z-index:-1;}
+section.accueil article{margin:0 auto;padding: 5px;position: relative;top:20%;width:750px;}
+section.accueil article h2{text-align: center;font-family: 'Roboto-Thin';color:black;}
+section.accueilSecond{background-color: white;padding-bottom: 10%}
+section.accueilSecond .jumbotron{text-align: center;background-color:white;font-family:'Parisienne';color: #cca789;}
+.jumbotronBg h3,section.accueilSecond .jumbotron p{color: black;font-family:'Roboto-Light'}
+.jumbotron h3{font-size: 48px}
+section.accueilSecond .jumbotronBg{background-color: #efe3d5}
+section.accueilSecond article .card{border: 3px solid #efe3d5;}
+section.accueilSecond article .card-body{text-align: center;}
+section.accueilSecond article .card-columns{padding: 10% 0 10% 0;column-count:2;}
+blockquote{font-family:'PlayfairDisplay';text-align: center;}
+.bgWhite{height: 3vh;}
+
+
+
+/******************/
+/*PAGE COLLECTIONS*/
+/******************/
+section.collections article .gallery{margin:10% 0;display: flex;}
+section.collections article .gallery .card{border: none;}
+section.collections article .gallery .position{margin-bottom: 30px}
+
+
+
+
+/**************/
+/*PAGE CONCEPT*/
+/**************/
+section.concept article{margin-top: 5%;margin-bottom: 10%;}
+section.concept article .card{border: none}
+section.concept article .content h3{color:black;font-family: 'Roboto-Light'}
+
+
+/***************/
+/*PAGE COACHING*/
+/***************/
+section.coaching .container-fluid{padding: 0;margin: 0}
+section.coaching .ItemTextCoaching,.ItemContactCoaching{text-align: center;font-size: 20px;padding: 10px}
+.ItemContactCoaching {margin-bottom: 10%;text-align: center;}
+
+
+
+
+/***************/
+/* PAGE ABOUT  */
+/***************/
+main.pageAbout{margin-bottom: 20%}
+main.pageAbout h2,main.pageAbout  h3{font-family: 'Roboto-Light';color: black}
+main.pageAbout h2{text-align: left;}
+section.about{}
+section.about article{ display: flex;margin-top: 5%;justify-content: space-between;}
+section.about article img{max-width: 40%}
+section.about article .contenu{width:50%;}
+
+
+
+
+/**************/
+/* MON COMPTE */
+/**************/
+
+.compte article{margin-top: 5%;margin-bottom: 10%;}
+.compte input{border: 2px solid #818181; height: 70px}
+
+
+
+
+/*********/
+/* Admin */
+/*********/
+.admin article{flex-wrap: wrap;}
+.admin article .card{margin:10px 0;}
+
+
+
+/***************/
+/* INSCRIPTION */
+/**************/
+section.inscription{
+	height: 50vh; 
+	margin-top: 10%
+}
+
+
+
+
+
+
+
+/************/
+/*PAGE TENUE */
+/************/
+
+section.tenue article{margin: 50px 0;}
+section.tenue article .modèle .card{margin: 10px 0;}
+section.tenue article .second{margin:20%;}
+section.tenue .card{border: 2px solid #efe3d5;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+/*-----------------------------------------------tablettexs------------------------------------------------*/
+@media screen and (min-width: 481px) and (max-width: 720px ){
+
+
+
+/************/
+/* Header
+/*************/
+header{font-size: 18px}
+nav{font-size: 18px;}
+
+
+
+
+/*********/
+/**Footer
+/*********/
+img[alt*="social"]{max-width: 9%}
+
+
+
+
+
+
+
+/**************/
+/*PAGE ACCUEIL*/
+/**************/
+section.accueil{width:100%;height: 50vh;text-align: center;}
+.slide{position:fixed;min-width:auto;width: 100%;height: 100%;top:0;left:0;z-index:-1;}
+section.accueil article{margin:0 auto;padding: 5px;position: relative;top:50%;}
+section.accueil article h2{text-align: center;font-family: 'Roboto-Thin';color:black;}
+section.accueilSecond{background-color: white;padding-bottom: 10%}
+section.accueilSecond .jumbotron{text-align: center;background-color:white;font-family:'Parisienne';color: #cca789;}
+.jumbotronBg h3,section.accueilSecond .jumbotron p{color: black;font-family:'Roboto-Light'}
+.jumbotron h3{font-size: 48px}
+section.accueilSecond .jumbotronBg{background-color: #efe3d5}
+section.accueilSecond article .card{border: 3px solid #efe3d5;}
+section.accueilSecond article .card-body{text-align: center;}
+.card-columns{padding: 10% 0 10% 0}
+blockquote{font-family:'PlayfairDisplay';text-align: center;}
+.bgWhite{height: 3vh;}
+.card-columns{column-count:1;}
+
+
+
+
+
+/******************/
+/*PAGE COLLECTIONS*/
+/******************/
+section.collections article .gallery{margin:10% 0;display: flex;}
+section.collections article .gallery .card{border: none;}
+section.collections article .gallery .position{margin-bottom: 30px}
+
+
+
+/**************/
+/*PAGE CONCEPT*/
+/**************/
+section.concept article{margin-top: 5%;margin-bottom: 10%;}
+section.concept article .card{border: none}
+section.concept article .content h3{color:black;font-family: 'Roboto-Light';font-size: 20px}
+section.concept article .content p{font-size: 14px}
+
+
+
+
+
+
+/***************/
+/*PAGE COACHING*/
+/***************/
+section.coaching .container-fluid{padding: 0;margin: 0}
+section.coaching .ItemTextCoaching,.ItemContactCoaching{text-align: center;font-size: 15px;padding: 8px}
+.ItemContactCoaching {margin-bottom: 10%;text-align: center;}
+
+
+
+
+
+/***************/
+/* PAGE ABOUT  */
+/***************/
+main.pageAbout{margin-bottom: 20%}
+main.pageAbout h2,main.pageAbout  h3{font-family: 'Roboto-Light';color: black}
+main.pageAbout h2{text-align: left;}
+section.about{}
+section.about article{ display: flex;margin-top: 5%;flex-direction: column;}
+section.about article img{max-width: 100%}
+section.about article .contenu{width:100%;}
+
+
+
+
+/**************/
+/* MON COMPTE */
+/**************/
+
+.compte article{margin-top: 5%;margin-bottom: 10%;}
+.compte input{border: 2px solid #818181; height: 70px}
+
+
+
+
+
+/*********/
+/* Admin */
+/*********/
+.admin article{flex-wrap: wrap;}
+.admin article .card{margin:10px 0;}
+
+
+
+
+
+
+/***************/
+/* INSCRIPTION */
+/**************/
+section.inscription{
+	height: 50vh; 
+	margin-top: 10%
+}
+
+
+
+
+
+
+
+/************/
+/*PAGE TENUE */
+/************/
+
+section.tenue article{margin: 50px 0;}
+section.tenue article .modèle .card{margin: 10px 0;}
+section.tenue article .second{margin:20%;}
+section.tenue .card{border: 2px solid #efe3d5;}
+
+
+
+
+
+
+}
+
+
+
+
+/*-----------------------------------------------------------------Smartphone-------------------------------------------------------------------------*/
+@media screen and (min-width:320px) and (max-width: 480px){
+
+/*******/
+/*General
+/******/
+h1{font-size: 28px;}
+section.accueil article h2{font-size: 23px}
+.jumbotronBg h3,.jumbotron p{color: black;font-family:'Roboto-Light'}
+.jumbotron h3{font-size: 40px}
+h3.lastCollection{font-size:25px }
+.jumbotronBg h3{font-size: 24px}
+.jumbotronBg p{font-size: 16px;text-align: left;}
+
+
+a.button3{font-size: 24px;color: white;;padding: 10px;width: 242px;height: 62px;text-align: center;}
+
+
+
+
+
+
+
+
+
+
+/************/
+/* Header
+/*************/
+header{font-size: 15px}
+a img[alt*="logo"]{width:90px;height:90px;}
+img[alt*="panier"]{width:30px;height:30px;}
+nav{font-size: 15px;}
+
+
+
+
+/*********/
+/**Footer
+/*********/
+img[alt*="social"]{max-width: 10%}
+.contact{display: flex;flex-wrap: wrap;}
+
+
+
+
+
+/**************/
+/*PAGE ACCUEIL*/
+/**************/
+section.accueil{width:100%;text-align: center;}
+.slide{}
+section.accueil article{margin:20px 0 0 0}
+section.accueil article h2{text-align: center;font-family: 'Roboto-Thin';color:black;}
+section.accueilSecond{background-color: white;padding-bottom: 10%}
+section.accueilSecond .jumbotron{text-align: center;background-color:white;font-family:'Parisienne';color: #cca789;}
+.jumbotronBg h3,section.accueilSecond .jumbotron p{color: black;font-family:'Roboto-Light'}
+section.accueilSecond .jumbotronBg{background-color: #efe3d5}
+section.accueilSecond article .card{border: 3px solid #efe3d5;}
+section.accueilSecond article .card-body{text-align: center;}
+section.accueilSecond article .card-columns{padding: 10% 0 10% 0;column-count:1;}
+blockquote{font-family:'PlayfairDisplay';text-align: center;}
+.bgWhite{height: 3vh;}
+
+
+
+
+
+/******************/
+/*PAGE COLLECTIONS*/
+/******************/
+section.collections article .gallery{margin:10% 0;display: flex;}
+section.collections article .gallery .card{border: none;}
+section.collections article .gallery .position{margin-bottom: 45px}
+
+
+
+
+
+/**************/
+/*PAGE CONCEPT*/
+/**************/
+section.concept article{margin-top: 5%;margin-bottom: 10%;}
+section.concept article .card{border: none;padding-bottom: 10px}
+section.concept article .content h3{color:black;font-family: 'Roboto-Light';font-size: 18px}
+
+
+
+
+/***************/
+/*PAGE COACHING*/
+/***************/
+section.coaching .container-fluid{padding: 0;margin: 0}
+section.coaching .ItemTextCoaching,.ItemContactCoaching{text-align: center;font-size: 15px;padding: 8px}
+.ItemContactCoaching {margin-bottom: 10%;text-align: center;}
+
+
+
+/***************/
+/* PAGE ABOUT  */
+/***************/
+main.pageAbout{margin-bottom: 20%}
+main.pageAbout h2,main.pageAbout  h3{font-family: 'Roboto';color: black}
+main.pageAbout h2{text-align: left;}
+section.about{}
+section.about article{ display: flex;margin-top: 5%;flex-direction: column;}
+section.about article img{max-width: 100%}
+section.about article .contenu{width:100%;}
+
+
+
+
+/**************/
+/* MON COMPTE */
+/**************/
+
+.compte article{margin-top: 5%;margin-bottom: 10%;}
+.compte input{border: 2px solid #818181; height: 70px}
+
+
+
+
+/*********/
+/* Admin */
+/*********/
+.admin article{flex-wrap: wrap;}
+.admin article .card{margin:10px 0;}
+
+
+
+
+
+/***************/
+/* INSCRIPTION */
+/**************/
+section.inscription{
+	height: 50vh; 
+	margin-top: 10%
+}
+
+
+
+
+
+
+
+/************/
+/*PAGE TENUE */
+/************/
+
+section.tenue article{margin: 50px 0;}
+section.tenue article .modèle .card{margin: 10px 0;}
+section.tenue article .second{margin:20%;}
+
+section.tenue .card{border: 2px solid #efe3d5;}
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

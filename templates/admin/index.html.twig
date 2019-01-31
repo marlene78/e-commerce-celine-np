@@ -1,0 +1,135 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}administration{% endblock %}
+
+
+{% block header %}
+    <header>
+        <div class="row justify-content-around">
+
+            <div class="logo row  align-items-center">
+                <a href="{{ path("home") }}"><img src="{{ asset('img/logo-3.png' ) }}" alt="logo"></a>
+                <a href="{{ path("home") }}"><h1 class="text-nowrap">Céline NP</h1></a>
+            </div>
+
+        </div>
+    </header>
+    <nav class="row justify-content-center nav-scroller py-1 mb-2">
+        <a href="{{ path("home") }}">Retour à l'accueil du site</a>
+        <a href="{{ path("admin") }}">Administration</a>
+    </nav>
+
+{% endblock %}
+
+{% block main %}
+    <main class="container-fluid admin">
+        <!--page admin---->
+
+        <div class="container">
+            <hr>
+            <h2>Administration</h2>
+
+        </div>
+
+
+        <article class="container">
+
+            <div class="row justify-content-center">
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">ajout, suppression, édition des modéles haut</p>
+                    </div>
+                    <a href="{{ path('model_haut_liste') }}" class="buttonAdmin">Gestion des modèles hauts</a>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">ajout, suppression, édition des modèles bas</p>
+                    </div>
+                    <a href="{{ path('model_bas_liste') }}" class="buttonAdmin">Gestion des modèles bas</a>
+                </div>
+
+
+
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ asset('img/fabrics.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">ajout, suppression, édition de vos tissus/couleurs</p>
+                    </div>
+                    <a href="{{ path('tissuliste') }}" class="buttonAdmin">Gestion des tissus/couleurs</a>
+                </div>
+
+
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">ajout, suppression, édition des accessoires</p>
+                    </div>
+                    <a href="{{ path('accessoires_index') }}" class="buttonAdmin">Gestion des accessoires</a>
+                </div>
+
+
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">ajout, suppression, édition des finitions</p>
+                    </div>
+                    <a href="{{ path('finitions_index') }}" class="buttonAdmin">Gestion des finitions</a>
+                </div>
+
+
+
+
+
+               <div class="card" style="width: 18rem;">
+                    <img src="{{ asset('img/web-site.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Gestion des pages du site</p>
+                    </div>
+                    <a href="{{ path('pageListe') }}" class="buttonAdmin">Modifier une page</a>
+                </div>
+                
+                
+
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ asset('img/return.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Gestion des commandes</p>
+                    </div>
+                    <a href="#" class="buttonAdmin">Voir les commandes</a>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ asset('img/id.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Gestion des clients</p>
+                    </div>
+                    <a href="#" class="buttonAdmin">Voir les clients</a>
+                </div>
+
+
+
+
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ asset('img/help.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Besoin d'aide</p>
+                    </div>
+                    <a href="#" class="buttonAdmin">Contact</a>
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </main>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

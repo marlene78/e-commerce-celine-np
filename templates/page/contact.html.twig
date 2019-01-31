@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{ page.titre }}
+{% endblock %}
+
+
+{% block header %}
+
+    <header>
+        <div class="row justify-content-around">
+
+            <div class="logo row  align-items-center">
+                <a href="{{ path("home") }}"><img src="{{ asset('img/logo-3.png' ) }}" alt="logo"></a>
+                <a href="{{ path("home") }}"><h1 class="text-nowrap">Céline NP</h1></a>
+            </div>
+
+            <div class="connect row align-items-center">
+
+
+                {% if is_granted('ROLE_USER') %}
+                    <a href="{{ path("compte") }}">Mon compte</a>
+
+                {% endif %}
+
+                {% if is_granted('ROLE_ADMIN') %}
+
+                    <a href="{{ path('admin') }}"style="padding-left: 8px">Administration</a>
+                {% endif %}
+
+            </div>
+
+            <div class="connect row align-items-center">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        <p>Déconnexion</p>
+                    </a>
+
+                {% else %}
+
+                    <a href="{{ path('fos_user_security_login') }}" title="connexion/inscription">
+                        <p>Mon compte</p>
+                    </a>
+
+                {% endif %}
+
+                <a href="panier.html" title="voir mon panier"><img src="{{ asset('img/shopping-bag.png' ) }}" alt="panier"></a>
+
+            </div>
+
+
+        </div>
+    </header>
+    <nav class="row justify-content-center nav-scroller py-1 mb-2">
+    {% for item in footer%}
+        <a href="{{ path(item.url) }}">{{item.titre}}</a>
+    {% endfor %}
+    </nav>
+
+
+{% endblock %}
+
+
+{% block main %}
+<main class="container-fluid pageContact">
+
+   <section>
+
+      <div class="container">
+          <hr>
+          <h2>{{ page.titre }}</h2>
+
+       </div>
+
+      <article class="container">
+            <div class="jumbotron jumbotron-container jumbotronBg">
+                <div class="container">
+                    <h3 class="display-6">{{ page.articles.get(0).titre }}</h3>
+                    <p class="lead">{{ page.articles.get(0).contenu | raw('html') }}</p>
+                </div>
+            </div>
+      </article>
+
+   </section>
+
+</main>
+
+
+{% endblock %}
+
+
+
+{% block footer %}
+{% endblock %}

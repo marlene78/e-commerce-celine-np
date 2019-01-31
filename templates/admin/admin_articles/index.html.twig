@@ -1,0 +1,40 @@
+{% extends '/admin/index.html.twig'%}
+
+
+{% block title %}ajout article{% endblock %}
+
+
+
+{% block main %}
+
+    <main class="container-fluid admin">
+
+        <section>
+
+            <div class="container">
+                <hr>
+                <h2>Créer un article</h2>
+
+            </div>
+
+
+            <article class="container">
+
+               {{ form_start(createForm) }}
+               {{ form_row(createForm.titre) }}
+               {{ form_row(createForm.contenu) }}
+               {{ form_row(createForm.picture) }}
+               {{ form_row(createForm.page) }}
+               <button type="submit" class="btn btn-success">Créer</button>
+               {{ form_end(createForm) }}
+
+            </article>
+
+
+
+        </section>
+
+    </main>
+{% endblock %}
+
+

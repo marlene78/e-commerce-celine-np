@@ -1,0 +1,47 @@
+{% extends '/admin/index.html.twig'%}
+
+{% block title %}Gestion des pages{% endblock %}
+
+
+
+{% block main %}
+
+<main class="container-fluid admin">
+
+    <div class="container">
+        <hr>
+        <h2>Liste des pages</h2>
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th>Édition</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for page in pages %}
+                <tr>
+                    <th scope="row">{{ page.titre }}</th>
+                    <td scope="row"><a href="{{ path('app_adminpage_pageshow',{ id:page.id}) }}" class="btn btn-secondary">Éditer</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="container">
+        <a href="{{ path('addPage') }}" class="btn btn-primary">Créer une nouvelle page</a>
+    </div>
+
+</main>
+
+{% endblock %}
+
+
+
+

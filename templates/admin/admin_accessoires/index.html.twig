@@ -1,0 +1,54 @@
+{% extends '/admin/index.html.twig'%}
+
+{% block title %}Liste des accessoires{% endblock %}
+
+{% block main %}
+
+    <main class="container-fluid admin">
+
+
+        <section class="collections">
+
+            <div class="container">
+                <hr>
+                <h2>Liste des accessoires</h2>
+                 <a href="{{ path('accessoires_new') }}" class="btn btn-primary">Créer un accessoire</a>
+
+            </div>
+
+             <article class="container">
+
+                <div class="gallery row">
+                        {% for accessoire in accessoires %}
+                       <div class=" col-sm-6 col-xl-4 position">
+                            <div class="card">
+                                <img class="card-img-top" src="{{ vich_uploader_asset(accessoire.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ accessoire.picture.alt }}" >
+
+                                <div class="card-body">
+                                    <p class="card-text">{{ accessoire.nom}}</p>
+                                    <p class="card-text">{{ accessoire.prix }}€</p>
+                                </div>
+
+                                <div class="card-footer">
+                                    <a href="{{ path('accessoires_edit', {'id': accessoire.id}) }}" class="btn btn-secondary">Éditer</a>
+                                    <a href="{{ path('accessoires_delete', {'id': accessoire.id}) }}" class="btn btn-danger">Supression</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    {% else %}
+                       <p>Aucuns accessoires trouvés</p>
+                   {% endfor %}
+                </div>
+
+            </article>
+        </section>
+
+    </main>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accessoires{% endblock %}
+
+{% block main %}
+
+    <main class="container-fluid pageCollections">
+
+        <section class="collections">
+
+            <div class="container">
+                <hr>
+                <h2>Accessoires</h2>
+
+            </div>
+
+            <article class="container">
+
+                <div class="gallery row">
+                  
+                       {% for accessoire in accessoires %}
+                       <div class=" col-sm-6 col-xl-4 position">
+                            <div class="card">
+                                <img class="card-img-top" src="{{ vich_uploader_asset(accessoire.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ accessoire.picture.alt }}" >
+
+                                <div class="card-body">
+                                    <p class="card-text">{{ accessoire.nom }}</p>
+                                    <p class="card-text">À partir de :{{ accessoire.prix }}€</p>
+
+                                </div>
+                                <a href="{{ path('accessoires_show',{id:accessoire.id}) }}" class="button1">Je découvre</a>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+
+    </main>
+
+
+{% endblock %}

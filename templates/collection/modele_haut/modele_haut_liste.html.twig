@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Collection{% endblock %}
+
+{% block main %}
+
+    <main class="container-fluid pageCollections">
+
+        <section class="collections">
+
+            <div class="container">
+                <hr>
+                <h2>Modèle haut</h2>
+
+            </div>
+
+            <article class="container">
+
+                <div class="gallery row">
+                  
+                       {% for model in models %}
+                       <div class=" col-sm-6 col-xl-4 position">
+                            <div class="card">
+                                <img class="card-img-top" src="{{ vich_uploader_asset(model.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ model.picture.alt }}" >
+
+                                <div class="card-body">
+                                    <p class="card-text">{{ model.nom }}</p>
+                                    <p class="card-text">À partir de: {{ model.prix }}€</p>
+
+                                </div>
+                                <a href="{{ path('modele_haut_show',{id:model.id}) }}" class="button1">Je découvre</a>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+
+    </main>
+
+
+{% endblock %}

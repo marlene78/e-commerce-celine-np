@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page.titre }}{% endblock %}
+
+{% block main %}
+
+    <main class="container-fluid pageCollections">
+
+        <section class="collections">
+
+            <div class="container">
+                <hr>
+                <h2>{{ page.titre }}</h2>
+
+            </div>
+
+            <article class="container">
+
+                <div class="gallery row">
+                    {% for article in page.articles %}
+
+                        <div class=" col-sm-6 col-xl-4 position">
+                            <div class="card">
+                                <img class="card-img-top" src="{{ vich_uploader_asset(article.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ article.picture.alt }}">
+
+                                <div class="card-body">
+                                    <p class="card-text">{{ article.titre}}</p>
+                                    <p class="card-text">{{ article.contenu | raw('html') }}</p>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+
+    </main>
+
+
+{% endblock %}

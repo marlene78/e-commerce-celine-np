@@ -1,0 +1,47 @@
+{% extends '/admin/index.html.twig'%}
+
+{% block title %}Liste des tissus{% endblock %}
+
+
+
+
+{% block main %}
+<main class="container-fluid admin">
+
+    <div class="container">
+
+        <hr>
+        <h2>Liste des tissus</h2>
+
+        <table class="table">
+
+            <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th>Édition</th>
+                <th>Suppression</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for tissu in tissus %}
+                <tr>
+                    <th scope="row">{{ tissu.nom }}</th>
+                    <td scope="row"><a href="{{ path('app_admincategory_tissuedit',{id:tissu.id}) }}" class="btn btn-secondary">Éditer</a></td>
+                    <td><a href="{{ path('app_admincategory_tissudelete' ,{id:tissu.id}) }}" class="btn btn-danger">Supprimer</a></td>
+                </tr>
+              {% else %}
+                <p>Aucuns tissus trouvées</p>
+            {% endfor %}
+     
+            </tbody>
+
+        </table>
+
+        <a href="{{ path('addTissu') }}" class="btn btn-primary">Ajouter un nouveau type de tissu</a>
+        
+    </div>
+</main>
+
+{% endblock %}
+

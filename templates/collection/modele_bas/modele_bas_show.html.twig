@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Composer ma tenue{% endblock %}
+
+
+{% block main %}
+
+
+<main class="container-fluid">
+
+    <!--page :tenue---->
+    <div class="container">
+        <hr>
+        <h2>Composer ma tenue</h2>
+    </div>
+
+    <section class="container tenue">
+
+        <article class="row">
+
+                <div class="galleryTenu col-sm">
+                     <img class="card-img-top" src="{{ vich_uploader_asset(model.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ model.picture.alt }}" >
+
+                </div>
+
+                <div class="description col-sm">
+
+                    <h3>{{model.nom}}</h3>
+                    <p>À partir de: {{model.prix}}€</p>
+
+                    <ul>Matières et Couleurs disponibles:
+                    {% for tissu in model.tissu %} 
+                           <li>{{tissu.nom}}</li>
+                        
+                           <li><img class="card-img-top" src="{{ vich_uploader_asset(tissu.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ tissu.picture.alt }}" style="width:5rem" ></li>
+                       
+                    
+                       {% else %}
+                         Vous ne pouvez pas personnaliser ce modèle 
+                    {% endfor %}
+                    </ul>
+
+
+                    <p>{{model.description | raw('html')}}</p>
+                  
+                    <div class="modèle">
+
+
+
+                        <a href="{{ path('modele_haut') }}" class="button3">Voir les Modèles haut disponibles</a>
+                        
+                        
+                        
+                        <div class="card">
+                            <blockquote class="blockquote mb-0 card-body">
+                                <p>Personnalise ta tenue</p>
+                            </blockquote>
+                            <footer>consectetur adipiscing elit. Nunc vel dui a est sodales venenatis. Aenean sodales
+                            metus lectus, id ornare ex mattis vitae. Vestibulum quis erat nec leo sagittis cursus quis nec
+                            eros</footer>
+                            <div class="bgWhite"></div>
+                        </div>
+                 
+
+                        <a href="{{ path('commande') }}" class="button1">Compose ta tenue</a>
+                        
+                    </div>
+
+                </div>
+
+         </article>
+
+
+        <article class="second">
+            <h3>Autres Modèles</h3>
+
+                <div class="carousel">
+                    {% for item in modeles %}
+                     <div class="itemCarousel">
+                        <a href="{{ path('modele_bas_show', {id:item.id})  }}" title="voir la collection"><img src="{{ vich_uploader_asset(item.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ item.picture.alt }}" style="width:15rem"></a>
+                         <p>{{item.nom}}</p>
+                    </div>
+                    {% endfor %}
+             
+                </div>
+
+
+        </article>
+
+
+   
+    </section>
+
+
+
+
+
+</main>
+
+{% endblock %}
+

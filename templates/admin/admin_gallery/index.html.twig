@@ -1,0 +1,36 @@
+{% extends '/admin/index.html.twig'%}
+
+
+{% block title %}ajout gallerie{% endblock %}
+
+
+{% block main %}
+
+    <main class="container-fluid admin">
+
+        <section>
+
+            <div class="container">
+                <hr>
+                <h2>Ajouter une gallerie</h2>
+
+            </div>
+
+
+
+                <article class="container">
+                    {{ form_start(createForm) }}
+                    {{ form_rest(createForm) }}
+                    <button type="submit" class="btn btn-success">Créer</button>
+                    {{ form_end(createForm) }}
+                </article>
+
+
+
+        </section>
+
+    </main>
+{% endblock %}
+
+
+

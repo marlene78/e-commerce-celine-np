@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page.titre }}{% endblock %}
+
+{% block main %}
+
+<main class="pageCoaching">
+<!--page 2 :Coaching---->
+
+    <section class="coaching">
+
+        <div class="container">
+            <hr>
+        </div>
+
+        <img class="container-fluid" src="{{ vich_uploader_asset(page.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ page.picture.alt }}">
+          
+        <div class="ItemTextCoaching container">
+            <p>{{ page.articles.get(0).contenu | raw('html') }}</p>
+        </div>
+
+        <div class="ItemContactCoaching container">
+            <p>{{ page.articles.get(1).contenu | raw('html') }}</p>
+        </div>
+
+    </section>
+
+</main>
+
+
+
+
+{% endblock %}
+

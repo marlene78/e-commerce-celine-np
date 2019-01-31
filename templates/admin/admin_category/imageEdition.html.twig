@@ -1,0 +1,32 @@
+{% extends '/admin/index.html.twig'%}
+
+{% block title %}Édition{% endblock %}
+
+
+
+{% block main %}
+
+    <main class="container-fluid admin">
+
+        <section>
+            <div class="container">
+                <h1>Édition</h1>
+                <hr>
+            </div>
+
+            <article class="container">
+
+                {{ form_start(createForm) }}
+                {{ form_row(createForm.imageFile) }}
+                {{ form_row(createForm.alt) }}
+                <button type="submit" class="btn btn-success">Editer</button>
+                {{ form_end(createForm) }}
+            </article>
+
+        </section>
+
+    </main>
+    
+{% endblock %}
+
+

@@ -1,0 +1,47 @@
+{% extends '/admin/index.html.twig'%}
+
+{% block title %}Édition des accessoires{% endblock %}
+
+
+{% block header %}
+
+    <header>
+        <div class="row justify-content-around">
+
+            <div class="logo row  align-items-center">
+                <a href="{{ path("home") }}"><img src="{{ asset('img/logo-3.png' ) }}" alt="logo"></a>
+                <a href="{{ path("home") }}"><h1 class="text-nowrap">Céline NP</h1></a>
+            </div>
+
+        </div>
+    </header>
+
+    <nav class="row justify-content-center nav-scroller py-1 mb-2">
+        <a href="{{ path("home") }}">Retour à l'accueil du site</a>
+        <a href="{{ path("admin") }}">Administration</a>
+        <a href="{{ path('accessoires_index') }}">Liste des accessoires</a>
+    </nav>
+
+{% endblock %}
+
+{% block main %}
+ <main class="container-fluid admin">
+    <section>
+        <div class="container">
+            <hr>
+            <h2>Édition des accessoires</h2>
+
+        </div>
+        <article class="container">
+
+            <div class="form-group col-md-6">
+
+                <img class="card-img-top" src="{{ vich_uploader_asset(accessoire.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ accessoire.picture.alt }}" >
+            </div>
+
+    {{ include('/admin/admin_accessoires/_form.html.twig', {'button_label': 'Éditer'}) }}
+
+    </article>
+</section>
+</main>
+{% endblock %}

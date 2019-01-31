@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Composer ma tenue{% endblock %}
+
+
+{% block main %}
+
+
+<main class="container-fluid">
+
+    <!--page :tenue---->
+    <div class="container">
+        <hr>
+        <h2>Choisie tes accessoires</h2>
+    </div>
+
+    <section class="container tenue">
+
+        <article class="row">
+
+                <div class="galleryTenu col-sm">
+                     <img class="card-img-top" src="{{ vich_uploader_asset(accessoire.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ accessoire.picture.alt }}" >
+
+                </div>
+
+                <div class="description col-sm">
+
+                    <h3>{{accessoire.nom}}</h3>
+                    <p>À partir de: {{accessoire.prix}}€</p>
+
+                        
+                        <div class="card">
+                            <blockquote class="blockquote mb-0 card-body">
+                                <p>Personnalise tes accessoires</p>
+                            </blockquote>
+                            <footer>consectetur adipiscing elit. Nunc vel dui a est sodales venenatis. Aenean sodales
+                            metus lectus, id ornare ex mattis vitae. Vestibulum quis erat nec leo sagittis cursus quis nec
+                            eros</footer>
+                            <div class="bgWhite"></div>
+                        </div>
+                 
+
+                        <a href="{{ path('commande') }}" class="button1">Compose ta tenue</a>
+                        
+                    </div>
+
+                </div>
+
+         </article>
+
+
+        <article class="second">
+            <h3>Accessoires disponibles</h3>
+
+                <div class="carousel">
+                    {% for item in accessoires %}
+                     <div class="itemCarousel">
+                        <a href="{{ path('accessoires_show' ,{id:item.id})  }}" title="voir les accessoires"><img src="{{ vich_uploader_asset(item.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ item.picture.alt }}" style="width:15rem"></a>
+                         <p>{{item.nom}}</p>
+                    </div>
+                    {% endfor %}
+             
+                </div>
+
+
+        </article>
+
+
+   
+    </section>
+
+
+
+
+
+</main>
+
+{% endblock %}
+

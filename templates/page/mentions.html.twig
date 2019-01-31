@@ -1,0 +1,29 @@
+{% extends 'page/contact.html.twig' %}
+
+{% block title %}{{page.titre}}{% endblock %}
+
+{% block main %}
+
+<main class="container-fluid">
+
+  <section class="mention">
+
+    <div class="container">
+      <hr>
+       <h2>{{ page.titre }}</h2>
+    </div>
+
+    <article class="container">
+
+	    {% for article in page.articles%}
+			  <h4>{{ article.titre | raw('html')}}</h4>
+			   {{ article.contenu | raw('html') }}
+	    {% endfor %}
+
+    </article>
+
+  </section>
+</main>
+
+{% endblock %}
+

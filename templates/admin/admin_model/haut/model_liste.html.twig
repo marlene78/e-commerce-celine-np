@@ -1,0 +1,54 @@
+{% extends '/admin/index.html.twig'%}
+
+{% block title %}Gestion{% endblock %}
+
+
+
+
+{% block main %}
+    <main class="container-fluid admin">
+
+
+        <section class="collections">
+
+            <div class="container">
+                <hr>
+                <h2>Liste des modèles haut</h2>
+                 <a href="{{ path('model_haut_add') }}" class="btn btn-primary">Créer un nouveau modèle</a>
+
+            </div>
+
+             <article class="container">
+
+                <div class="gallery row">
+                       {% for model in models %}
+                       <div class=" col-sm-6 col-xl-4 position">
+                            <div class="card">
+                                <img class="card-img-top" src="{{ vich_uploader_asset(model.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ model.picture.alt }}" >
+
+                                <div class="card-body">
+                                    <p class="card-text">{{ model.nom }}</p>
+                                    <p class="card-text">{{ model.prix }}€</p>
+
+                                </div>
+
+                                <div class="card-footer">
+                                    <a href="{{ path('model_haut_edit',{id:model.id}) }}" class="btn btn-secondary">Éditer</a>
+                                    <a href="{{ path('app_adminmodel_modeldeletehaut',{id:model.id}) }}" class="btn btn-danger">Supression</a>
+                                </div>
+
+                            </div>
+                        </div>
+                 {% else %}
+                <p>Aucuns modèles trouvés</p>
+                {% endfor %}
+             </div>
+
+            </article>
+        </section>
+
+    </main>
+{% endblock %}
+
+
+

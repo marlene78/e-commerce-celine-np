@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Céline NP {% endblock %}
+
+{% block main %}
+    <h1>Edition</h1>
+
+
+
+ {{ form_start(editForm) }}
+{{ form_widget(editForm) }}
+ <button type="submit" class="btn btn-success">Editer</button>
+{{ form_end(editForm) }}
+
+
+
+
+
+{% endblock %}

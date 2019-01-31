@@ -1,0 +1,32 @@
+{% extends '/admin/index.html.twig'%}
+
+{% block title %}créer une page{% endblock %}
+
+
+
+{% block main %}
+    <main class="container-fluid admin">
+
+        <section>
+
+            <div class="container">
+                <hr>
+                <h2>créer une page</h2>
+
+            </div>
+
+            <article class="container">
+
+                {{ form_start(createForm) }}
+                {{ form_row(createForm.titre) }}
+                {{ form_row(createForm.picture) }}
+                <button type="submit" class="btn btn-success">Ajouter</button>
+                {{ form_end(createForm) }}
+
+            </article>
+
+        </section>
+
+    </main>
+{% endblock %}
+
