@@ -149,7 +149,7 @@ class ModelHaut
     /**
      * @return Collection
      */
-    public function getFinition(): ?Collection
+    public function getFinition(): ?Finitions
     {
         return $this->finition;
     }

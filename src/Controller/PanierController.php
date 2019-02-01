@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Commande;
+
 use App\Entity\Page;
 
 use App\Form\CommandeType;
@@ -57,29 +57,6 @@ class PanierController extends AbstractController
 
 
 
-
-
-
-    /**
-     * @Route("/commande", name="commande")
-     */
-    public function commande(Request $request):Response
-    {
-
-
-
-
-        $repo = $this->getDoctrine()->getRepository(Page::class);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
-
-
-        return $this->render('page/commande.html.twig',[
-            'footer' =>$footer,
-            'header' =>$header,
-
-        ]);
-    }
 
 
 

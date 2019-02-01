@@ -129,7 +129,7 @@ class ModelBas
      /**
      * @return Collection
      */
-     public function getFinition(): ?Collection
+     public function getFinition(): ?Finitions
      {
          return $this->finition;
      }
@@ -168,7 +168,10 @@ class ModelBas
      }
 
 
-   
+     public function __toString()
+     {
+        return $this->nom;
+     }
 
 
 }

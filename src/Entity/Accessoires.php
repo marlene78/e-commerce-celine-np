@@ -32,10 +32,7 @@ class Accessoires
      */
     private $picture;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Commande", inversedBy="accessoires")
-     */
-    private $commande;
+
 
     public function getId(): ?int
     {
@@ -78,15 +75,5 @@ class Accessoires
         return $this;
     }
 
-    public function getCommande(): ?Commande
-    {
-        return $this->commande;
-    }
-
-    public function setCommande(?Commande $commande): self
-    {
-        $this->commande = $commande;
-
-        return $this;
-    }
+   
 }

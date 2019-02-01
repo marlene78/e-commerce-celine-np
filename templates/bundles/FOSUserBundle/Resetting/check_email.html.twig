@@ -3,7 +3,40 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-<p>
-{{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
-</p>
+
+
+
+<main class="container-fluid compte">
+
+   <section>
+
+        <div class="container">
+          <hr>
+        </div>
+
+      
+	        <article class="container" style="margin-top:30px">
+	           <div class="card">
+	             <div class="card-body">
+		             <p>
+                     {{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
+                     </p>
+	             </div>
+	           </div>
+	        </article> 
+    
+
+   </section>
+</main>
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}

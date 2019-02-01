@@ -4,22 +4,31 @@
 
 {% block main %}
 
-<main class="container-fluid">
 
-    <section class="container">
+ <main class="container-fluid pageCollections">
 
-    <a href="{{path('modele_haut')}}"">Model haut</a>
-    <a href={{path('modele_bas')}}>Model bas</a>
-    <a href="{{path('accessoires')}}">Accessoires</a>
+    <section class="collections">
 
+        <div class="container">
+            <hr>
+            <h2>Collection</h2>
 
-    </section>
+        </div>
 
+        <article class="container">
+		    <a href="{{path('modele_haut')}}">Model haut</a>
+		    <a href="{{path('modele_bas')}}">Model bas</a>
+		    <a href="{{path('accessoires')}}">Accessoires</a>
+
+        </article>
+
+   </section>
 
 
 
 
 </main>
+
 
 
 {% endblock %}

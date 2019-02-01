@@ -117,12 +117,18 @@ main.pageContact article .jumbotronBg{background-color: #efe3d5}
 .admin .jumbotron{background-color: #efe3d5;text-align: center; }
 
 /*****************/
-/* PERSONNALISER */
+/* MODELES*/
 /***************/
-.personnaliser .card{border:1px solid #efe3d5;margin-right:3px;}
-.personnaliser select{border:2px solid #efe3d5!important}
-.personnaliser input[type="radio"]{color:#efe3d5;}
-.personnaliser a {padding: 5px}
+a.lien-accessoires:hover{color: black;}
+.accessoires{border: 1px solid #efe3d5;padding: 10px;margin-bottom: 5%}
+.accessoires:hover{
+	cursor: pointer;
+	-moz-box-shadow: 5px 5px 5px 0px #efe3d5;
+	-webkit-box-shadow: 5px 5px 5px 0px #efe3d5;
+	-o-box-shadow: 5px 5px 5px 0px #efe3d5;
+	box-shadow: 5px 5px 5px 0px #efe3d5;
+	border: none;
+}
 
 /*--------------------------------------------------------Ordi --------------------------------------------------------------*/
 @media screen and (min-width: 1024px){

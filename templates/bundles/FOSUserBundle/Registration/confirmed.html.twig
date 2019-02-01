@@ -2,9 +2,22 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
+
 {% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+
+
+<main class="container-fluid compte">
+    <div class="container">
+        <hr>
+    </div>
+
+    <article class="container">
+     <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
     {% if targetUrl %}
     <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
     {% endif %}
+
+
+   </article>
+</main>
 {% endblock fos_user_content %}

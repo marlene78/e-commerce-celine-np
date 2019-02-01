@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Personnalisez votre tenue{% endblock %}
+{% block title %}Compose ta tenue{% endblock %}
 
 {% block main %}
 
@@ -12,8 +12,14 @@
   </div>
 
   <section class="container">
+    <p>Explication.</p>
 
-ok
+    {{ form_start(createForm) }}
+
+    {{ form_widget(createForm) }}
+   <button class="btn btn-success">Valider</button>
+    {{ form_end(createForm) }}
+
 
 
 

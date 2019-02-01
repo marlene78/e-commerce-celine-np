@@ -12,36 +12,42 @@
         <hr>
         <h2>Mon compte</h2>
     </div>
-
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
 
     <article class="container">
 
-        <p>Je suis déjà client</p>
+        <p>Je suis déjà client(e)</p>
 
 
-        <form action="/login_check" method="post">
-            {% if csrf_token %}
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-            {% endif %}
+     <form action="{{ path("fos_user_security_check") }}" method="post">
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+
 
 
             <div class="form-group d-flex flex-column">
-                <label for="username">Nom d&#039;utilisateur</label>
-                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username"/>
+                <label for="username">{{ 'security.login.username'|trans }}</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
             </div>
 
             <div class="form-group d-flex flex-column">
-                <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+                 <label for="password">{{ 'security.login.password'|trans }}</label>
+                 <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+
             </div>
 
             <div class="form-group d-flex flex-column">
                 <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                <label for="remember_me">se souvenir de moi</label>
+                <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
             </div>
 
-            <button class="button3" style="width: 462px;height: 62px;color: white">CONNEXION</button>
+            <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"  class="button3" style="width: 462px;height: 62px;color: white"/>
         </form>
+        <a href="/resetting/request" style="font-size:12px">Mot de passe perdu ?</a>
+</form>
 
 
     </article>
@@ -51,7 +57,7 @@
     <article class="container">
 
         <div class="inscription">
-            <p>Je ne suis pas encore client</p>
+            <p>Je ne suis pas encore client(e)</p>
             <a href="{{ path('fos_user_registration_register') }}" class="button3">INSCRIPTION</a>
         </div>
 

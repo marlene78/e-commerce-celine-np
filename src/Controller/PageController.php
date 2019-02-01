@@ -75,21 +75,6 @@ class PageController extends AbstractController
 
 
     /**
-     * @Route("/mon-compte", name="compte")
-     */
-    public function compte():Response
-    {
-        $repo = $this->getDoctrine()->getRepository(Page::class);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
-        return $this->render('page/compte.html.twig',[
-             'footer'=>$footer,
-            'header'=>$header
-        ]);
-    }
-
-
-    /**
      * @return Response
      * @Route("/creation" , name="creation")
      */
