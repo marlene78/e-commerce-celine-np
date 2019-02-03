@@ -19,9 +19,12 @@ class ModelHautRepository extends ServiceEntityRepository
         parent::__construct($registry, ModelHaut::class);
     }
 
+
+
     // /**
     //  * @return ModelHaut[] Returns an array of ModelHaut objects
     //  */
+
     /*
     public function findByExampleField($value)
     {

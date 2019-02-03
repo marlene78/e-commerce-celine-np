@@ -2,8 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Accessoires;
 use App\Entity\Commande;
+use App\Entity\Finitions;
+use App\Entity\ModelBas;
+use App\Entity\ModelHaut;
 use App\Entity\Page;
+use App\Entity\Tissu;
 use App\Form\CommandeType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,6 +37,29 @@ class CommandeController extends AbstractController
 
         }
 
+        $repoModelHaut = $this->getDoctrine()->getRepository(ModelHaut::class);
+        $modelhaut = $repoModelHaut->findAll();
+
+
+
+     $repoModelBas = $this->getDoctrine()->getRepository(ModelBas::class);
+        $modelbas = $repoModelBas->findAll();
+
+
+
+        $repoTissu = $this->getDoctrine()->getRepository(Tissu::class);
+        $tissu =   $repoTissu->findAll();
+
+
+        $repoFinition = $this->getDoctrine()->getRepository(Finitions::class);
+        $finition = $repoFinition->findAll();
+
+
+        $repoAccessoire = $this->getDoctrine()->getRepository(Accessoires::class);
+        $accessoire=  $repoAccessoire->findAll();
+
+
+
 
         $repo = $this->getDoctrine()->getRepository(Page::class);
         $footer = $repo->findFooter();
@@ -41,7 +69,13 @@ class CommandeController extends AbstractController
         return $this->render('commande/commande.html.twig',[
             'footer' =>$footer,
             'header' =>$header,
-            'createForm' => $form->createView()
+            'createForm' => $form->createView(),
+            'modelhaut'=>$modelhaut,
+           'modelbas'=>$modelbas,
+            'tissu'=> $tissu,
+            'finition'=>$finition,
+            'accessoire'=>$accessoire
+
 
         ]);
     }

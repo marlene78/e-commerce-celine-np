@@ -19,6 +19,10 @@ class FinitionsRepository extends ServiceEntityRepository
         parent::__construct($registry, Finitions::class);
     }
 
+
+
+
+
     // /**
     //  * @return Finitions[] Returns an array of Finitions objects
     //  */
