@@ -196,7 +196,8 @@ class AdminModelController extends AbstractController
 
         }
         return $this->render('admin/admin_model/bas/model_bas_edit.html.twig',[
-            'createForm'=>$form->createView()
+            'createForm'=>$form->createView(),
+            'model'=>$model
         ]);
 
 

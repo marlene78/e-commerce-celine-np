@@ -15,119 +15,158 @@
     <p>Explication.</p>
 
 
+<form name="commande" method="post">
 
-      <form name="commande" method="post">
-          <div id="commande">
+  <div id="commande">
 
               <fieldset class="form-group">
                   <legend class="col-form-label required">Modele haut</legend>
-                  <div id="commande_modeleHaut">
+                  
+                  <div id="commande_modeleHaut" class="d-flex">
+                  {% for modele in  modelhaut %}
+                      <div class="form-check">
+                        
+
+                        <div class="card">
+                              
+                          <img class="card-img-top" src="{{ vich_uploader_asset(modele.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ modele.picture.alt }}" style="width:18rem">
+                          <div class="card-body">
+                            <input type="radio" id="{{ modele.id }}" name="commande[modeleHaut]" required="required" class="form-check-input" value="{{ modele.id }}" />
+                            <label class="form-check-label required" for="{{ modele.id }}">{{ modele.nom }}</label>
+                            <p>{{ modele.prix }} €</p>
+                          </div>               
+
+                        </div>
+
+                      </div> 
+                   {% endfor %}     
+                  </div>
+                
+               </fieldset>
+
+                <fieldset class="form-group step_tissu_haut">
+                  <legend class="col-form-label required">Choisi ton tissu</legend>
+
+                      <div id="commande_tissuHaut">
+
+                             {% for modele in  modelhaut %}
+                             <div id="{{ modele.id }}" class="form-check">
+                         
+                             {% for tissu in modele.tissu %}
+                              <input type="radio" id="{{tissu.id}}" name="commande[tissuHaut]" required="required" class="form-check-input" value="{{ tissu.id }}" />
+                              <label class="form-check-label required" for="{{ tissu.id }}">{{ tissu.nom }}</label>
+                              {% endfor %}
+                            
+                            </div>
+                           {% endfor %} 
+
+                      </div>
+                </fieldset>
+
+
+                <fieldset class="form-group step_finition_haut">
+                  <legend class="col-form-label required">Choisi ta finition</legend>
+                  
+                    <div id="commande_finitionHaut">
+
                       {% for modele in  modelhaut %}
-                      <div class="form-check">
-                          <input type="radio" id="{{ modele.id }}" name="commande[modeleHaut]" required="required" class="form-check-input" value="{{ modele.id }}" />
-                          <label class="form-check-label required" for="{{ modele.id }}">{{ modele.nom }}</label>
+
+                      <div id="{{ modele.id }}" class="form-check">
+
+                       {% for finition in modele.finition %}
+                        <input type="radio" id="{{finition.id }}" name="commande[finitionHaut]" required="required" class="form-check-input" value="{{ finition.id }}" />
+                        <label class="form-check-label required" for="{{ finition.id }}">{{ finition.nom }}</label>
+                       {% endfor %}
+
                       </div>
-                          <fieldset class="form-group">
-                          <legend class="col-form-label required">Choisi ton tissu</legend>
-                          {% for tissu in modele.tissu %}
-                                  <div id="commande_tissu"><div class="form-check">
-                                          <input type="radio" id="{{ tissu.id }}" name="commande[tissu]" required="required" class="form-check-input" value="{{ tissu.id }}" />
-                                          <label class="form-check-label required" for="{{ tissu.id }}">{{ tissu.nom }}</label>
-                                      </div>
-                                  </div>
 
-                          {% endfor %}
-                          </fieldset>
+                        {% endfor %}
+                    </div>
+                
+               
+                </fieldset>
+        
 
 
-                      <fieldset class="form-group">
-                          <legend class="col-form-label required">Choisi ta finition</legend>
-                          {% for finition in modele.finition %}
-                          <div id="commande_finitionHaut">
-                              <div class="form-check">
-                                  <input type="radio" id="{{ finition.id }}" name="commande[finitionHaut]" required="required" class="form-check-input" value="{{ finition.id }}" />
-                                  <label class="form-check-label required" for="{{ finition.id }}">{{ finition.nom }}</label>
-                              </div>
-                          </div>
-                          {% endfor %}
-                      </fieldset>
-
-
-                      {% endfor %}
-                  </div>
-              </fieldset>
-
-   <fieldset class="form-group">
+              
+        
+                 <fieldset class="form-group step_modele_bas">
                   <legend class="col-form-label required">Modele bas</legend>
-
+                  
                   <div id="commande_modeleBas">
+                  {% for modele in  modelbas %}
+                      <div class="form-check"   >    
+                      <input type="radio" id="{{ modele.id }}" name="commande[modeleBas]" required="required" class="form-check-input" value="{{ modele.id }}" />
+                      <label class="form-check-label required" for="{{ modele.id }}">{{ modele.nom }}</label>   
+                      </div> 
+                   {% endfor %}     
+                   </div>
+                
+               </fieldset>
+
+                <fieldset class="form-group step_tissu_bas">
+                  <legend class="col-form-label required">Choisi ton tissu</legend>
+
+                      <div id="commande_tissuBas">
+
+                             {% for modele in  modelbas %}
+                             <div id="{{ modele.id }}" class="form-check">
+                         
+                             {% for tissu in modele.tissu %}
+                              <input type="radio" id="{{tissu.id}}" name="commande[tissuBas]" required="required" class="form-check-input" value="{{ tissu.id }}" />
+                              <label class="form-check-label required" for="{{ tissu.id }}">{{ tissu.nom }}</label>
+                              {% endfor %}
+                            
+                            </div>
+                           {% endfor %} 
+
+                      </div>
+                </fieldset>
+
+
+                <fieldset class="form-group step_finition_bas">
+                  <legend class="col-form-label required">Choisi ta finition</legend>
+                  
+                    <div id="commande_finitionBas">
                       {% for modele in  modelbas %}
-                      <div class="form-check">
-                          <input type="radio" id="{{ modele.id }}" name="commande[modeleBas]" required="required" class="form-check-input" value="{{ modele.id }}" />
-                          <label class="form-check-label required" for="{{ modele.id }}">{{ modele.nom }}</label>
+                      <div id="{{ modele.id }}" class="form-check">
+                      {% for finition in modele.finition %}
+                        <input type="radio" id="{{finition.id }}" name="commande[finitionBas]" required="required" class="form-check-input" value="{{ finition.id }}" />
+                        <label class="form-check-label required" for="{{ finition.id }}">{{ finition.nom }}</label>
+                       {% endfor %}
                       </div>
-                          <fieldset class="form-group">
-                          <legend class="col-form-label required">Choisi ton tissu</legend>
-                          {% for tissu in modele.tissu %}
-                                  <div id="commande_tissu"><div class="form-check">
-                                          <input type="radio" id="{{ tissu.id }}" name="commande[tissu]" required="required" class="form-check-input" value="{{ tissu.id }}" />
-                                          <label class="form-check-label required" for="{{ tissu.id }}">{{ tissu.nom }}</label>
-                                      </div>
-                                  </div>
-
-                          {% endfor %}
-                          </fieldset>
+                        {% endfor %}
+                    </div>
+                
+               
+                </fieldset>
+        
 
 
-                      <fieldset class="form-group">
-                          <legend class="col-form-label required">Choisi ta finition</legend>
-                          {% for finition in modele.finition %}
-                          <div id="commande_finitionBas">
-                              <div class="form-check">
-                                  <input type="radio" id="{{ finition.id }}" name="commande[finitionBas]" required="required" class="form-check-input" value="{{ finition.id }}" />
-                                  <label class="form-check-label required" for="{{ finition.id }}">{{ finition.nom }}</label>
-                              </div>
-                          </div>
-                          {% endfor %}
-                      </fieldset>
+              
+      
+            <fieldset class="form-group step_accessoire">
+              <legend class="col-form-label required">Accessoires</legend>
+                <div id="commande_accessoire">
+                  {% for accessoires in accessoire %}
+                    <div class="form-check">
+                      <input type="radio" id="{{ accessoires.id }}" name="commande[accessoire]" required="required" class="form-check-input" value="{{ accessoires.id }}" />
+                      <label class="form-check-label required" for="{{ accessoires.id }}">{{ accessoires.nom }}</label>
+                    </div>
+                  {% endfor %}
+                  
+                </div>
+            </fieldset>
 
+              <input type="hidden" id="commande__token" name="commande[_token]" value="0_JCw0woJF3zu_i_S1wFYFqAzhZGUBC_NnuL2H9hs1Y" />
 
+     
+  </div>
+        <button type="submit" class="btn btn-success">Ajouter au panier</button>
+ 
+  
 
-
-
-                      {% endfor %}
-                  </div>
-              </fieldset>
-
-
-
-
-
-              <fieldset class="form-group">
-                  <legend class="col-form-label required">Accessoires</legend>
-                  <div id="commande_accessoire">
-                      {% for accessoires in accessoire %}
-                      <div class="form-check">
-                          <input type="radio" id="{{ accessoires.id }}" name="commande[accessoire]" required="required" class="form-check-input" value="{{ accessoires.id }}" />
-                          <label class="form-check-label required" for="{{ accessoires.id }}">{{ accessoires.nom }}</label>
-                      </div>
-                      {% endfor %}
-                  </div>
-              </fieldset>
-              <input type="hidden" id="commande__token" name="commande[_token]" value="1aop_OGdvZO2Dc6-7cYx7Ms7nce-bpps1JueBT4VoCM" />
-          </div>
-
-          <button type="submit" class="btn btn-success">Créer</button>
-
-
-      </form>
-
-
-
-
-
-
-
+</form>
 
 
 
@@ -138,11 +177,7 @@
 
   
          
-         
-             {% for finitions in finition%}
-                 {{finitions.nom}}
-            {%endfor %}
-    
+
     
 
 
@@ -154,3 +189,7 @@
 
 
 {% endblock %}
+
+
+
+ 

@@ -5,9 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FinitionsRepository")
+ * @UniqueEntity("nom")
  *
  */
 class Finitions
@@ -36,12 +38,12 @@ class Finitions
     private $picture;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ModelHaut", mappedBy="finition")
+     * @ORM\ManyToMany(targetEntity="App\Entity\ModelHaut", mappedBy="finition")
      */
     private $modelHauts;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ModelBas", mappedBy="finition")
+     * @ORM\ManyToMany(targetEntity="App\Entity\ModelBas", mappedBy="finition")
      */
     private $modelBas;
 
@@ -50,6 +52,8 @@ class Finitions
         $this->modelHauts = new ArrayCollection();
         $this->modelBas = new ArrayCollection();
     }
+
+
 
 
 
@@ -112,7 +116,7 @@ class Finitions
     {
         if (!$this->modelHauts->contains($modelHaut)) {
             $this->modelHauts[] = $modelHaut;
-            $modelHaut->setFinition($this);
+            $modelHaut->addFinition($this);
         }
 
         return $this;
@@ -122,10 +126,7 @@ class Finitions
     {
         if ($this->modelHauts->contains($modelHaut)) {
             $this->modelHauts->removeElement($modelHaut);
-            // set the owning side to null (unless already changed)
-            if ($modelHaut->getFinition() === $this) {
-                $modelHaut->setFinition(null);
-            }
+            $modelHaut->removeFinition($this);
         }
 
         return $this;
@@ -143,7 +144,7 @@ class Finitions
     {
         if (!$this->modelBas->contains($modelBa)) {
             $this->modelBas[] = $modelBa;
-            $modelBa->setFinition($this);
+            $modelBa->addFinition($this);
         }
 
         return $this;
@@ -153,15 +154,11 @@ class Finitions
     {
         if ($this->modelBas->contains($modelBa)) {
             $this->modelBas->removeElement($modelBa);
-            // set the owning side to null (unless already changed)
-            if ($modelBa->getFinition() === $this) {
-                $modelBa->setFinition(null);
-            }
+            $modelBa->removeFinition($this);
         }
 
         return $this;
     }
-
 
 
 

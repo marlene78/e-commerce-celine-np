@@ -24,13 +24,13 @@ class CommandeType extends AbstractType
                 'class' =>ModelHaut::class,
 
             ])
-            ->add('tissu',EntityType::class,[
+            ->add('tissuHaut',EntityType::class,[
                 'expanded' =>true,
                 'multiple' => false,
                 'class' =>Tissu::class
             ])
 
-            ->add('finition',EntityType::class,[
+            ->add('finitionHaut',EntityType::class,[
                 'expanded' =>true,
                 'multiple' => false,
                 'class' =>Finitions::class
@@ -42,6 +42,20 @@ class CommandeType extends AbstractType
                 'multiple' => false,
                 'class' =>ModelBas::class
             ])
+
+            ->add('tissuBas',EntityType::class,[
+                'expanded' =>true,
+                'multiple' => false,
+                'class' =>Tissu::class
+            ])
+
+            ->add('finitionBas',EntityType::class,[
+                'expanded' =>true,
+                'multiple' => false,
+                'class' =>Finitions::class
+            ])
+
+
 
 
             ->add('accessoire',EntityType::class,[

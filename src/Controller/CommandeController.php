@@ -32,8 +32,7 @@ class CommandeController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
 
             $commande = $form->getData();
-
-
+        
 
         }
 
@@ -42,7 +41,7 @@ class CommandeController extends AbstractController
 
 
 
-     $repoModelBas = $this->getDoctrine()->getRepository(ModelBas::class);
+        $repoModelBas = $this->getDoctrine()->getRepository(ModelBas::class);
         $modelbas = $repoModelBas->findAll();
 
 
@@ -79,6 +78,8 @@ class CommandeController extends AbstractController
 
         ]);
     }
+
+
 
 
 

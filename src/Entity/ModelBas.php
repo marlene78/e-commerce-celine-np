@@ -5,9 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ModelBasRepository")
+ * @UniqueEntity("nom")
  */
 class ModelBas
 {
@@ -42,14 +44,14 @@ class ModelBas
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Finitions", inversedBy="modelBas")
-     */
-    private $finition;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tissu", inversedBy="modelBas")
      */
     private $tissu;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Finitions", inversedBy="modelBas")
+     */
+    private $finition;
 
 
  
@@ -58,8 +60,9 @@ class ModelBas
     public function __construct()
     {
 
-        $this->finition = new ArrayCollection();
+
         $this->tissu = new ArrayCollection();
+        $this->finition = new ArrayCollection();
 
     }
 
@@ -126,20 +129,7 @@ class ModelBas
      }
 
 
-     /**
-     * @return Collection
-     */
-     public function getFinition(): ?Finitions
-     {
-         return $this->finition;
-     }
 
-     public function setFinition(?Finitions $finition): self
-     {
-         $this->finition = $finition;
-
-         return $this;
-     }
 
      /**
       * @return Collection|Tissu[]
@@ -171,6 +161,32 @@ class ModelBas
      public function __toString()
      {
         return $this->nom;
+     }
+
+     /**
+      * @return Collection|Finitions[]
+      */
+     public function getFinition(): Collection
+     {
+         return $this->finition;
+     }
+
+     public function addFinition(Finitions $finition): self
+     {
+         if (!$this->finition->contains($finition)) {
+             $this->finition[] = $finition;
+         }
+
+         return $this;
+     }
+
+     public function removeFinition(Finitions $finition): self
+     {
+         if ($this->finition->contains($finition)) {
+             $this->finition->removeElement($finition);
+         }
+
+         return $this;
      }
 
 

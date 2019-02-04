@@ -29,19 +29,36 @@ class Commande
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $finition;
+    private $finitionHaut;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $finitionBas;
+
 
 
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255,nullable=true)
      */
     private $accessoire;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $tissu;
+    private $tissuHaut;
+
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $tissuBas;
+
+
+
+
 
     public function getId(): ?int
     {
@@ -72,18 +89,6 @@ class Commande
         return $this;
     }
 
-    public function getFinition(): ?string
-    {
-        return $this->finition;
-    }
-
-    public function setFinitionHaut(?string $finition): self
-    {
-        $this->finition = $finition;
-
-        return $this;
-    }
-
 
 
     public function getAccessoire(): ?string
@@ -98,15 +103,72 @@ class Commande
         return $this;
     }
 
-    public function getTissu(): ?string
+    /**
+     * @return mixed
+     */
+    public function getFinitionHaut()
     {
-        return $this->tissu;
+        return $this->finitionHaut;
     }
 
-    public function setTissu(string $tissu): self
+    /**
+     * @param mixed $finitionHaut
+     */
+    public function setFinitionHaut($finitionHaut): void
     {
-        $this->tissu = $tissu;
-
-        return $this;
+        $this->finitionHaut = $finitionHaut;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getFinitionBas()
+    {
+        return $this->finitionBas;
+    }
+
+    /**
+     * @param mixed $finitionBas
+     */
+    public function setFinitionBas($finitionBas): void
+    {
+        $this->finitionBas = $finitionBas;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTissuHaut()
+    {
+        return $this->tissuHaut;
+    }
+
+    /**
+     * @param mixed $tissuHaut
+     */
+    public function setTissuHaut($tissuHaut): void
+    {
+        $this->tissuHaut = $tissuHaut;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTissuBas()
+    {
+        return $this->tissuBas;
+    }
+
+    /**
+     * @param mixed $tissuBas
+     */
+    public function setTissuBas($tissuBas): void
+    {
+        $this->tissuBas = $tissuBas;
+    }
+
+
+
+
+
 }
