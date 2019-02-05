@@ -13,26 +13,44 @@ use App\Form\CommandeType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CommandeController extends AbstractController
 {
 
     /**
+     * Permet de créer une commande et
+     * l'ajoute au panier
      * @Route("/commande", name="commande")
      */
-    public function commande(Request $request):Response
+    public function commande(Request $request, SessionInterface $session):Response
     {
         $commande = new Commande();
 
         $form = $this->createForm(CommandeType::class, $commande);
         $form->handleRequest($request);
 
+        // création de la session commande
+
+        if(!$session->has('commande'))$session->set( 'commande', array());
+
+
+        $panier = $session->get('commande', []);
+
+
+        $session->set('commande', array('commande', $panier));
+
+
+
 
         if($form->isSubmitted() && $form->isValid()){
 
-            $commande = $form->getData();
-        
+            $form->getData();
+
+            return $this->redirectToRoute('panier_index');
+
+
 
         }
 

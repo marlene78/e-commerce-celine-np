@@ -15,7 +15,7 @@
     <p>Explication.</p>
 
 
-<form name="commande" method="post">
+<form name="commande" method="post" action="{{ path('panier_index') }}">
 
   <div id="commande">
 
@@ -158,7 +158,9 @@
                 </div>
             </fieldset>
 
-              <input type="hidden" id="commande__token" name="commande[_token]" value="0_JCw0woJF3zu_i_S1wFYFqAzhZGUBC_NnuL2H9hs1Y" />
+        
+               {#<input type="hidden" id="commande__token" name="commande[_token]" value="UNUzXyDLxm6JLaYkFXiCRZsp6BhlJsayOb2ZNEiPSd0" />#}
+      {{ form_widget(createForm._token) }}
 
      
   </div>
