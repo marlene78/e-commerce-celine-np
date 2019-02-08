@@ -9,12 +9,73 @@
 
         <div class="container">
             <hr>
-            <h2>Mon compte</h2>
+            <div class="fos_user_user_show">
+              <h2>Bienvenue {{ user.username }}</h2>
+            </div>
         </div>
 
+<article class="container mon-profil">
+
+  <div class="card-columns">
+
+    <div class="card">
+   
+      <div class="card-body">
+        <h3>Mon Profil</h3>
+        <p>This is a longer card with supporting text below as a natural lead-in to additional</p>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><a href="">Mettre à jour mon identité</a></li>
+          <li class="list-group-item"><a href="">Mettre à jour mon adresse de livraison</a></li>
+          <li class="list-group-item"><a href="">Mettre à jour mon adresse de facturation</a></li>
+          <li class="list-group-item"><a href="/profile/edit">Mettre à jour mon mot de passe</a></li>
+          <li class="list-group-item"><a href="/profile/edit">Mettre à jour mon adresse email</a></li>
+        </ul>
+        <br>
+        <a  href="" class="icon-profil" title="voir mon profil"><i class="fas fa-address-card"></i></a>
+      </div>
+    </div>
 
 
-        <article class="container">
+
+    <div class="card">
+      <img src="{{asset('img/rawpixel-617391-unsplash.jpg')}}" class="card-img-top" alt="...">
+    </div>
+
+
+
+    <div class="card">
+      <div class="card-body">
+        <h3>Mes Commandes</h3>
+        <p>This card has supporting text below as a natural lead-in to additional content.</p>
+        <a href="" class="icon-profil"  title="voir mes commandes"><i class="fas fa-box-open"></i></a>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-body">
+        <h3>Mes Mensurations</h3>
+        <p>This card has a regular title and short paragraphy of text below it.</p>
+        <a href="" class="icon-profil" title="mes mensurations"><i class="fas fa-ruler-horizontal"></i></a>
+      </div>
+    </div>
+
+
+
+
+    <div class="card">
+      <div class="card-body">
+        <h3>Une Question ?</h3>
+        <p>This is another card with title and supporting text below. This card has some additional content to make it slightly taller overall.</p>
+        <a href="" class="icon-profil" title="mes messages"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+
+
+
+{#  <article class="container">
 
 <div class="fos_user_user_show">
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
@@ -22,6 +83,8 @@
 </div>
         </article>
 
+  #} 
+      
 
 
 

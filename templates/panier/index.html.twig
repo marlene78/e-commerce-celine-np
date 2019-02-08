@@ -1,47 +1,109 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Panier index{% endblock %}
+{% block title %}Mon panier{% endblock %}
+
+
+
 
 {% block main %}
-    <h1>Panier index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>ModeleHaut</th>
-                <th>ModeleBas</th>
-                <th>FinitionHaut</th>
-                <th>FinitionBas</th>
-                <th>Accessoire</th>
-                <th>TissuHaut</th>
-                <th>TissuBas</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for panier in paniers %}
-            <tr>
-                <td>{{ panier.id }}</td>
-                <td>{{ panier.modeleHaut }}</td>
-                <td>{{ panier.modeleBas }}</td>
-                <td>{{ panier.finitionHaut }}</td>
-                <td>{{ panier.finitionBas }}</td>
-                <td>{{ panier.accessoire }}</td>
-                <td>{{ panier.tissuHaut }}</td>
-                <td>{{ panier.tissuBas }}</td>
-                <td>
-                    <a href="{{ path('panier_show', {'id': panier.id}) }}">show</a>
-                    <a href="{{ path('panier_edit', {'id': panier.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <main class="container-fluid panier">
 
-    <a href="{{ path('panier_new') }}">Create new</a>
+
+        <div class="container">
+            <hr>
+            <h2>Mon panier</h2>
+        </div>
+
+        <article class="container">
+
+            <div class="row">
+
+                <div class="col-sm-6">
+
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Mon Panier</h5>
+                            <hr>
+
+
+
+                            <div class="detail row">
+                                <img class="card-img-top" src="img/image.png" style="width:8rem">
+                                <p class="card-text">Prix</p>
+                                <p class="card-text">Nom du produit</p>
+                            </div>
+
+                            <div class="row">
+                                <p class="card-text">Tissu</p>
+                                <p class="card-text">Couleur</p>
+                                <p class="card-text">Nom Modéle haut</p>
+                                <p class="card-text">Nom Modéle bas</p>
+                                <p class="card-text">Nom Modéle dos</p>
+                            </div>
+                        </div>
+
+
+
+                        <div class="card-footer">
+                            <p>SOUS-TOTAL</p>
+                            <p>Montant</p>
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Livraison</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rhoncus diam nec volutpat facilisis. Praesent condimentum, sem sed rutrum efficitur, metus justo finibus arcu, sed convallis magna dui lobortis dui. Fusce sed mauris fringilla, interdum purus ac, accumsan ligula.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Retour et Remboursement</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rhoncus diam nec volutpat facilisis. Praesent condimentum, sem sed rutrum efficitur, metus justo finibus arcu, sed convallis magna dui lobortis dui. Fusce sed mauris fringilla, interdum purus ac, accumsan ligula.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-6">
+
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Total</h5>
+                            <hr>
+
+                            <div class="card-text">
+                                <h5>Sous-total</h5>
+                                <p></p>
+                            </div>
+
+                            <div class="card-text">
+                                <h5>Livraison</h5>
+
+                            </div>
+
+
+                            <a href="#" class="btn btn-primary">Paiement</a>
+                            <p class="card-text">Nous Acceptons:</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </main>
+
+
+
+
 {% endblock %}
+

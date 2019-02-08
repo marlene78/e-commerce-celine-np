@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Composer ma tenue{% endblock %}
+{% block title %}{{model.nom}}{% endblock %}
 
 
 {% block main %}
@@ -20,7 +20,7 @@
 
                 <div class="galleryTenu col-sm">
                      <img class="card-img-top" src="{{ vich_uploader_asset(model.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ model.picture.alt }}" >
-                     <a href="{{ path('model_haut_liste') }}">Retour à la liste des modèles</a>
+                     <a href="{{ path('modele_haut') }}">Retour à la liste des modèles</a>
 
                 </div>
 
@@ -62,7 +62,7 @@
                         </div>
                  
 
-                        <a href="{{ path('commande') }}" class="button1">Compose ta tenue</a>
+                        <a href="{{ path('commande') }}" class="button1">Composer ma tenue</a>
                         
                     </div>
 

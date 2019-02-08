@@ -1,8 +1,31 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
+
+
+ <main class="container-fluid compte">
+
+
+        <!----page compte--->
+
+        <div class="container">
+            <hr>
+            <h2>Mettre à jour mes informations</h2>
+        </div>
+
+<article class="container mon-profil">
+
+
+
+
+
+
+
 {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
     {{ form_widget(form) }}
     <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" class="button3" style="color: white"/>
     </div>
 {{ form_end(form) }}
+</article>
+
+</main>

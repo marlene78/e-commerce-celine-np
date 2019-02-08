@@ -25,6 +25,7 @@ class PageRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('p')
                     ->orderBy('p.id', 'ASC')
                     ->setFirstResult(4)
+                    ->setMaxResults(5)
                     ->getQuery()
                     ->getResult()
                ;

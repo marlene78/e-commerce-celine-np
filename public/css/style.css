@@ -65,8 +65,9 @@ h1{font-family:'DaunPenh';font-size: 36px;color: #D5B59D;padding-top: 15px}
 h2,h3{font-family:'Parisienne';}
 
 h2{color: #cca789;text-align: center;}
-h3.lastCollection{font-family: 'Roboto-Regular'}
+h3.lastCollection{font-family: 'Roboto-Regular'; margin:10px 0}
 
+main{margin-bottom: 10%}
 /*------------------------*/
 
 /************/
@@ -120,7 +121,9 @@ main.pageContact article .jumbotronBg{background-color: #efe3d5}
 /* MODELES*/
 /***************/
 a.lien-accessoires:hover{color: black;}
-.accessoires{border: 1px solid #efe3d5;padding: 10px;margin-bottom: 5%}
+.accessoires{border: 2px solid #efe3d5;padding: 10px;margin-bottom: 5%}
+/*
+
 .accessoires:hover{
 	cursor: pointer;
 	-moz-box-shadow: 5px 5px 5px 0px #efe3d5;
@@ -129,6 +132,7 @@ a.lien-accessoires:hover{color: black;}
 	box-shadow: 5px 5px 5px 0px #efe3d5;
 	border: none;
 }
+*/
 
 /*--------------------------------------------------------Ordi --------------------------------------------------------------*/
 @media screen and (min-width: 1024px){
@@ -151,19 +155,27 @@ main.accueil .jumbotron h3{font-size: 48px}
 section.accueilSecond .jumbotronBg{background-color: #efe3d5}
 section.accueilSecond article .card{border: 2px solid #efe3d5;}
 section.accueilSecond article .card-body{text-align: center;}
-
 blockquote{font-family:'PlayfairDisplay';text-align: center;}
 .bgWhite{height: 3vh;}
-
-
-
+a.creation{margin:50px 0;text-align: center;}
+main.acueil{margin-bottom: 0}
 
 
 
 /******************/
-/*PAGE COLLECTIONS*/
+/*PAGE COLLECTION*/
 /******************/
-section.collections article .gallery{margin:10% 0;display: flex;}
+a.collection-index1{margin:0 auto;}
+section.collections article{margin:5% auto;}
+a.collection-index1:hover,a.collection-index2:hover,a.collection-index3:hover{opacity: .5;}
+.collection-modele{display: flex;}
+
+
+
+/**************************/
+/*PAGE MODELE / ACCESSOIRE*/
+/**************************/
+section.collections article .gallery{margin:5% 0;display: flex;}
 section.collections article .gallery .card{border: none;}
 section.collections article .gallery .position{margin-bottom: 30px}
 
@@ -173,11 +185,12 @@ section.collections article .gallery .position{margin-bottom: 30px}
 /*PAGE TENUE */
 /************/
 
-section.tenue article{margin: 50px 0;}
+section.tenue article{margin-top: 5%;}
 section.tenue article .modèle .card{margin: 10px 0;}
-section.tenue article .second{margin:20%;}
+section.tenue article.second{margin:15% 0;}
 section.tenue .card{border: 2px solid #efe3d5;}
 section.tenue .modalModel .card{border:none;}
+.modèle{margin-top: 15px}
 
 
 
@@ -242,10 +255,19 @@ section.inscription{height: 50vh;margin-top: 10%}
 /***********/
 /* PANIER  */
 /***********/
-.panier section{margin-bottom: 5%}
+.panier section article{margin-top: 5%}
 .panier .card{margin-top: 5%}
 
-
+/**************/
+/* Mon PROFIL */
+/**************/
+a.icon-profil{width:50px; height: 50px; border-radius: 100%; background-color: #cca789}
+.icon-profil:hover{background-color: #D5B59D;color:white;}
+.fa-address-card,.fa-box-open,.fa-envelope,.fa-ruler-horizontal{position: relative; top:11px;left:14px;}
+.fa-envelope{position: relative; top:11px;left:15px;}
+.fa-box-open{position: relative; top:11px;left:13px;}
+article.mon-profil .card{border: 1px solid #818181}
+article.mon-profil .card p,article.mon-profil .card a{font-size: 1.2rem}
 
 
 
@@ -288,15 +310,44 @@ section.accueilSecond article .card-body{text-align: center;}
 section.accueilSecond article .card-columns{padding: 10% 0 10% 0;column-count:2;}
 blockquote{font-family:'PlayfairDisplay';text-align: center;}
 .bgWhite{height: 3vh;}
+a.creation{margin:50px 0;text-align: center;}
+main.acueil{margin-bottom: 0}
+
 
 
 
 /******************/
-/*PAGE COLLECTIONS*/
+/*PAGE COLLECTION*/
 /******************/
-section.collections article .gallery{margin:10% 0;display: flex;}
+a.collection-index1{margin:0 auto;}
+section.collections article{margin:5% auto;}
+a.collection-index1:hover,a.collection-index2:hover,a.collection-index3:hover{opacity: .5;}
+.collection-modele{display: flex;}
+
+
+
+/**************************/
+/*PAGE MODELE / ACCESSOIRE*/
+/**************************/
+section.collections article .gallery{margin:5% 0;display: flex;}
 section.collections article .gallery .card{border: none;}
 section.collections article .gallery .position{margin-bottom: 30px}
+
+
+
+/************/
+/*PAGE TENUE */
+/************/
+
+section.tenue article{margin-top: 5%;}
+section.tenue article .modèle .card{margin: 10px 0;}
+section.tenue article.second{margin:15% 0;}
+section.tenue .card{border: 2px solid #efe3d5;}
+section.tenue .modalModel .card{border:none;}
+.modèle{margin-top: 15px}
+
+
+
 
 
 
@@ -362,17 +413,15 @@ section.inscription{
 
 
 
+/**************/
+/* Mon PROFIL */
+/**************/
+a.icon-profil{width:50px; height: 50px; border-radius: 100%; background-color: #cca789}
+.icon-profil:hover{background-color: #D5B59D;color:white;}
+.fa-address-card,.fa-box-open,.fa-envelope,.fa-ruler-horizontal{position: relative; top:14px;left:16px;}
+article.mon-profil .card{border: 1px solid #818181}
 
 
-
-/************/
-/*PAGE TENUE */
-/************/
-
-section.tenue article{margin: 50px 0;}
-section.tenue article .modèle .card{margin: 10px 0;}
-section.tenue article .second{margin:20%;}
-section.tenue .card{border: 2px solid #efe3d5;}
 
 
 
@@ -436,17 +485,46 @@ section.accueilSecond article .card-body{text-align: center;}
 blockquote{font-family:'PlayfairDisplay';text-align: center;}
 .bgWhite{height: 3vh;}
 .card-columns{column-count:1;}
+a.creation{margin:50px 0;text-align: center;}
+main.acueil{margin-bottom: 0}
+
 
 
 
 
 
 /******************/
-/*PAGE COLLECTIONS*/
+/*PAGE COLLECTION*/
 /******************/
-section.collections article .gallery{margin:10% 0;display: flex;}
+a.collection-index1{margin:0 auto;}
+section.collections article{margin:5% auto;}
+a.collection-index1:hover,a.collection-index2:hover,a.collection-index3:hover{opacity: .5;}
+.collection-modele{display: flex;}
+
+
+
+/**************************/
+/*PAGE MODELE / ACCESSOIRE*/
+/**************************/
+section.collections article .gallery{margin:5% 0;display: flex;}
 section.collections article .gallery .card{border: none;}
 section.collections article .gallery .position{margin-bottom: 30px}
+
+
+
+/************/
+/*PAGE TENUE */
+/************/
+
+section.tenue article{margin-top: 5%;}
+section.tenue article .modèle .card{margin: 10px 0;}
+section.tenue article.second{margin:15% 0;}
+section.tenue .card{border: 2px solid #efe3d5;}
+section.tenue .modalModel .card{border:none;}
+.modèle{margin-top: 15px}
+
+
+
 
 
 
@@ -519,19 +597,14 @@ section.inscription{
 }
 
 
+/**************/
+/* Mon PROFIL */
+/**************/
+a.icon-profil{width:50px; height: 50px; border-radius: 100%; background-color: #cca789}
+.icon-profil:hover{background-color: #D5B59D;color:white;}
+.fa-address-card,.fa-box-open,.fa-envelope,.fa-ruler-horizontal{position: relative; top:14px;left:16px;}
+article.mon-profil .card{border: 1px solid #818181}
 
-
-
-
-
-/************/
-/*PAGE TENUE */
-/************/
-
-section.tenue article{margin: 50px 0;}
-section.tenue article .modèle .card{margin: 10px 0;}
-section.tenue article .second{margin:20%;}
-section.tenue .card{border: 2px solid #efe3d5;}
 
 
 
@@ -606,17 +679,41 @@ section.accueilSecond article .card-body{text-align: center;}
 section.accueilSecond article .card-columns{padding: 10% 0 10% 0;column-count:1;}
 blockquote{font-family:'PlayfairDisplay';text-align: center;}
 .bgWhite{height: 3vh;}
-
-
+a.creation{margin:50px 0;text-align: center;}
+main.acueil{margin-bottom: 0}
 
 
 
 /******************/
-/*PAGE COLLECTIONS*/
+/*PAGE COLLECTION*/
 /******************/
-section.collections article .gallery{margin:10% 0;display: flex;}
+a.collection-index1{margin:0 auto;}
+section.collections article{margin:5% auto;}
+a.collection-index1:hover,a.collection-index2:hover,a.collection-index3:hover{opacity: .5;}
+.collection-modele{display: flex;}
+
+
+
+/**************************/
+/*PAGE MODELE / ACCESSOIRE*/
+/**************************/
+section.collections article .gallery{margin:5% 0;display: flex;}
 section.collections article .gallery .card{border: none;}
-section.collections article .gallery .position{margin-bottom: 45px}
+section.collections article .gallery .position{margin-bottom: 30px}
+
+
+
+/************/
+/*PAGE TENUE */
+/************/
+
+section.tenue article{margin-top: 5%;}
+section.tenue article .modèle .card{margin: 10px 0;}
+section.tenue article.second{margin:15% 0;}
+section.tenue .card{border: 2px solid #efe3d5;}
+section.tenue .modalModel .card{border:none;}
+.modèle{margin-top: 15px}
+
 
 
 
@@ -685,19 +782,14 @@ section.inscription{
 
 
 
+/**************/
+/* Mon PROFIL */
+/**************/
+a.icon-profil{width:50px; height: 50px; border-radius: 100%; background-color: #cca789}
+.icon-profil:hover{background-color: #D5B59D;color:white;}
+.fa-address-card,.fa-box-open,.fa-envelope,.fa-ruler-horizontal{position: relative; top:14px;left:16px;}
+article.mon-profil .card{border: 1px solid #818181}
 
-
-
-
-/************/
-/*PAGE TENUE */
-/************/
-
-section.tenue article{margin: 50px 0;}
-section.tenue article .modèle .card{margin: 10px 0;}
-section.tenue article .second{margin:20%;}
-
-section.tenue .card{border: 2px solid #efe3d5;}
 
 
 

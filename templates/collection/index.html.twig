@@ -4,25 +4,43 @@
 
 {% block main %}
 
-
- <main class="container-fluid pageCollections">
-
+<main class="container-fluid">
+  
+        <!--page 2 :Collections---->
+   
+       
     <section class="collections">
 
-        <div class="container">
-            <hr>
-            <h2>Collection</h2>
+      <div class="container">
+        <hr>
+        <h2>Collections</h2>
+   
+      </div>
 
+
+
+
+      <article class="container">
+
+        <a href="{{path('modele_haut')}}" class="collection-index3" title="voir les modèles hauts"><img src="{{ asset('img/modele-haut.png' ) }}" alt="modele-collection-index"></a>
+        
+  
+        
+
+        <div class="collection-modele">
+          <a href="{{path('modele_bas')}}" class="collection-index2" title="voir les modèles bas"><img src="{{asset('img/modele-bas.png')}}"></a>
+          <a href="{{path('accessoires')}}" class="collection-index1" title="voir les accessoires"><img src="{{asset('img/accessoire.png')}}"></a>
         </div>
+  
 
-        <article class="container">
-		    <a href="{{path('modele_haut')}}">Model haut</a>
-		    <a href="{{path('modele_bas')}}">Model bas</a>
-		    <a href="{{path('accessoires')}}">Accessoires</a>
+      </article>
 
-        </article>
 
-   </section>
+
+    </section>
+
+
+
 
 
 

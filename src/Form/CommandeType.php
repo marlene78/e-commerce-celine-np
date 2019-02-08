@@ -18,6 +18,8 @@ class CommandeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
+            ->add('id')
             ->add('modeleHaut', EntityType::class,[
                 'expanded' =>true,
                 'multiple' => false,

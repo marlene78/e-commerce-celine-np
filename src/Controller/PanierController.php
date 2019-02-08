@@ -55,10 +55,19 @@ class PanierController extends AbstractController
 
 
 
+
+
+
+
+
+
+/////////////////////////////////////////////
+
+
     /**
      * @Route("/{id}", name="panier_show", methods={"GET"})
      */
-    public function show(Panier $panier): Response
+  /*  public function show(Panier $panier): Response
     {
         $repo = $this->getDoctrine()->getRepository(Page::class);
         $footer = $repo->findFooter();
@@ -73,7 +82,7 @@ class PanierController extends AbstractController
     /**
      * @Route("/{id}/edit", name="panier_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Panier $panier): Response
+   /* public function edit(Request $request, Panier $panier): Response
     {
         $form = $this->createForm(PanierType::class, $panier);
         $form->handleRequest($request);
@@ -100,7 +109,7 @@ class PanierController extends AbstractController
     /**
      * @Route("/{id}", name="panier_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Panier $panier): Response
+ /*   public function delete(Request $request, Panier $panier): Response
     {
         if ($this->isCsrfTokenValid('delete'.$panier->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -110,4 +119,11 @@ class PanierController extends AbstractController
 
         return $this->redirectToRoute('panier_index');
     }
+
+
+
+
+
+ */
 }
+
