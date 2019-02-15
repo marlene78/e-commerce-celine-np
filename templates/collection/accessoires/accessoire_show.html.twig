@@ -61,7 +61,7 @@
                 <div class="carousel">
                     {% for item in accessoires %}
                      <div class="itemCarousel">
-                        <a href="{{ path('accessoires_show' ,{id:item.id})  }}" title="voir les accessoires"><img src="{{ vich_uploader_asset(item.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ item.picture.alt }}" style="width:15rem"></a>
+                        <a href="{{ path('accessoires_show' ,{slug:item.slug})  }}" title="voir les accessoires"><img src="{{ vich_uploader_asset(item.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ item.picture.alt }}" style="width:15rem"></a>
                          <p>{{item.nom}}</p>
                     </div>
                     {% endfor %}

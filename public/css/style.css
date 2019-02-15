@@ -122,6 +122,15 @@ main.pageContact article .jumbotronBg{background-color: #efe3d5}
 /***************/
 a.lien-accessoires:hover{color: black;}
 .accessoires{border: 2px solid #efe3d5;padding: 10px;margin-bottom: 5%}
+
+/*****************/
+/* PROFIL       */
+/***************/
+.dropdown{margin-right: 25px}
+.dropdown-menu{background-color: rgba(239,227,213,1) }
+.dropdown-menu a:hover{background-color: #cca789}
+
+
 /*
 
 .accessoires:hover{
@@ -687,10 +696,13 @@ main.acueil{margin-bottom: 0}
 /******************/
 /*PAGE COLLECTION*/
 /******************/
+main.mobile{margin: 0}
 a.collection-index1{margin:0 auto;}
-section.collections article{margin:5% auto;}
+section.collections article{margin:20% auto 0 auto}
 a.collection-index1:hover,a.collection-index2:hover,a.collection-index3:hover{opacity: .5;}
-.collection-modele{display: flex;}
+.collection-modele{display: flex;flex-wrap: nowrap;align-items: center;}
+img[alt*="index"]{max-width: 100%;}
+img[alt*="haut"]{max-width: 100%;}
 
 
 

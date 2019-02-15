@@ -33,8 +33,8 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <a href="{{ path('model_haut_edit',{id:model.id}) }}" class="btn btn-secondary">Éditer</a>
-                                    <a href="{{ path('app_adminmodel_modeldeletehaut',{id:model.id}) }}" class="btn btn-danger">Supression</a>
+                                    <a href="{{ path('model_haut_edit',{'slug':model.slug}) }}" class="btn btn-secondary">Éditer</a>
+                                    <a href="{{ path('app_adminmodel_modeldeletehaut',{'slug':model.slug}) }}" class="btn btn-danger">Supression</a>
                                 </div>
 
                             </div>

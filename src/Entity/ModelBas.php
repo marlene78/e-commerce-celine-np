@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,6 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ModelBasRepository")
  * @UniqueEntity("nom")
+ * @ORM\HasLifecycleCallbacks
  */
 class ModelBas
 {
@@ -53,8 +55,25 @@ class ModelBas
      */
     private $finition;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
- 
+
+    /**
+     * Permet d'initialiser le slug
+     *  @ORM\PrePersist
+     *  @ORM\PreUpdate
+     */
+    public function initialiazeSlug()
+    {
+        if(empty($this->slug)){
+            $slugify = new Slugify();
+            $this->slug = $slugify->slugify($this->nom);
+        }
+    }
+
 
 
     public function __construct()
@@ -65,9 +84,6 @@ class ModelBas
         $this->finition = new ArrayCollection();
 
     }
-
-
-
 
 
 
@@ -185,6 +201,18 @@ class ModelBas
          if ($this->finition->contains($finition)) {
              $this->finition->removeElement($finition);
          }
+
+         return $this;
+     }
+
+     public function getSlug(): ?string
+     {
+         return $this->slug;
+     }
+
+     public function setSlug(string $slug): self
+     {
+         $this->slug = $slug;
 
          return $this;
      }

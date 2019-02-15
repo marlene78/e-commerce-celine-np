@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Édition{% endblock %}
+
+{% block main %}
+
+<main class="container-fluid">
+
+  <div class="container">
+    <hr>
+    <h2>Mets à jour tes informations</h2>
+  </div>
+
+  <section class="container">
+
+
+    {{ include('user_identity/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    <br>
+    {{ include('user_identity/_delete_form.html.twig') }}
+
+    </section>
+
+
+
+
+
+ </main>
+{% endblock %}

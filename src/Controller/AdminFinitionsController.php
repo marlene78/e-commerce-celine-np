@@ -55,7 +55,7 @@ class AdminFinitionsController extends AbstractController
 
 
     /**
-     * @Route("/{id}/edit", name="finitions_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="finitions_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Finitions $finition): Response
     {
@@ -76,7 +76,7 @@ class AdminFinitionsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="finitions_delete", methods={"DELETE"})
+     * @Route("/{slug}", name="finitions_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Finitions $finition): Response
     {

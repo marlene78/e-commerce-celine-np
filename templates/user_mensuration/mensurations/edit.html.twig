@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Édition des mensurations{% endblock %}
+
+{% block main %}
+  <main class="container-fluid">
+
+  <div class="container">
+    <hr>
+    <h2>Mets à jour tes mensurations</h2>
+  </div>
+    <section class="container">
+
+    {{ include('/user_mensuration/mensurations/_form.html.twig', {'button_label': 'Mettre à jour'} ) }}
+    </section>
+   </main>
+{% endblock %}

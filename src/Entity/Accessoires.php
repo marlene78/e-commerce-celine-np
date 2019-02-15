@@ -2,12 +2,14 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AccessoiresRepository")
- * *@UniqueEntity("nom")
+ * @UniqueEntity("nom")
+ *  @ORM\HasLifecycleCallbacks
  */
 class Accessoires
 {
@@ -34,6 +36,23 @@ class Accessoires
      */
     private $picture;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
+    /**
+     * Permet d'initialiser le slug
+     *  @ORM\PrePersist
+     *  @ORM\PreUpdate
+     */
+    public function initialiazeSlug()
+    {
+        if(empty($this->slug)){
+            $slugify = new Slugify();
+            $this->slug = $slugify->slugify($this->nom);
+        }
+    }
 
 
     public function getId(): ?int
@@ -81,6 +100,18 @@ class Accessoires
     public function __toString()
     {
         return $this->nom;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 
 

@@ -24,14 +24,14 @@ class CommandeController extends AbstractController
      * l'ajoute au panier
      * @Route("/commande", name="commande")
      */
-    public function commande(Request $request, SessionInterface $session):Response
+    public function commande(Request $request):Response
     {
         $commande = new Commande();
 
         $form = $this->createForm(CommandeType::class, $commande);
         $form->handleRequest($request);
 
-        // création de la session commande
+        /*// création de la session commande
 
         if(!$session->has('commande'))$session->set( 'commande', array());
 
@@ -42,11 +42,15 @@ class CommandeController extends AbstractController
         $session->set('commande', array('commande', $panier));
 
 
-
+*/
 
         if($form->isSubmitted() && $form->isValid()){
 
             $form->getData();
+            $commande->setUser($this->getUser());
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($commande);
+            $em->flush();
 
             return $this->redirectToRoute('panier_index');
 

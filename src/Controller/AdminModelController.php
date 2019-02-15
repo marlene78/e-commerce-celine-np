@@ -83,7 +83,7 @@ class AdminModelController extends AbstractController
 
 
     /**
-     * @Route("haut/edition/{id}", name="model_haut_edit")
+     * @Route("haut/edition/{slug}", name="model_haut_edit")
      */
     public function ModelEditionHaut(ModelHaut $model, Request $request):Response
     {
@@ -96,7 +96,7 @@ class AdminModelController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($model);
             $em->flush();
-            $this->addFlash('success','le modèle a bien été ajouté');
+            $this->addFlash('success','le modèle a bien été mis à jour');
             return $this->redirectToRoute('admin');
 
         }
@@ -112,7 +112,7 @@ class AdminModelController extends AbstractController
 
 
     /**
-     * @Route("haut/delete/{id}")
+     * @Route("haut/delete/{slug}")
      * @param ModelHaut $model
      * @return Response
      */
@@ -178,7 +178,7 @@ class AdminModelController extends AbstractController
 
 
     /**
-     * @Route("bas/edition/{id}", name="model_bas_edit")
+     * @Route("bas/edition/{slug}", name="model_bas_edit")
      */
     public function ModelEditionBas(ModelBas $model, Request $request):Response
     {
@@ -206,7 +206,7 @@ class AdminModelController extends AbstractController
 
 
     /**
-     * @Route("bas/delete/{id}")
+     * @Route("bas/delete/{slug}")
      * @param Modelbas $model
      * @return Response
      */

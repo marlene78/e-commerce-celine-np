@@ -4,7 +4,7 @@
 
 {% block main %}
 
-<main class="container-fluid">
+<main class="container-fluid mobile">
   
         <!--page 2 :Collections---->
    
@@ -22,15 +22,21 @@
 
       <article class="container">
 
-        <a href="{{path('modele_haut')}}" class="collection-index3" title="voir les modèles hauts"><img src="{{ asset('img/modele-haut.png' ) }}" alt="modele-collection-index"></a>
+        <a href="{{path('modele_haut')}}" class="collection-index3" title="voir les modèles hauts"><img src="{{ asset('img/modele-haut.png' ) }}" alt="haut"></a>
         
   
         
 
         <div class="collection-modele">
-          <a href="{{path('modele_bas')}}" class="collection-index2" title="voir les modèles bas"><img src="{{asset('img/modele-bas.png')}}"></a>
-          <a href="{{path('accessoires')}}" class="collection-index1" title="voir les accessoires"><img src="{{asset('img/accessoire.png')}}"></a>
+
+          <a href="{{path('modele_bas')}}" class="collection-index2" title="voir les modèles bas"><img src="{{asset('img/modele-bas.png')}}" alt="index modéle bas"></a>
+
+          <a href="{{path('accessoires')}}" class="collection-index1" title="voir les accessoires"><img src="{{asset('img/accessoire.png')}}" alt="index accessoires"></a>
+
         </div>
+
+
+
   
 
       </article>

@@ -38,6 +38,7 @@ class UserController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+            $this->addFlash('success', 'félicitation tes informations ont été mise à jour');
 
         }
 
@@ -45,4 +46,29 @@ class UserController extends AbstractController
             'editForm' =>$editForm->createView()
         ]);
     }
+
+
+    /**
+     * @Route("/user/delete/{id}" , name="user_delete"  ,methods={"DELETE"})
+     */
+    public function deleteUser(User $user, Request $request):Response
+    {
+        if($this->isCsrfTokenValid('delete' .$user->getId(), $request->request->get('_token')))
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($user);
+            $em->flush();
+            $this->addFlash('success' , 'Votre compte a été supprimé');
+        }
+        return $this->redirectToRoute('fos_user_security_login');
+
+
+    }
+
+
+
+
+
+
+ 
 }

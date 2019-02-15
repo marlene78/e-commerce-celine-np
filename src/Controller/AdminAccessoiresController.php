@@ -55,6 +55,7 @@ class AdminAccessoiresController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($accessoire);
             $entityManager->flush();
+            $this->addFlash('success', "l'accessoire' a bien été ajouté");
 
             return $this->redirectToRoute('accessoires_index');
         }
@@ -68,7 +69,7 @@ class AdminAccessoiresController extends AbstractController
 
 
     /**
-     * @Route("{id}/edit", name="accessoires_edit", methods={"GET","POST"})
+     * @Route("{slug}/edit", name="accessoires_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Accessoires $accessoire): Response
     {
@@ -77,7 +78,7 @@ class AdminAccessoiresController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+             $this->addFlash('success', "l'accessoire a été mis à jour");
             return $this->redirectToRoute('admin');
         }
 
@@ -88,7 +89,7 @@ class AdminAccessoiresController extends AbstractController
     }
 
     /**
-     * @Route("{id}", name="accessoires_delete", methods={"DELETE"})
+     * @Route("{slug}", name="accessoires_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Accessoires $accessoire): Response
     {
@@ -96,6 +97,7 @@ class AdminAccessoiresController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($accessoire);
             $entityManager->flush();
+            $this->addFlash('success', "l'accessoire' a été supprimé");
         }
 
         return $this->redirectToRoute('accessoires_index');

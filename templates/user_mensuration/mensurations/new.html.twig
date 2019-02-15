@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Renseigne tes mensurations{% endblock %}
+
+{% block main %}
+
+<main class="container-fluid">
+
+    <div class="container">
+        <hr>
+        <h2>Renseigne tes mensurations</h2>
+    </div>
+
+    <section class="container">
+ 
+
+
+ 
+    {{ include('/user_mensuration/mensurations/_form.html.twig') }}
+
+    </section>
+ </main>
+
+ 
+{% endblock %}

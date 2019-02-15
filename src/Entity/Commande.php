@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\PanierRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\CommandeRepository")
  */
 class Commande
 {
@@ -55,6 +55,11 @@ class Commande
      * @ORM\Column(type="string", length=255)
      */
     private $tissuBas;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="commande")
+     */
+    private $user;
 
 
 
@@ -165,6 +170,18 @@ class Commande
     public function setTissuBas($tissuBas): void
     {
         $this->tissuBas = $tissuBas;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
     }
 
 

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Édition du profil{% endblock %}
+
+{% block main %}
+
+<main class="container-fluid">
+
+  <div class="container">
+    <hr>
+    <h2>Ton Profil</h2>
+  </div>
+
+  <section class="container">
+
+
+    <table class="table">
+        <tbody>
+    
+            <tr>
+                <th>Nom</th>
+                <td>{{ user_identity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ user_identity.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Télephone</th>
+                <td>{{ user_identity.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ user_identity.adresse }}</td>
+            </tr>
+            <tr>
+                <th>CodePostal</th>
+                <td>{{ user_identity.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>Région</th>
+                <td>{{ user_identity.region }}</td>
+            </tr>
+            <tr>
+                <th>Département</th>
+                <td>{{ user_identity.departement }}</td>
+            </tr>
+            <tr>
+                <th>Pays</th>
+                <td>{{ user_identity.pays }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ user_identity.ville }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+    
+    {{ include('user_identity/_delete_form.html.twig') }}
+</section>
+</main>
+{% endblock %}

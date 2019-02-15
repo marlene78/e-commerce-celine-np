@@ -95,7 +95,7 @@ class AdminCategoryController extends AbstractController
     }
 
     /**
-     * @Route("delete/tissu/{id}")
+     * @Route("delete/tissu/{slug}")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @return Response
      */
@@ -111,7 +111,7 @@ class AdminCategoryController extends AbstractController
 
 
     /**
-     * @Route("edition/tissu/{id}")
+     * @Route("edition/tissu/{slug}")
      */
     public function Tissuedit(Tissu $tissu,Request $request):Response
     {
@@ -129,7 +129,8 @@ class AdminCategoryController extends AbstractController
         }
 
         return $this->render('admin/admin_category/tissuEdition.html.twig',[
-            'createForm' =>$form->createView()
+            'createForm' =>$form->createView(), 
+            'tissu' => $tissu
         ]);
 
 

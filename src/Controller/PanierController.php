@@ -23,23 +23,23 @@ class PanierController extends AbstractController
     /**
      * @Route("/", name="panier_index", methods={"GET","POST"})
      */
-    public function index(PanierRepository $panierRepository, SessionInterface $session, Request $request): Response
+    public function index(): Response
     {
         $repo = $this->getDoctrine()->getRepository(Page::class);
         $footer = $repo->findFooter();
         $header = $repo->findHeader();
 
 
-        // récupération de la session commande
+       /* // récupération de la session commande
 
         $session->get('commande');
         $session = $request->request->all();
         var_dump($session);
+        */
 
 
 
         return $this->render('panier/index.html.twig', [
-            'paniers' => $panierRepository->findAll(),
             'header' => $header,
             'footer' => $footer
         ]);
