@@ -25,10 +25,15 @@
 
                                 <div class="card-body">
                                     <p class="card-text">{{ accessoire.nom }}</p>
-                                    <p class="card-text">À partir de :{{ accessoire.prix }}€</p>
+                                    <p class="card-text">Prix:{{ accessoire.prix }}€</p>
 
                                 </div>
-                                <a href="{{ path('accessoires_show',{'slug':accessoire.slug}) }}" class="button1">Je découvre</a>
+
+                                {% if panierAccessoire[accessoire.id] is not defined %}
+                                    <a href="{{ path('accessoires_show',{'slug':accessoire.slug}) }}" class="button1">Je découvre</a>
+                                    {% else %}
+                                        <a href="{{ path('accessoires_show',{'slug':accessoire.slug}) }}" class="button1">Déjà dans le panier</a>
+                                {% endif %}
 
                             </div>
                         </div>

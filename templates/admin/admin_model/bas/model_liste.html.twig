@@ -1,6 +1,6 @@
 {% extends '/admin/index.html.twig'%}
 
-{% block title %}Gestion{% endblock %}
+{% block title %}Liste des modéles bas{% endblock %}
 
 
 
@@ -8,31 +8,30 @@
     <main class="container-fluid admin">
 
 
-        <section class="collections">
+        <section class="collections container">
 
-            <div class="container">
-                <hr>
-                <h2>Liste des modèles bas</h2>
-                 <a href="{{ path('model_bas_add') }}" class="btn btn-primary">Créer un nouveau modèle</a>
+            
+                <h2>Liste des modéles bas</h2>
+             
+        
 
-            </div>
-
-             <article class="container">
+             <article>
 
                 <div class="gallery row">
                        {% for model in models %}
                        <div class=" col-sm-6 col-xl-4 position">
                             <div class="card">
-                                <img class="card-img-top" src="{{ vich_uploader_asset(model.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ model.picture.alt }}" >
+                                <img class="card-img-top" src="{{ vich_uploader_asset(model.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ model.picture.alt }}">
 
                                 <div class="card-body">
                                     <p class="card-text">{{ model.nom }}</p>
                                     <p class="card-text">{{ model.prix }} €</p>
                                 </div>
 
-                                <div class="card-footer">
+                                <div class="card-footer d-flex justify-content-around">
                                     <a href="{{ path('model_bas_edit',{'slug':model.slug}) }}" class="btn btn-secondary">Éditer</a>
                                     <a href="{{ path('app_adminmodel_modeldeletebas',{'slug':model.slug}) }}" class="btn btn-danger">Supression</a>
+                                    <a href="{{ path('modele_bas_show',{'slug':model.slug}) }}" class="btn btn-beige">Voir</a>
                                 </div>
 
                             </div>
@@ -43,7 +42,10 @@
               </div>
 
             </article>
+               
+
         </section>
+         <a href="{{ path('model_bas_add') }}" class="btn btn-beige">Créer un nouveau modéle</a>
 
     </main>
 {% endblock %}

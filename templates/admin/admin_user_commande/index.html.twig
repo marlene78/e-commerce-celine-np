@@ -1,0 +1,63 @@
+{% extends '/admin/footer.html.twig'%}
+
+
+{% block title %}Gestion des commandes{% endblock %}
+
+{% block header %}
+    <header>
+        <div class="row justify-content-around">
+            <div class="logo row  align-items-center">
+                <a href="{{ path("home") }}"><img src="{{ asset('img/logo-3.png' ) }}" alt="logo"></a>
+                <a href="{{ path("home") }}"><h1 class="text-nowrap">Céline NP</h1></a>
+            </div>
+        </div>
+    </header>
+    <nav class="row justify-content-center nav-scroller py-1 mb-2">
+        <a href="{{ path("home") }}">Retour à l'accueil du site</a>
+        <a href="{{ path("admin") }}">Administration</a>
+    </nav>
+
+{% endblock %}
+
+{% block main%}
+<main class="container-fluid">
+
+
+    <section class="container">
+        <hr>
+        <h2>Commandes</h2>
+
+    <table class="table table-responsive-xl">
+        <thead>
+            <tr tab-font>
+                <th>Référence</th>
+                <th>Date</th>
+                <th>Valider</th>
+                <th>Etat</th>
+                <th>Total</th>
+                <th>Voir</th>
+                <th>Mettre à jour</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user_commande in user_commandes %}
+            <tr>
+                <td>{{ user_commande.reference }}</td>
+                <td>{{ user_commande.date ? user_commande.date|date('d-m-Y H:i:s') : '' }}</td>
+                <td>{{ user_commande.valider ? 'Yes' : 'No' }}</td>
+                <td>{{ user_commande.etat }}</td>
+                <td>{{ user_commande.total }}€</td>
+                <td><a href="{{ path('user_commande_show', {'id': user_commande.id}) }}"title="voir"><i class="fas fa-search"></i></a></td>
+                <td><a href="{{ path('user_commande_edit', {'id': user_commande.id}) }}" title="mettre à jour"><i class="fas fa-sync-alt"></i></a></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucunes commandes</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    </section>
+</main>
+{% endblock %}

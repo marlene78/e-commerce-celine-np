@@ -1,6 +1,6 @@
 {% extends '/admin/index.html.twig'%}
 
-{% block title %}Gestion{% endblock %}
+{% block title %}Liste des modéles hauts{% endblock %}
 
 
 
@@ -9,16 +9,14 @@
     <main class="container-fluid admin">
 
 
-        <section class="collections">
+        <section class="collections container">
 
-            <div class="container">
-                <hr>
-                <h2>Liste des modèles haut</h2>
-                 <a href="{{ path('model_haut_add') }}" class="btn btn-primary">Créer un nouveau modèle</a>
+    
+            <h2>Liste des modéles hauts</h2>
+               
+     
 
-            </div>
-
-             <article class="container">
+             <article>
 
                 <div class="gallery row">
                        {% for model in models %}
@@ -32,9 +30,10 @@
 
                                 </div>
 
-                                <div class="card-footer">
+                                <div class="card-footer d-flex justify-content-around">
                                     <a href="{{ path('model_haut_edit',{'slug':model.slug}) }}" class="btn btn-secondary">Éditer</a>
                                     <a href="{{ path('app_adminmodel_modeldeletehaut',{'slug':model.slug}) }}" class="btn btn-danger">Supression</a>
+                                    <a href="{{ path('modele_haut_show',{'slug':model.slug}) }}" class="btn btn-beige">Voir</a>
                                 </div>
 
                             </div>
@@ -45,7 +44,9 @@
              </div>
 
             </article>
+              
         </section>
+        <a href="{{ path('model_haut_add') }}" class="btn btn-beige">Créer un nouveau modèle</a>
 
     </main>
 {% endblock %}

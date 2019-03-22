@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes commandes{% endblock %}
+
+{% block main %}
+
+    <main class="container-fluid panier">
+
+        <div class="container">
+            <hr>
+            <h2>Mes commandes</h2>
+        </div>
+
+        <section class="container">
+
+
+
+
+        {% if user.UserCommandes is empty%}
+            <p>Aucune commande</p>
+            {% else %}
+                 <table class="table">
+                     <thead>
+                     <tr>
+                         <th scope="col">Référence</th>
+                         <th scope="col">Date</th>
+                         <th scope="col">Montant</th>
+                         <th scope="col">État</th>
+                         <th scope="col">Facture</th>
+                     </tr>
+                     </thead>
+                     {% for UserCommandes in user.UserCommandes %}
+                         <tr>
+                             <td>{{ UserCommandes.reference }}</td>
+                             <td>{{ UserCommandes.date | date('d/m/Y') }}</td>
+                             <td>{{ UserCommandes.total }}€</td>
+                             <td>{{ UserCommandes.etat }}</td>
+                             <td><a href="{{ path('facture',{'id':UserCommandes.id}) }}" target="_blank">Voir</a></td>
+                         </tr>
+                     {% endfor%}
+                     </tbody>
+                 </table>
+
+            {% endif%}
+
+     
+
+
+
+        </section>
+    </main>
+{% endblock %}

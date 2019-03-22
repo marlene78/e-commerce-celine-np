@@ -20,6 +20,10 @@
       
     </nav>
 
+    <div class="container">
+        <hr>
+    </div>
+
 {% endblock %}
 
 
@@ -27,15 +31,13 @@
   
  <main class="container-fluid admin">
 
-    <section>
+    <section class="container">
 
-        <div class="container">
-           <hr>
-           <h2>Créer une finition</h2>
+     
+        <h2>Créer une finition</h2>
 
-        </div>
 
-        <article class="container">
+        <article>
 
             {{ include('/admin/admin_finitions/_form.html.twig', {'button_label': 'Créer'}) }}
 

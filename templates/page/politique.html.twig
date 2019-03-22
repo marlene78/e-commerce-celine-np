@@ -13,7 +13,7 @@
       <h2>{{ page.titre }}</h2>
     </div>
 
-    <article class="container">
+    <article class="container footer">
 	    {% for article in page.articles%}
 			  <h4>{{ article.titre | raw('html')}}</h4>
 			  {{ article.contenu | raw('html') }}

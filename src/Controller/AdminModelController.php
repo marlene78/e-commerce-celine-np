@@ -25,14 +25,6 @@ class AdminModelController extends AbstractController
 {
 
 
-    /**
-     * @Route("model", name="model")
-     */
-    public function index()
-    {
-        return $this->render('admin/admin_model/index.html.twig');
-    }
-
 
 
 
@@ -96,8 +88,8 @@ class AdminModelController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($model);
             $em->flush();
-            $this->addFlash('success','le modèle a bien été mis à jour');
-            return $this->redirectToRoute('admin');
+            $this->addFlash('success','le modèle a bien été modifié');
+            return $this->redirectToRoute('model_haut_liste');
 
         }
         return $this->render('admin/admin_model/haut/model_haut_edit.html.twig',[
@@ -191,8 +183,8 @@ class AdminModelController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($model);
             $em->flush();
-            $this->addFlash('success','le modèle a bien été ajouté');
-            return $this->redirectToRoute('admin');
+            $this->addFlash('success','le modèle a bien été modifié');
+            return $this->redirectToRoute('model_bas_liste');
 
         }
         return $this->render('admin/admin_model/bas/model_bas_edit.html.twig',[
@@ -219,6 +211,10 @@ class AdminModelController extends AbstractController
 
         return $this->redirectToRoute('model_bas_liste');
     }
+
+
+
+
 
 
 

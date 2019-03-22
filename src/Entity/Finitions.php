@@ -11,7 +11,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FinitionsRepository")
  * @UniqueEntity("nom")
- * @ORM\HasLifecycleCallbacks
  *
  */
 class Finitions
@@ -55,24 +54,12 @@ class Finitions
     private $slug;
 
 
-    /**
-     * Permet d'initialiser le slug
-     *  @ORM\PrePersist
-     *  @ORM\PreUpdate
-     */
-    public function initialiazeSlug()
-    {
-        if(empty($this->slug)){
-            $slugify = new Slugify();
-            $this->slug = $slugify->slugify($this->nom);
-        }
-    }
-
 
     public function __construct()
     {
         $this->modelHauts = new ArrayCollection();
         $this->modelBas = new ArrayCollection();
+
     }
 
 
@@ -92,6 +79,9 @@ class Finitions
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
+
+        $slugify = new Slugify();
+        $this->slug = $slugify->slugify($this->nom);
 
         return $this;
     }
@@ -193,6 +183,7 @@ class Finitions
 
         return $this;
     }
+
 
 
 

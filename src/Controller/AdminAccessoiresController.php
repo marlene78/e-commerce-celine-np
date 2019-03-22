@@ -55,7 +55,7 @@ class AdminAccessoiresController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($accessoire);
             $entityManager->flush();
-            $this->addFlash('success', "l'accessoire' a bien été ajouté");
+            $this->addFlash('success', "L' accessoire a bien été ajouté");
 
             return $this->redirectToRoute('accessoires_index');
         }
@@ -78,8 +78,8 @@ class AdminAccessoiresController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-             $this->addFlash('success', "l'accessoire a été mis à jour");
-            return $this->redirectToRoute('admin');
+             $this->addFlash('success', "L' accessoire a été mis à jour");
+            return $this->redirectToRoute('accessoires_index');
         }
 
         return $this->render('admin/admin_accessoires/edit.html.twig', [
@@ -97,10 +97,10 @@ class AdminAccessoiresController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($accessoire);
             $entityManager->flush();
-            $this->addFlash('success', "l'accessoire' a été supprimé");
+            $this->addFlash('success', "L' accessoire a été supprimé");
         }
 
-        return $this->redirectToRoute('accessoires_index');
+        return $this->redirectToRoute('admin');
     }
 
 

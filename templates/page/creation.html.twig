@@ -4,44 +4,52 @@
 
 {% block main %}
 
-    <main class="container-fluid pageCollections">
-
-        <section class="collections">
-
-            <div class="container">
-                <hr>
-                <h2></h2>
-
-            </div>
-
-            <article class="container">
-
-                <div class="gallery row">
-                  
-                        <div class=" col-sm-6 col-xl-4 position">
-                            <div class="card">
-                                <img class="card-img-top" src="">
-
-                                <div class="card-body">
-                                    <p class="card-text"></p>
-                                    <p class="card-text"></p>
-
-                                </div>
-
-                            </div>
-                        </div>
-             
-
-                </div>
-
-            </article>
-
-        </section>
+<main class="container-fluid creation">
 
 
 
+    <div class="container">
+        <hr>
+        <h2>Mes créations</h2>
 
-    </main>
+    </div>
+
+    <br>
+    <br>
+
+{% for article in page.articles%}
+<div class="card mb-3">
+
+  <div class="row no-gutters">
+
+        <div class="col-md-8">
+            <img src="{{ vich_uploader_asset(article.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ article.picture.alt }}" class="card-img">
+        </div>
+
+        <div class="col-md-4 info-right">
+          <div class="card-body">   
+            <h5 class="card-title">{{ article.titre}}</h5>
+            <p class="card-text">{{ article.contenu | raw('html')}}</p>
+          </div>
+        </div>
+
+  </div>
+
+</div>
+{% endfor %}
+
+
+
+ 
+   
+    
+
+
+
+
+
+
+</main>
 
 
 {% endblock %}

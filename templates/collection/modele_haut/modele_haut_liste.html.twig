@@ -10,7 +10,7 @@
 
             <div class="container">
                 <hr>
-                <h2>Modèle haut</h2>
+                <h2>Modéle haut</h2>
 
             </div>
 
@@ -28,23 +28,18 @@
                                     <p class="card-text">À partir de: {{ model.prix }}€</p>
 
                                 </div>
-                                <a href="{{ path('modele_haut_show',{'slug':model.slug}) }}" class="button1">Je découvre</a>
+                                {% if panierHaut[model.id]  is not defined %}
+                                    <a href="{{ path('modele_haut_show',{'slug':model.slug}) }}" class="button1">Je découvre</a>
+                                    {% else %}
+                                        <a href="{{ path('modele_haut_show',{'slug':model.slug}) }}" class="button1">Déjà dans le panier</a>
+                                {% endif %}
+
 
                             </div>
                         </div>
                     {% endfor %}
-                </div>
-           
-                <a href="{{path('accessoires')}}" class="lien-accessoires">
-                <div class="container accessoires">
-                   <h3 class="display-6">Les Accessoires</h3>
-                    <p class="lead">consectetur adipiscing elit. Nunc vel dui a est sodales venenatis. Aenean sodales
-                    metus lectus, id ornare ex mattis vitae. Vestibulum quis erat nec leo sagittis cursus quis nec
-                    </p>
-                </div>
-               </a>
+                </div> 
           
-
 
 
 

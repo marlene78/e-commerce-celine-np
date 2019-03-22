@@ -10,8 +10,12 @@
     <h2>Mets à jour tes mensurations</h2>
   </div>
     <section class="container">
+    
 
-    {{ include('/user_mensuration/mensurations/_form.html.twig', {'button_label': 'Mettre à jour'} ) }}
+    {{ include('/user_mensuration/mensurations/_form.html.twig', {'button_label': 'Valider'} ) }}
+    <a href="javascript:history.back()">Retour</a>
+
+    
     </section>
    </main>
 {% endblock %}

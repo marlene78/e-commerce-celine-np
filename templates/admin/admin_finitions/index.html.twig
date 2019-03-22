@@ -1,48 +1,51 @@
 {% extends '/admin/index.html.twig'%}
 
-{% block title %}Gestion des finitions{% endblock %}
+{% block title %}Liste des finitions{% endblock %}
 
 
 {% block main %}
 
 <main class="container-fluid admin">
 
- <section class="collections">
+   <section class="collections container">
+   
+        <h2>Liste des finitions</h2>
 
-    <div class="container">
-        <hr>
-        <h2>Gestion des finitions</h2>
-        <a href="{{ path('finitions_new') }}" class="btn btn-primary">Créer une finition</a>
 
-    </div>
+         <article class="container">
 
-    <article>
+            <table class="table">
 
-        <div class="gallery row">
-            {% for finition in finitions %}
-            <div class="">
-                <div class="card">
-                   <img class="card-img-top" src="{{ vich_uploader_asset(finition.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ finition.picture.alt }}" >
+                <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th>Édition</th>
+                    <th>Suppression</th>
+                </tr>
+                </thead>
 
-                    <div class="card-body">
-                        <p class="card-text">{{ finition.nom }}</p>
-                        <p class="card-text">{{ finition.prix }}€</p>
-                    </div>
+                <tbody>
+                {% for finition in finitions %}
+                    <tr>
+                        <th scope="row">{{ finition.nom }}</th>
+                        <td scope="row"><a href="{{ path('finitions_edit',{'slug':finition.slug}) }}" class="btn btn-grey">Éditer</a></td>
+                        <td><a href="{{ path('finitions_delete' ,{'slug':finition.slug}) }}" class="btn btn-danger">Supprimer</a></td>
+                    </tr>
+                  {% else %}
+                    <p>Vous n'avez pas encore crée de finition</p>
+                {% endfor %}
+         
+                </tbody>
 
-                    <div class="card-footer">
-                    <a href="{{ path('finitions_edit', {'slug': finition.slug}) }}" class="btn btn-secondary">Éditer</a>
-                    <a href="{{ path('finitions_delete', {'slug': finition.slug}) }}" class="btn btn-danger">Supression</a>
-                    </div>
+            </table>
 
-                </div>
-            </div>
-            {% else %}
-                <p>Aucunes finitions trouvées</p>
-            {% endfor %}
-        </div>
+        </article>
+            
 
-    </article>
- </section>
+
+    </section>
+
+    <a href="{{ path('finitions_new') }}" class="btn btn-beige">Ajouter une finition</a>
 
 </main>
 

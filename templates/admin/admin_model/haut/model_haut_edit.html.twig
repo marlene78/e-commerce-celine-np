@@ -19,22 +19,24 @@
     <nav class="row justify-content-center nav-scroller py-1 mb-2">
         <a href="{{ path("home") }}">Retour à l'accueil du site</a>
         <a href="{{ path("admin") }}">Administration</a>
-        <a href="{{ path("model_haut_liste") }}">Liste des Modèles Hauts</a>
+        <a href="{{ path("model_haut_liste") }}">Liste des Modéles Hauts</a>
     </nav>
+    <div class="container">
+        <hr>
+
+    </div>
 
 {% endblock %}
 
 
 {% block main %}
     <main class="container-fluid admin">
-        <section>
-            <div class="container">
-                <hr>
-                <h2>Édition</h2>
 
-            </div>
+        <section class="container">
+           
+            <h2>Édition</h2>
 
-            <article class="container">
+            <article>
 
                 {{ form_start(createForm) }}
                 
@@ -57,7 +59,7 @@
                 {{ form_row(createForm.description) }}
                 {{ form_row(createForm.tissu) }}
                 {{ form_row(createForm.finition) }}
-                <button type="submit" class="btn btn-success">Éditer</button>
+                <button type="submit" class="btn btn-grey">Éditer</button>
                 {{ form_end(createForm) }}
             </article>
 

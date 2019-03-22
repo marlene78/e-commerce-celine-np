@@ -2,8 +2,14 @@
 
 namespace App\Controller;
 
+
+use App\Entity\Contact;
 use App\Entity\Page;
+
+use App\Form\ContactType;
+use App\Notifications\ContactNotification;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,13 +22,10 @@ class PageController extends AbstractController
     {
         $repo = $this->getDoctrine()->getRepository(Page::class);
         $page = $repo->find(5);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
+    
 
         return $this->render('page/concept.html.twig',[
-            'page'=>$page,
-            'footer'=>$footer,
-            'header'=>$header
+            'page'=>$page
         ]);
     }
 
@@ -38,13 +41,11 @@ class PageController extends AbstractController
     {
         $repo = $this->getDoctrine()->getRepository(Page::class);
         $page = $repo->find(6);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
+ 
 
         return $this->render('page/coaching.html.twig',[
-            'page'=>$page,
-            'footer'=>$footer,
-            'header'=>$header
+            'page'=>$page
+    
         ]);
     }
 
@@ -61,13 +62,11 @@ class PageController extends AbstractController
     {
         $repo = $this->getDoctrine()->getRepository(Page::class);
         $page = $repo->find(7);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
+ 
 
         return $this->render('page/about.html.twig',[
-            'page'=>$page,
-            'footer'=>$footer,
-            'header'=>$header
+            'page'=>$page
+         
         ]);
     }
 
@@ -82,13 +81,11 @@ class PageController extends AbstractController
     {
         $repo = $this->getDoctrine()->getRepository(Page::class);
         $page = $repo->find(13);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
+    
 
         return $this->render('page/creation.html.twig',[
-            'page' =>$page,
-            'footer'=>$footer,
-            'header'=>$header
+            'page' =>$page
+           
         ]);
 
     }
@@ -106,21 +103,33 @@ class PageController extends AbstractController
 *************/
 
 
-
     /**
      * @Route("/contact", name="contact")
+     * @param Request $request
+     * @param ContactNotification $contactNotification
+     * @return Response
      */
-     public function contact():Response
+     public function contact(Request $request, ContactNotification $contactNotification):Response
      {
+
          $repo = $this->getDoctrine()->getRepository(Page::class);
          $page = $repo->find(8);
-         $footer = $repo->findFooter();
-         $header = $repo->findHeader();
+
+
+         $contact = new Contact();
+         $form = $this->createForm(ContactType::class, $contact);
+         $form->handleRequest($request);
+         if($form->isSubmitted() && $form->isValid())
+         {
+             $contactNotification->notify($contact);
+             $this->addFlash('success', 'Votre message a été transmis');
+         }
+
+
          
          return $this->render('page/contact.html.twig',[
              'page'=>$page,
-             'footer'=>$footer,
-             'header'=>$header
+             'createForm' => $form->createView()
 
          ]);
      }
@@ -134,13 +143,11 @@ class PageController extends AbstractController
      {
          $repo = $this->getDoctrine()->getRepository(Page::class);
          $page = $repo->find(9);
-         $footer = $repo->findFooter();
-         $header = $repo->findHeader();
+   
 
          return $this->render('page/livraison.html.twig',[
-            'page'=>$page,
-             'footer'=>$footer,
-             'header'=>$header
+            'page'=>$page
+          
          ]);
      }
 
@@ -152,13 +159,11 @@ class PageController extends AbstractController
      {
         $repo = $this->getDoctrine()->getRepository(Page::class);
         $page = $repo->find(10);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
+   
 
          return $this->render('page/information.html.twig',[
-            'page'=>$page,
-             'footer'=>$footer,
-             'header'=>$header
+            'page'=>$page
+           
          ]);
      }
 
@@ -170,13 +175,11 @@ class PageController extends AbstractController
      {
         $repo = $this->getDoctrine()->getRepository(Page::class);
         $page = $repo->find(11);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
+    
 
          return $this->render('page/mentions.html.twig',[
-            'page'=>$page,
-             'footer'=>$footer,
-             'header'=>$header
+            'page'=>$page
+          
          ]);
      }
 
@@ -189,13 +192,11 @@ class PageController extends AbstractController
      {
         $repo = $this->getDoctrine()->getRepository(Page::class);
         $page = $repo->find(12);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
+    
 
          return $this->render('page/politique.html.twig',[
-            'page'=>$page,
-             'footer'=>$footer,
-             'header'=>$header
+            'page'=>$page
+           
          ]);
 
      }

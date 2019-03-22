@@ -1,6 +1,6 @@
 {% extends '/admin/index.html.twig'%}
 
-{% block title %}Admin {{ page.titre }}{% endblock %}
+{% block title %}admin {{page.titre}} {{ page.titre }}{% endblock %}
 
 {% block header %}
 
@@ -21,6 +21,10 @@
         <a href="{{ path("pageListe") }}">Liste des pages</a>
     </nav>
 
+      <div class="container">
+        <hr>
+    </div>
+
 {% endblock %}
 
 
@@ -32,8 +36,8 @@
 <main class="container-fluid admin">
 
     <div class="container">
-        <hr>
-        <h2>Administration de la page : {{ page.titre }}</h2>
+     
+        <h2>{{ page.titre }}</h2>
 
         <table class="table">
 
@@ -50,12 +54,14 @@
                     <th scope="row">{{ page.titre }}</th>
                     <th scope="row">
                         {% if page.picture is empty %}
-                          Aucune image
+                          <p>Vous ne pouvez pas ajouter d'image pour cette page</p>
+
                            {% else %}
                               <img src="{{ vich_uploader_asset(page.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{page.picture.alt}}" style="width:18rem">
-                        {% endif %}
                     </th>
                     <td><a href="{{ path('app_adminpage_pageedition',{id:page.id}) }}" class="btn btn-secondary">Éditer</a></td>
+
+                    {% endif %}
                 </tr>
 
             </tbody>
@@ -97,7 +103,7 @@
         {# revoir l'affichage du bouton#}
             {% if page.id(5) %}
 
-                <a href="{{ path('addarticle') }}" class="btn btn-secondary">Ajouter un article</a>
+                <a href="{{ path('addarticle') }}" class="btn btn-beige">Ajouter un article</a>
                 {% else %}
                   <p>Pour ajouter un nouvel article à cette page merci de contacter le développeur.</p>
             {% endif %}

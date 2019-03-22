@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Page;
+
 use App\Entity\UserIdentity;
 
 use App\Form\UserIdentityType;
@@ -18,6 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserIdentityController extends AbstractController
 {
 
+    // Création de son profil
     /**
      * @Route("/new", name="user_identity_new", methods={"GET","POST"})
      */
@@ -39,34 +40,30 @@ class UserIdentityController extends AbstractController
             return $this->redirectToRoute('fos_user_profile_show');
         }
 
-        $repo = $this->getDoctrine()->getRepository(Page::class);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
+
 
         return $this->render('user_identity/new.html.twig', [
             'user_identity' => $userIdentity,
-            'form' => $form->createView(),
-            'header' => $header,
-            'footer' =>$footer
+            'form' => $form->createView()
         ]);
     }
 
+
+    // Visualisation du profil
     /**
      * @Route("/{id}", name="user_identity_show", methods={"GET"})
      */
     public function show(UserIdentity $userIdentity): Response
     {
-        $repo = $this->getDoctrine()->getRepository(Page::class);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
+       
 
 
         return $this->render('user_identity/show.html.twig', [
-            'user_identity' => $userIdentity,
-            'header' => $header,
-            'footer' =>$footer
+            'user_identity' => $userIdentity
         ]);
     }
+
+    // Édition du profil
 
     /**
      * @Route("/{id}/edit", name="user_identity_edit", methods={"GET","POST"})
@@ -87,17 +84,17 @@ class UserIdentityController extends AbstractController
             ]);
         }
 
-        $repo = $this->getDoctrine()->getRepository(Page::class);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
+ 
 
         return $this->render('user_identity/edit.html.twig', [
             'user_identity' => $userIdentity,
-            'form' => $form->createView(),
-            'header' => $header,
-            'footer' => $footer
+            'form' => $form->createView()
+        
         ]);
     }
+
+
+    // Suppression du profil
 
     /**
      * @Route("/{id}", name="user_identity_delete", methods={"DELETE"})

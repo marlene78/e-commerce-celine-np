@@ -2,8 +2,6 @@
 
 {{ form_widget(form)}}
 
- {#<input type="hidden" id="user_identity_user" name="user_identity[user]" required="required" class="form-control" value="{{ app.user.id }}"/>#}
-
- <button class="button1">{{ button_label|default('Valider') }}</button>
+ <button class="btn btn-grey">{{ button_label|default('Valider') }}</button>
 
  {{ form_end(form)}}

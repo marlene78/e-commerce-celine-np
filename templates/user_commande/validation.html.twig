@@ -1,0 +1,218 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Validation{% endblock %}
+
+
+{% block header %}
+    <header>
+        <div class="row justify-content-around">
+
+            <div class="logo row  align-items-center">
+                <a href="{{ path("home") }}"><img src="{{ asset('img/logo-3.png' ) }}" alt="logo"></a>
+                <a href="{{ path("home") }}"><h1 class="text-nowrap">Céline NP</h1></a>
+            </div>
+
+        </div>
+    </header>
+    <nav class="row justify-content-center nav-scroller py-1 mb-2">
+     
+    </nav>
+
+{% endblock %}
+
+{% block main %}
+
+
+    {% set sousTotalPanier = 0 %}
+    {% set TotalPanierHaut = 0 %}
+    {% set TotalPanierBas = 0 %}
+    {% set TotalPanierAccessoire = 0 %}
+    {% set MontantCommande = 0  %}
+
+    <main class="container-fluid panier">
+
+
+        <div class="container">
+            <hr>
+            <h2>Validation</h2>
+        </div>
+
+        <article class="container">
+
+            <table class="table table-responsive-xl">
+
+              <thead class="tab-font">
+                <tr>
+                  <th scope="col">Désignation</th>
+                  <th scope="col">prix</th>
+                  <th scope="col">quantité</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                  {% for modeles in modelehaut %}
+
+                  <tr>
+                    <th scope="col">Modéle Haut</th>
+                    <td></td>
+                    <td></td>
+                    <td>{{ panierHaut[modeles.id].total_modele_haut }}€</td>
+                  </tr>
+
+                  <tr>
+                    <th scope="col">{{ panierHaut[modeles.id].Nom}}</th>
+                    <td>{{ panierHaut[modeles.id].Prix}}€</td>
+                    <td>1</td>
+                  </tr>
+
+                  <tr>
+                    <td>{{ panierHaut[modeles.id].tissu}}</td>
+                    <td>{{ panierHaut[modeles.id].prix_tissu}}€</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>{{ panierHaut[modeles.id].finition }}</td>
+                    <td>{{ panierHaut[modeles.id].prix_finition }}€</td>
+                    <td>1</td>
+                  </tr>
+
+
+
+                  {% set TotalPanierHaut =  TotalPanierHaut + panierHaut[modeles.id].total_modele_haut  %}
+
+
+
+                {% endfor %}
+
+                {% for modeles in modelebas %}
+
+                  <tr>
+                    <th scope="col">Modéle Bas</th>
+                    <td></td>
+                    <td></td>
+                    <td>{{ panierBas[modeles.id].total_modele_bas }}€</td>
+                  </tr>
+
+                  <tr>
+                    <th scope="col">{{ panierBas[modeles.id].Nom }}</th>
+                    <td>{{ panierBas[modeles.id].Prix }}</td>
+                    <td>1</td>
+                  </tr>
+
+                  <tr>
+                    <td>{{ panierBas[modeles.id].tissu }}</td>
+                    <td>{{ panierBas[modeles.id].prix_tissu }}</td>
+                    <td>1</td>
+                  </tr>
+
+                  <tr>
+                    <td>{{ panierBas[modeles.id].finition }}</td>
+                    <td>{{ panierBas[modeles.id].prix_finition }}</td>
+                    <td></td>
+                  </tr>
+                  {% set TotalPanierBas =  TotalPanierBas + panierBas[modeles.id].total_modele_bas  %}
+                {% endfor %}
+
+                {% for accessoire in accessoires %}
+                  <tr>
+                    <th>Accessoires</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+           
+                  <tr>
+                    <td>{{ panierAccessoire[accessoire.id].Nom }}</td>
+                    <td>{{ panierAccessoire[accessoire.id].Prix }}€</td>
+                    <td>{{ panierAccessoire[accessoire.id].quantite }}</td>
+                    <td>{{ panierAccessoire[accessoire.id].prix_total_accessoire }}€</td>
+                  </tr>
+                   {% set TotalPanierAccessoire = TotalPanierAccessoire + panierAccessoire[accessoire.id].prix_total_accessoire %}
+
+                {% endfor %}
+        
+                <tr>
+                  <td></td>
+                  <th>Livraison</th>
+                  <td></td>
+                  <td>Gratuite</td>
+                </tr>
+
+                 {% set sousTotalPanier = TotalPanierAccessoire +  TotalPanierBas + TotalPanierHaut  %}
+
+                <tr class="tab-font">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <th>Montant Total</th>
+                </tr>
+                <tr class="tab-font">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                   <th>{{ sousTotalPanier }}€</th>
+                </tr>
+
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <th class="table-borderless">
+                   <form action="{{ path('ckeckout') }}" method="POST">
+
+                      <script
+                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="pk_test_DyKCBDflbRFCsWlM1GS0Xxfw"
+                        data-amount="{{ MontantCommande * 100 }}"
+                        data-name="Céline NP"
+                        data-description="Ma créativité au service de ta beauté"
+                        data-zip-code="true"
+                        data-image="{{ asset('img/logo-3.png')}}"
+                        data-locale="auto"
+                        data-label="Paiement"
+                        data-currency="eur">
+                      </script>
+                    </form>
+
+                  </th>
+                </tr>
+
+                <tr class="table-borderless">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <th><a href="{{ path('delete_Usercommande') }}">Annuler</a></th>
+                </tr>
+              
+              </tbody>
+                      
+           
+          </table>
+
+         
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </article>
+
+    </main>
+
+
+
+
+{% endblock %}
+
+

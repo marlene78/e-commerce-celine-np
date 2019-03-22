@@ -15,109 +15,107 @@
         </div>
        
 
-<article class="container mon-profil">
+    <article class="container mon-profil">
 
-  <div class="card-columns">
+      <div class="card-columns">
 
-    <div class="card">
-   
-      <div class="card-body">
-        <h3>Mon Profil</h3>
+        <div class="card">
 
-        <br>
-        <ul class="list-group list-group-flush">
+          <div class="card-body">
+            <h3>Mon Profil</h3>
 
-          {% if user.userIdentity is not empty %}
+            <br>
+            <ul class="list-group list-group-flush">
 
-            <li class="list-group-item"><a href="{{ path('user_identity_edit' , {id:user.userIdentity.id}) }}">Mettre à jour mes informations</a></li>
-            {% else %}
+              {% if user.userIdentity is not empty %}
 
-           <li class="list-group-item"><a href="{{ path('user_identity_new') }}" class="button1">Clique ici pour renseiger tes informations</a></li>
-           {% endif %}
+                <li class="list-group-item"><a href="{{ path('user_identity_edit' , {id:user.userIdentity.id}) }}">Mettre à jour mes informations</a></li>
+                {% else %}
+
+               <li class="list-group-item"><a href="{{ path('user_identity_new') }}" class="button1">Clique ici pour renseiger tes informations</a></li>
+               {% endif %}
 
 
 
-          <li class="list-group-item"><a href="/profile/edit">Mettre à jour mon mot de passe</a></li>
-          <li class="list-group-item"><a href="/profile/edit">Mettre à jour mon adresse email</a></li>
-          <li class="list-group-item">{{ include('user/_delete_form.html.twig') }}</li>
+              <li class="list-group-item"><a href="/profile/edit">Mettre à jour mon mot de passe</a></li>
+              <li class="list-group-item"><a href="/profile/edit">Mettre à jour mon adresse email</a></li>
+              <li class="list-group-item">{{ include('user/_delete_form.html.twig') }}</li>
 
-        </ul>
-        <br>
-          {% if user.userIdentity is not empty %}
-          <a  href="{{ path('user_identity_show' , {id:user.userIdentity.id}) }}" class="icon-profil" title="voir mon profil"><i class="fas fa-address-card"></i></a>
-          {% else %}
-          {% endif %}
+            </ul>
+            <br>
+              {% if user.userIdentity is not empty %}
+              <a  href="{{ path('user_identity_show' , {id:user.userIdentity.id}) }}" class="icon-profil" title="voir mon profil"><i class="fas fa-address-card"></i></a>
+              {% else %}
+              {% endif %}
+
+          </div>
+        </div>
+
+
+
+        <div class="card">
+          <img src="{{asset('img/rawpixel-617391-unsplash.jpg')}}" class="card-img-top" alt="...">
+        </div>
+
+
+
+        <div class="card">
+          <div class="card-body">
+            <h3>Mes Commandes</h3>
+            <p>Consulte l'encours de tes commandes</p>
+            <a href="{{ path('commande_show') }}" class="icon-profil"  title="voir mes commandes"><i class="fas fa-box-open"></i></a>
+          </div>
+        </div>
+
+
+        <div class="card">
+          <div class="card-body">
+            <h3>Mes Mensurations</h3>
+
+              {% if user.mensurations is not empty %}
+
+                <a href="{{ path('mensurations_edit' , {id:user.mensurations.id}) }}">Mettre à jour mes mensurations</a>
+
+                 {% else %}
+                 <a href="{{ path('mensurations_new')}}" class="button1">Clique ici pour ajouter tes mensurations</a>
+              {% endif %}
+
+
+              {% if user.mensurations is not empty %}
+              <a href="{{ path('mensurations_show' ,  {id:user.mensurations.id} ) }}" class="icon-profil" title="mes mensurations"><i class="fas fa-ruler-horizontal"></i></a>
+              {% else %}
+              {% endif %}
+
+
+          </div>
+        </div>
+
+
+
+
+        <div class="card">
+          <div class="card-body">
+            <h3>Une Question ?</h3>
+            <p>N'hésite pas à me contacter.</p>
+            <a href="{{ path('user_contact') }}" class="icon-profil" title="mes messages"><i class="fas fa-envelope"></i></a>
+
+
+
+
+
+          </div>
+        </div>
+
+
+
+
 
       </div>
-    </div>
-
-
-
-    <div class="card">
-      <img src="{{asset('img/rawpixel-617391-unsplash.jpg')}}" class="card-img-top" alt="...">
-    </div>
-
-
-
-    <div class="card">
-      <div class="card-body">
-        <h3>Mes Commandes</h3>
-        <p>This card has supporting text below as a natural lead-in to additional content.</p>
-        <a href="" class="icon-profil"  title="voir mes commandes"><i class="fas fa-box-open"></i></a>
-      </div>
-    </div>
-
-
-    <div class="card">
-      <div class="card-body">
-        <h3>Mes Mensurations</h3>
-
-          {% if user.mensurations is not empty %}
-
-            <a href="{{ path('mensurations_edit' , {id:user.mensurations.id}) }}">Mettre à jour mes mensurations</a>
-
-             {% else %}
-             <a href="{{ path('mensurations_new')}}" class="button1">Clique ici pour ajouter tes mensurations</a>
-          {% endif %}
-
-
-      
-
-        <p>This card has a regular title and short paragraphy of text below it.</p>
-
-          {% if user.mensurations is not empty %}
-          <a href="{{ path('mensurations_show' ,  {id:user.mensurations.id} ) }}" class="icon-profil" title="mes mensurations"><i class="fas fa-ruler-horizontal"></i></a>
-          {% else %}
-          {% endif %}
-
-
-      </div>
-    </div>
 
 
 
 
-    <div class="card">
-      <div class="card-body">
-        <h3>Une Question ?</h3>
-        <p>This is another card with title and supporting text below. This card has some additional content to make it slightly taller overall.</p>
-        <a href="" class="icon-profil" title="mes messages"><i class="fas fa-envelope"></i></a>
-      </div>
-    </div>
-  </div>
-
-
-
-{#  <article class="container">
-
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-</div>
-        </article>
-
-  #} 
-      
+    </article>
 
 
 
@@ -128,6 +126,5 @@
 
 
 
-
-    </main>
+</main>
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-use App\Entity\Page;
+
 use App\Entity\Mensurations;
 
 use App\Form\MensurationsType;
@@ -41,15 +41,12 @@ class MensurationsController extends AbstractController
             return $this->redirectToRoute('fos_user_profile_show');
         }
 
-        $repo = $this->getDoctrine()->getRepository(Page::class);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
+
 
         return $this->render('user_mensuration/mensurations/new.html.twig', [
             'mensuration' => $mensuration,
-            'form' => $form->createView(),
-            'header'=> $header,
-            'footer'=>$footer
+            'form' => $form->createView()
+           
         ]);
     }
 
@@ -59,13 +56,10 @@ class MensurationsController extends AbstractController
     public function show(Mensurations $mensuration): Response
     {
 
-        $repo = $this->getDoctrine()->getRepository(Page::class);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
+
         return $this->render('user_mensuration/mensurations/show.html.twig', [
-            'mensuration' => $mensuration,
-            'footer'=> $footer,
-            'header'=>$header
+            'mensuration' => $mensuration
+      
         ]);
     }
 
@@ -85,15 +79,12 @@ class MensurationsController extends AbstractController
             ]);
         }
 
-        $repo = $this->getDoctrine()->getRepository(Page::class);
-        $footer = $repo->findFooter();
-        $header = $repo->findHeader();
+ 
 
         return $this->render('user_mensuration/mensurations/edit.html.twig', [
             'mensuration' => $mensuration,
-            'form' => $form->createView(),
-            'footer'=> $footer,
-            'header'=>$header
+            'form' => $form->createView()
+          
         ]);
     }
 

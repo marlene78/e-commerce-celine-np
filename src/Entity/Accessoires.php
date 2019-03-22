@@ -9,7 +9,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AccessoiresRepository")
  * @UniqueEntity("nom")
- *  @ORM\HasLifecycleCallbacks
  */
 class Accessoires
 {
@@ -41,18 +40,6 @@ class Accessoires
      */
     private $slug;
 
-    /**
-     * Permet d'initialiser le slug
-     *  @ORM\PrePersist
-     *  @ORM\PreUpdate
-     */
-    public function initialiazeSlug()
-    {
-        if(empty($this->slug)){
-            $slugify = new Slugify();
-            $this->slug = $slugify->slugify($this->nom);
-        }
-    }
 
 
     public function getId(): ?int
@@ -68,6 +55,9 @@ class Accessoires
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
+
+        $slugify = new Slugify();
+        $this->slug = $slugify->slugify($this->nom);
 
         return $this;
     }

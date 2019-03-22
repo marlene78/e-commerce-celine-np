@@ -12,7 +12,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ModelHautRepository")
  * @UniqueEntity("nom")
- * @ORM\HasLifecycleCallbacks
  *
  */
 class ModelHaut
@@ -61,20 +60,6 @@ class ModelHaut
      */
     private $slug;
 
-    /**
-     * Permet d'initialiser le slug
-     *  @ORM\PrePersist
-     *  @ORM\PreUpdate
-     */
-    public function initialiazeSlug()
-    {
-        if(empty($this->slug)){
-            $slugify = new Slugify();
-            $this->slug = $slugify->slugify($this->nom);
-        }
-    }
-
-
 
 
 
@@ -83,6 +68,7 @@ class ModelHaut
     {
         $this->tissu = new ArrayCollection();
         $this->finition = new ArrayCollection();
+
 
     }
 
@@ -101,6 +87,9 @@ class ModelHaut
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
+
+        $slugify = new Slugify();
+        $this->slug = $slugify->slugify($this->nom);
 
         return $this;
     }
@@ -142,6 +131,8 @@ class ModelHaut
 
         return $this;
     }
+
+
 
     /**
      * @return Collection|Tissu[]
@@ -194,7 +185,7 @@ class ModelHaut
         return $this;
     }
 
-    public function removeFifinition(Finitions $finition): self
+    public function removeFinition(Finitions $finition): self
     {
         if ($this->finition->contains($finition)) {
             $this->finition->removeElement($finition);
@@ -202,6 +193,8 @@ class ModelHaut
 
         return $this;
     }
+
+
 
     public function getSlug(): ?string
     {
@@ -214,6 +207,18 @@ class ModelHaut
 
         return $this;
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

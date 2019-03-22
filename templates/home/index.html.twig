@@ -11,8 +11,25 @@
 
         <section class="accueil">
 
+
+
             <article>
-                <h2>Une Robe??...Non Ma Robe!</h2>
+                <div id="home-news">
+                <div class="home_header">
+                  <strong>Céline NP</strong>
+                  <span>styliste</span>
+                </div>
+                <div class="home_header">
+                  <strong>Ma Créativité</strong>
+                  <span>au service de ta féminité</span>
+                </div>
+                <div class="home_header">
+                  <strong>Une Passion</strong>
+                  <span>au service de ta beauté</span>
+                </div>
+              </div>
+
+
                 <p>{{ page.articles.get(0).contenu | raw('html') }}</p>
                 <a href="{{ path("collection_index") }}" class="button2">Voir les collections</a>
             </article>
@@ -27,14 +44,14 @@
 
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h3 class="display-6">Compose ta tenue</h3>
+                <h3 class="display-4">Compose ta tenue</h3>
                 <hr>
                 <p class="lead">Hae duae provinciae bello quondam piratico catervis mixtae praedonum a </p>
 
             </div>
         </div>
 
-        <article class="container">
+        <article class="container first">
 
             <h3 class="lastCollection">Découvre mes collections à personnaliser</h3>
 
@@ -52,58 +69,59 @@
                 </div>
 
 
-            <div class="card">
-              <img class="card-img-top" src="{{asset('img/modelhaut.jpg')}}" alt="Card image cap">
-              <div class="card-body">
-                <h3 class="card-title">les Modéles Hauts</h3>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="{{path('modele_haut')}}" class="button">Je découvre</a>
+
+              <div class="card">
+                <img class="card-img-top" src="{{asset('img/tamara-bellis-403583-unsplash.jpg')}}" alt="les modèles bas">     
+                <div class="card-body">
+                  <h3 class="card-title">Les Modèles bas</h3>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vestibulum rhoncus magna,velit dapibus aliquet consequat, nisi mauris vehicula purus.</p>
+                  <a href="{{path('modele_bas')}}" class="btn btn-beige">Je découvre</a>
+                </div>
+               
               </div>
-            </div>
 
 
-            <div class="card">
-              <img class="card-img-top" src="{{asset('img/tamara-bellis-403583-unsplash.jpg')}}" alt="Card image cap">     
-              <div class="card-body">
-                <h3 class="card-title">Les Modèles bas</h3>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <a href="{{path('modele_bas')}}" class="button">Je découvre</a>
+              <div class="card">
+                <img class="card-img-top" src="{{asset('img/modelhaut.jpg')}}" alt="les modéles hauts">
+                <div class="card-body">
+                  <h3 class="card-title">les Modéles Hauts</h3>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vestibulum rhoncus magna. Nulla facilisi unc efficitur, velit dapibus aliquet consequat, nisi mauris vehicula purus.</p>
+                  <a href="{{path('modele_haut')}}" class="btn btn-beige">Je découvre</a>
+                </div>
               </div>
-             
-            </div>
 
-      
 
-            <div class="card">
-              <img class="card-img-top" src="{{asset('img/s-o-c-i-a-l-c-u-t-1072401-unsplash.jpg')}}" alt="Card image">
-              <div class="card-body">
-                <h3 class="card-title">Les Accessoires</h3>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="{{path('accessoires')}}" class="button">Je découvre</a>
+
+              <div class="card">
+                <img class="card-img-top" src="{{ asset('img/choix.jpg') }}" alt="compose ta tenue">
+              
               </div>
-            </div>
 
-            <div class="card">
-               <blockquote class="blockquote mb-0 card-body">
-                <p>"I am in the right place at the right time, doing the right thing"</p>
-               </blockquote>
-               <footer>Louise Hay</footer>
-               <div class="bgWhite"></div>
-            </div>
+    
 
-
-            <div class="card">
-              <img class="card-img-top" src="img/ambar-simpang-1115570-unsplash.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h3 class="card-title">La Collection 2018</h3>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="" class="button">Je découvre</a>
+              <div class="card">
+                 <blockquote class="blockquote mb-0 card-body">
+                  <p>"I am in the right place at the right time, doing the right thing"</p>
+                 </blockquote>
+                 <footer>Louise Hay</footer>
+                 <div class="bgWhite"></div>
               </div>
-            </div>
+
+
+
+              <div class="card">
+                <img class="card-img-top" src="{{asset('img/s-o-c-i-a-l-c-u-t-1072401-unsplash.jpg')}}" alt="les accessoires">
+                <div class="card-body">
+                  <h3 class="card-title">Les Accessoires</h3>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vestibulum rhoncus magna. Nulla facilisi,Nunc efficitur, velit dapibus aliquet consequat, nisi mauris vehicula purus.</p>
+                  <a href="{{path('accessoires')}}" class="btn btn-beige">Je découvre</a>
+                </div>
+              </div>
+
 
 
      
-        </div>
+          </div>
 
         </article>
 
@@ -117,15 +135,17 @@
 
 
 
-                <img class="card-img-top" src="img/rocknwool-282399-unsplash.jpg" alt="Card image cap">
+                <img class="card-img-top" src="img/rocknwool-282399-unsplash.jpg" alt="mes créations">
                 <div class="card-body">
                     <p class="card-text">This is another card with title and supporting text below. This card has some additional content to make it slightly taller overall.This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer</p>
+
+                     <a href="{{ path('creation') }}" class="button2 creation">Voir les créations</a>
+
                 </div>
 
 
 
-            <a href="{{ path('creation') }}" class="button2 creation">Voir les créations</a>
-
+           
 
          
         <div class="jumbotron jumbotron-container jumbotronBg">
@@ -151,6 +171,4 @@
 
 
 {% endblock %}
-{% block section %}
 
-{% endblock %}

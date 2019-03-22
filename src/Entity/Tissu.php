@@ -7,11 +7,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TissuRepository")
  * @UniqueEntity("nom")
- * @ORM\HasLifecycleCallbacks
  */
 class Tissu
 {
@@ -24,16 +24,19 @@ class Tissu
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $nom;
 
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank()
      */
     private $prix;
 
     /**
+     *@Assert\NotBlank()
      * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
      */
     private $picture;
@@ -56,18 +59,7 @@ class Tissu
     private $slug;
 
 
-    /**
-     * Permet d'initialiser le slug
-     *  @ORM\PrePersist
-     *  @ORM\PreUpdate
-     */
-    public function initialiazeSlug()
-    {
-        if(empty($this->slug)){
-            $slugify = new Slugify();
-            $this->slug = $slugify->slugify($this->nom);
-        }
-    }
+
 
 
     public function __construct()
@@ -75,9 +67,8 @@ class Tissu
 
         $this->modelHauts = new ArrayCollection();
         $this->modelBas = new ArrayCollection();
+
     }
-
-
 
 
     public function getId(): ?int
@@ -93,6 +84,9 @@ class Tissu
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
+
+        $slugify = new Slugify();
+        $this->slug = $slugify->slugify($this->nom);
 
         return $this;
     }
@@ -196,6 +190,10 @@ class Tissu
 
         return $this;
     }
+
+
+
+
 
 
 

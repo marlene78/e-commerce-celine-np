@@ -11,7 +11,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ModelBasRepository")
  * @UniqueEntity("nom")
- * @ORM\HasLifecycleCallbacks
  */
 class ModelBas
 {
@@ -61,20 +60,6 @@ class ModelBas
     private $slug;
 
 
-    /**
-     * Permet d'initialiser le slug
-     *  @ORM\PrePersist
-     *  @ORM\PreUpdate
-     */
-    public function initialiazeSlug()
-    {
-        if(empty($this->slug)){
-            $slugify = new Slugify();
-            $this->slug = $slugify->slugify($this->nom);
-        }
-    }
-
-
 
     public function __construct()
     {
@@ -102,9 +87,11 @@ class ModelBas
     {
         $this->nom = $nom;
 
+        $slugify = new Slugify();
+        $this->slug = $slugify->slugify($this->nom);
+
         return $this;
     }
-
 
 
 

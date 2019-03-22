@@ -18,7 +18,9 @@
         <a href="{{ path("home") }}">Retour à l'accueil du site</a>
         <a href="{{ path("admin") }}">Administration</a>
     </nav>
-
+    <div class="container">
+      <hr>
+    </div>
 {% endblock %}
 
 {% block main %}
@@ -26,7 +28,7 @@
         <!--page admin---->
 
         <div class="container">
-            <hr>
+      
             <h2>Administration</h2>
 
         </div>
@@ -34,18 +36,18 @@
 
         <article class="container">
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-around">
 
-                <div class="card" style="width: 18rem;">
-                    <img src="{{asset('img/modelhaut.jpg')}}" class="card-img-top" alt="...">
+                <div class="card mt-4" style="width: 18rem;">
+                    <img src="{{asset('img/modelhaut.jpg')}}" class="card-img-top" alt="modéle haut">
                     <div class="card-body">
                         <p class="card-text">ajout, suppression, édition des modéles haut</p>
                     </div>
                     <a href="{{ path('model_haut_liste') }}" class="buttonAdmin">Gestion des modèles hauts</a>
                 </div>
 
-                <div class="card" style="width: 18rem;">
-                    <img src="{{asset('img/tamara-bellis-403583-unsplash.jpg')}}" class="card-img-top" alt="...">
+                <div class="card mt-4" style="width: 18rem;">
+                    <img src="{{asset('img/tamara-bellis-403583-unsplash.jpg')}}" class="card-img-top" alt="modéle bas">
                     <div class="card-body">
                         <p class="card-text">ajout, suppression, édition des modèles bas</p>
                     </div>
@@ -53,19 +55,9 @@
                 </div>
 
 
-
-                <div class="card" style="width: 18rem;">
-                    <img src="{{ asset('img/fabrics.png') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">ajout, suppression, édition de vos tissus/couleurs</p>
-                    </div>
-                    <a href="{{ path('tissuliste') }}" class="buttonAdmin">Gestion des tissus/couleurs</a>
-                </div>
-
-
-
-                <div class="card" style="width: 18rem;">
-                    <img src="{{asset('img/s-o-c-i-a-l-c-u-t-1072401-unsplash.jpg')}}" class="card-img-top" alt="...">
+                
+                <div class="card mt-4" style="width: 18rem;">
+                    <img src="{{asset('img/s-o-c-i-a-l-c-u-t-1072401-unsplash.jpg')}}" class="card-img-top" alt="accessoires">
                     <div class="card-body">
                         <p class="card-text">ajout, suppression, édition des accessoires</p>
                     </div>
@@ -74,8 +66,21 @@
 
 
 
-                <div class="card" style="width: 18rem;">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+
+                <div class="card mt-4" style="width: 18rem;">
+                    <img src="{{ asset('img/mel-poole-639611-unsplash.jpg') }}" class="card-img-top" alt="tissus">
+                    <div class="card-body">
+                        <p class="card-text">ajout, suppression, édition de vos tissus/couleurs</p>
+                    </div>
+                    <a href="{{ path('tissuliste') }}" class="buttonAdmin">Gestion des tissus/couleurs</a>
+                </div>
+
+
+
+
+
+                <div class="card mt-4" style="width: 18rem;">
+                    <img src="{{ asset('img/lisa-woakes-697094-unsplash.jpg') }}" class="card-img-top" alt="finitions">
                     <div class="card-body">
                         <p class="card-text">ajout, suppression, édition des finitions</p>
                     </div>
@@ -86,8 +91,8 @@
 
 
 
-               <div class="card" style="width: 18rem;">
-                    <img src="{{ asset('img/web-site.png') }}" class="card-img-top" alt="...">
+               <div class="card mt-4" style="width: 18rem;">
+                    <img src="{{ asset('img/web-site.png') }}" class="card-img-top" alt="pages">
                     <div class="card-body">
                         <p class="card-text">Gestion des pages du site</p>
                     </div>
@@ -96,27 +101,27 @@
                 
                 
 
-                <div class="card" style="width: 18rem;">
-                    <img src="{{ asset('img/return.png') }}" class="card-img-top" alt="...">
+                <div class="card mt-4" style="width: 18rem;">
+                    <img src="{{ asset('img/return.png') }}" class="card-img-top" alt="commandes">
                     <div class="card-body">
                         <p class="card-text">Gestion des commandes</p>
                     </div>
-                    <a href="#" class="buttonAdmin">Voir les commandes</a>
+                    <a href="{{ path('user_commande_index') }}" class="buttonAdmin">Voir les commandes</a>
                 </div>
 
-                <div class="card" style="width: 18rem;">
+                <div class="card mt-4" style="width: 18rem;">
                     <img src="{{ asset('img/id.png') }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">Gestion des clients</p>
                     </div>
-                    <a href="#" class="buttonAdmin">Voir les clients</a>
+                    <a href="{{ path('admin_user') }}" class="buttonAdmin">Voir les clients</a>
                 </div>
 
 
 
 
-                <div class="card" style="width: 18rem;">
-                    <img src="{{ asset('img/help.png') }}" class="card-img-top" alt="...">
+                <div class="card mt-4" style="width: 18rem;">
+                    <img src="{{ asset('img/help.png') }}" class="card-img-top" alt="aide">
                     <div class="card-body">
                         <p class="card-text">Besoin d'aide</p>
                     </div>
@@ -130,6 +135,11 @@
 
     </main>
 
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+    <script> $('select').select2();</script>
 {% endblock %}
 
 {% block footer %}{% endblock %}

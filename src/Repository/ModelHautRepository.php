@@ -19,6 +19,18 @@ class ModelHautRepository extends ServiceEntityRepository
         parent::__construct($registry, ModelHaut::class);
     }
 
+    public function findArrayHaut($array)
+    {
+        return $this->createQueryBuilder('m')
+            ->Select('m')
+            ->Where('m.id IN(:array)')
+            ->setParameter('array', $array)
+            ->getQuery()
+            ->getResult()
+            ;
+
+    }
+
 
 
     // /**

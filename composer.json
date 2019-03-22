@@ -9,6 +9,8 @@
         "friendsofsymfony/ckeditor-bundle": "^2.0",
         "friendsofsymfony/user-bundle": "^2.1",
         "sensio/framework-extra-bundle": "^5.2",
+        "spipu/html2pdf": "^5.2",
+        "stripe/stripe-php": "^6.30",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "4.2.*",
         "symfony/console": "4.2.*",

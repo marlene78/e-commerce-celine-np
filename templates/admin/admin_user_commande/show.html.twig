@@ -1,0 +1,168 @@
+{% extends '/admin/footer.html.twig'%}
+
+{% block title %}UserCommande{% endblock %}
+
+
+{% block header %}
+    <header>
+        <div class="row justify-content-around">
+            <div class="logo row  align-items-center">
+                <a href="{{ path("home") }}"><img src="{{ asset('img/logo-3.png' ) }}" alt="logo"></a>
+                <a href="{{ path("home") }}"><h1 class="text-nowrap">Céline NP</h1></a>
+            </div>
+        </div>
+    </header>
+    <nav class="row justify-content-center nav-scroller py-1 mb-2">
+        <a href="{{ path("home") }}">Retour à l'accueil du site</a>
+        <a href="{{ path("admin") }}">Administration</a>
+        <a href="{{ path('user_commande_index') }}">Liste des commandes</a>
+    </nav>
+
+{% endblock %}
+
+{% block main %}
+
+<main class="container-fluid admin">
+
+
+    <section class="container">
+
+
+      <div class="container card-facture tab-font">
+
+        <div class="card text-center">
+
+          <div class="card-body">
+            <p>{{ user_commande.user.userIdentity.nom }} {{ user_commande.user.userIdentity.prenom}}</p>
+            <p>{{ user_commande.user.userIdentity.adresse}}</p>
+            <p>{{ user_commande.user.userIdentity.codePostal}} {{ user_commande.user.userIdentity.ville}}</p>
+            <p>{{ user_commande.user.userIdentity.departement}}</p>
+            <p>{{ user_commande.user.userIdentity.region}}</p>
+            <p>{{ user_commande.user.userIdentity.pays}}</p>
+            <h6 class="card-subtitle mb-2 text-muted">Commande n° {{user_commande.reference}} Date:{{ user_commande.date ? user_commande.date|date('d-m-Y') : '' }}</h6>
+          </div>
+          <h5>{{ user_commande.etat }}</h5>
+          <a href="{{path('admin_user')}}">Voir la fiche de {{ user_commande.user.userIdentity.prenom}}</a>
+
+        </div>
+
+
+      </div>
+
+      <br>
+
+      <table class="table table-responsive-xl">
+
+        <thead class="tab-font">
+          <tr>
+            <th scope="col">Désignation</th>
+            <th scope="col">prix</th>
+            <th scope="col">quantité</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for modele in user_commande.commande.panierHaut %}
+
+            <tr class="tab-beige">
+              <th scope="col">Modèle Haut</th>
+              <td></td>
+              <td></td>
+              <td>{{modele.total_modele_haut}}€</td>
+            </tr>
+
+            <tr>
+              <th scope="col">{{ modele.Nom }}</th>
+              <td>{{ modele.Prix }}€</td>
+              <td>1</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>{{ modele.tissu }}</td>
+              <td>{{ modele.prix_tissu }}€</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>{{ modele.finition }}</td>
+              <td>{{ modele.prix_finition}}€</td>
+              <td>1</td>
+            </tr>
+
+          {% endfor %}
+
+          {% for modele in user_commande.commande.panierBas %}
+
+            <tr class="tab-beige">
+              <th scope="col">Modèle Bas</th>
+              <td></td>
+              <td></td>
+              <td>{{modele.total_modele_bas}}€</td>
+            </tr>
+
+            <tr>
+              <th scope="col">{{ modele.Nom }}</th>
+              <td>{{ modele.Prix }}€</td>
+              <td>1</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>{{ modele.tissu }}</td>
+              <td>{{ modele.prix_tissu }}€</td>
+              <td>1</td>
+            </tr>
+
+            <tr>
+              <td>{{ modele.finition }}</td>
+              <td>{{ modele.prix_finition}}€</td>
+              <td>1</td>
+            </tr>
+
+          {% endfor %}
+
+
+          {% for accessoire in user_commande.commande.panierAccessoire %}
+            <tr class="tab-beige">
+              <th>Accessoires</th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+        
+     
+            <tr>
+              <td>{{ accessoire.Nom }}</td>
+              <td>{{ accessoire.Prix }}€</td>
+              <td>{{ accessoire.quantite }}</td>
+              <td>{{ accessoire.prix_total_accessoire }}€</td>
+            </tr>
+
+
+          {% endfor %}
+  
+          <tr>
+            <td></td>
+            <th>Livraison</th>
+            <td></td>
+            <td>Gratuite</td>
+          </tr>
+          <tr class="tab-font">
+            <th>Montant Total</th>
+            <td></td>
+            <td></td>
+            <td>{{ user_commande.total }}€</td>
+          </tr>
+        
+        </tbody>
+                
+     
+    </table>
+
+        <a href="{{ path('user_commande_edit', {'id': user_commande.id}) }}" class="btn btn-grey">Mettre à jour</a>
+        <br>
+
+       {{ include('admin/admin_user_commande/_delete_form.html.twig') }}
+  
+{% endblock %}

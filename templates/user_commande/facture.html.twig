@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+</head>
+<body>
+
+
+
+
+<page_header>
+    Céline NP
+
+</page_header>
+
+<p>Date de la commande : {{ UserCommande.date | date('d/m/Y') }}</p>
+
+<p>Référence : {{ UserCommande.reference }}</p>
+
+
+{% for modele in UserCommande.commande.panierHaut%}
+
+   <ul>
+        <li>Nom: {{modele.Nom}}</li>
+        <li>Prix: {{modele.Prix}}€</li>
+        <li>Tissu: {{modele.tissu}}</li>
+        <li>Prix tissu: {{modele.prix_tissu}}€</li>
+        <li>Finition: {{modele.finition}}</li>
+        <li>Prix finition: {{modele.prix_finition}}€</li>
+    </ul>
+
+     <p>Total : {{modele.total_modele_haut}}€</p>
+
+{% endfor %}
+
+
+{% for modele in UserCommande.commande.panierBas%}
+     <ul>
+        <li>Nom: {{modele.Nom}}€</li>
+        <li>Prix: {{modele.Prix}}€</li>
+        <li>Tissu: {{modele.tissu}}</li>
+        <li>Prix tissu: {{modele.prix_tissu}}€</li>
+        <li>Finition: {{modele.finition}}</li>
+        <li>Prix finition: {{modele.prix_finition}}€</li>
+    </ul>
+     <p>Total: {{modele.total_modele_bas}}€</p>
+{% endfor %}
+
+{% for accessoire in UserCommande.commande.panierAccessoire%}
+     <ul>
+        <li>Nom: {{accessoire.Nom}}</li>
+        <li>Prix: {{accessoire.Prix}}€</li>
+        <li>Quantité: {{accessoire.quantite}}</li>
+     
+       
+    </ul>
+    <p>Total: {{accessoire.prix_total_accessoire}}€</p>
+
+  
+{% endfor %}
+
+
+<p>Montant Commande : {{ UserCommande.total }}€</p>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+

@@ -29,15 +29,22 @@ class User extends \FOS\UserBundle\Model\User
     private $mensurations;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Commande", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\UserCommande", mappedBy="user")
      */
-    private $commande;
+    private $userCommandes;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $customerId;
 
     public function __construct()
     {
         parent::__construct();
-        $this->commande = new ArrayCollection();
+        $this->userCommandes = new ArrayCollection();
     }
+
+
 
 
 
@@ -83,32 +90,44 @@ class User extends \FOS\UserBundle\Model\User
     }
 
     /**
-     * @return Collection|Commande[]
+     * @return Collection|UserCommande[]
      */
-    public function getCommande(): Collection
+    public function getUserCommandes(): Collection
     {
-        return $this->commande;
+        return $this->userCommandes;
     }
 
-    public function addCommande(Commande $commande): self
+    public function addUserCommande(UserCommande $userCommande): self
     {
-        if (!$this->commande->contains($commande)) {
-            $this->commande[] = $commande;
-            $commande->setUser($this);
+        if (!$this->userCommandes->contains($userCommande)) {
+            $this->userCommandes[] = $userCommande;
+            $userCommande->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeCommande(Commande $commande): self
+    public function removeUserCommande(UserCommande $userCommande): self
     {
-        if ($this->commande->contains($commande)) {
-            $this->commande->removeElement($commande);
+        if ($this->userCommandes->contains($userCommande)) {
+            $this->userCommandes->removeElement($userCommande);
             // set the owning side to null (unless already changed)
-            if ($commande->getUser() === $this) {
-                $commande->setUser(null);
+            if ($userCommande->getUser() === $this) {
+                $userCommande->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCustomerId(): ?string
+    {
+        return $this->customerId;
+    }
+
+    public function setCustomerId(?string $customerId): self
+    {
+        $this->customerId = $customerId;
 
         return $this;
     }

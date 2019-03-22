@@ -66,7 +66,7 @@ class AdminFinitionsController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash('success', 'finition mis à jour');
 
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('finitions_index');
         }
 
         return $this->render('admin/admin_finitions/edit.html.twig', [
@@ -86,6 +86,6 @@ class AdminFinitionsController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('finitions_index');
+        return $this->redirectToRoute('admin');
     }
 }

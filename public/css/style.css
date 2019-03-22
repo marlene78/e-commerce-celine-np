@@ -1,13 +1,71 @@
 /*
  *RESET
  */
- h1,h2,h3,header,section,nav, a,ul,li,img{
+ h1,h2,h3,header,section,nav, a,ul,li,img,article{
  	padding: 0;
  	margin: 0;
- 	border-spacing: border-box;
  	list-style: none;
  	text-decoration: none;
  }
+
+
+/**********
+ANIMATIONS*
+**********/
+
+#home-news{height: 45px;line-height: 45px;overflow:hidden;position:relative;font-size: 30px;font-family:'PlayfairDisplay';}
+.home_header {position:absolute;width:100%;z-index:99;}
+.home_header_on {z-index:100;}
+.home_header strong {font-family:'Roboto-Thin';font-size: 40px;}
+.home_header span, .home_header strong {position:relative;top:-50px;}
+.home_header strong ,.home_header_on strong:nth-child(1),
+.home_header_on strong:nth-child(2),
+.home_header_on strong:nth-child(3),
+.home_header_out strong:nth-child(1),
+.home_header_out strong:nth-child(2),
+.home_header_out strong:nth-child(3){
+	font-weight: normal;
+}
+.home_header_on *:nth-child(1){
+	 top: 0;
+	-webkit-transition: top .6s ease-in-out;
+	-moz-transition: top .6s ease-in-out;
+	 transition: top .6s ease-in-out;
+}
+
+.home_header_on *:nth-child(2) {
+	top: 0;
+	-webkit-transition: top .6s ease-in-out .15s;
+	-moz-transition: top .6s ease-in-out .15s;
+	transition: top .6s ease-in-out .15s;
+}.home_header_on *:nth-child(3) {
+	top: 0;
+	-webkit-transition: top .6s ease-in-out .3s;
+	-moz-transition: top .6s ease-in-out .3s;
+	transition: top .6s ease-in-out .3s;
+}.home_header_out *:nth-child(1) {
+	top: 50px;
+	-webkit-transition: top .6s ease-in-out;
+	-webkit-transition: top .6s ease-in-out;
+	-moz-transition: top .6s ease-in-out;
+}.home_header_out *:nth-child(2) {
+	top: 50px;
+	-webkit-transition: top .6s ease-in-out .15s;
+	-moz-transition: top .6s ease-in-out .15s;
+	transition: top .6s ease-in-out .15s;
+}.home_header_out *:nth-child(3) {
+	top: 50px;
+	-webkit-transition: top .6s ease-in-out .3s;
+	-moz-transition: top .6s ease-in-out .3s;
+	transition: top .6s ease-in-out .3s;
+}
+
+
+
+
+
+
+
 
 /*-----------Général-----------------*/
  @font-face {
@@ -34,15 +92,19 @@
 
 
 
-html,body{color: black;font-family:'Roboto-Light';overflow-x: hidden; }
+html,body{
+    color: black;
+    font-family:Roboto-Light, Serif, "Times New Roman";
+    overflow-x: hidden;
+}
 
+
+/*****
+lIENS*
+*****/
 a{color:black;text-decoration: none;display: inline-block}
 a:hover{color:#cca789;text-decoration: none;}
 
-.button{background-color: rgba(239,227,213,1);border-radius: 2px}
-.button:hover{background-color: rgba(239,227,213,.5);}
-a.button{font-size: 24px;height: 44px;width: 181px}
-a.button:hover{color:black;}
 
 .button1{background-color: rgba(239,227,213,1);padding:5px;border-radius: 2px}
 .button1:hover{background-color: rgba(239,227,213,.5);}
@@ -54,10 +116,21 @@ a.button1:hover{color:black;}
 a.button2{font-size: 24px;color: white;;padding: 10px;width: 259px;height: 59px;}
 a.button2:hover{color: white}
 
-.button3{background-color:rgba(129,129,129,1);}
+.button3{background-color:rgba(129,129,129,1);text-transform: uppercase}
 .button3:hover{background-color:rgba(129,129,129,.8)}
-a.button3{font-size: 24px;color: white;padding: 10px;width: 442px;height: 62px;text-align: center;}
+a.button3,input.button3{font-size: 24px;color: white;padding: 10px;width: 442px;height: 62px;text-align: center;text-transform: uppercase;}
 a.button3:hover{color: white;}
+
+/*******
+Button *
+*******/
+.btn-grey{background-color:rgba(129,129,129,1);color:white;}
+.btn-grey:hover{background-color:rgba(129,129,129,.8); color: white }
+
+.btn-beige{background-color: rgba(239,227,213,1)}
+.btn-beige:hover{background-color: rgba(239,227,213,.5);}
+
+
 
 hr{background-color: #cca789;}
 main{min-height:80vh }
@@ -65,9 +138,10 @@ h1{font-family:'DaunPenh';font-size: 36px;color: #D5B59D;padding-top: 15px}
 h2,h3{font-family:'Parisienne';}
 
 h2{color: #cca789;text-align: center;}
-h3.lastCollection{font-family: 'Roboto-Regular'; margin:10px 0}
+h3.lastCollection{font-family: 'Roboto-Regular';margin-bottom: 25px}
 
 main{margin-bottom: 10%}
+article.footer{margin-top: 10%}
 /*------------------------*/
 
 /************/
@@ -104,7 +178,6 @@ section.information .card,section.livraison .card{border-color:#cca789;}
 /*********/
 /* CONTACT */
 /*********/
-main.pageContact article{margin-top: 5%}
 main.pageContact article .jumbotronBg{background-color: #efe3d5}
 
 
@@ -116,12 +189,9 @@ main.pageContact article .jumbotronBg{background-color: #efe3d5}
 .admin article .card{border:1px solid #efe3d5;margin-left: 10px}
 .buttonAdmin{background-color: #efe3d5;text-align: center;padding: 5px}
 .admin .jumbotron{background-color: #efe3d5;text-align: center; }
+main.admin{margin-top: 5%}
 
-/*****************/
-/* MODELES*/
-/***************/
-a.lien-accessoires:hover{color: black;}
-.accessoires{border: 2px solid #efe3d5;padding: 10px;margin-bottom: 5%}
+
 
 /*****************/
 /* PROFIL       */
@@ -129,25 +199,20 @@ a.lien-accessoires:hover{color: black;}
 .dropdown{margin-right: 25px}
 .dropdown-menu{background-color: rgba(239,227,213,1) }
 .dropdown-menu a:hover{background-color: #cca789}
+article.mon-profil h3{font-family: 'Roboto-Thin'}
 
 
-/*
 
-.accessoires:hover{
-	cursor: pointer;
-	-moz-box-shadow: 5px 5px 5px 0px #efe3d5;
-	-webkit-box-shadow: 5px 5px 5px 0px #efe3d5;
-	-o-box-shadow: 5px 5px 5px 0px #efe3d5;
-	box-shadow: 5px 5px 5px 0px #efe3d5;
-	border: none;
-}
-*/
+/*************/
+/* FACTURE  */
+/************/
+div .card-facture .card{border: 2px solid color: #D5B59D;}
+.tab-beige{background-color: #D5B59D }
+.tab-font{font-family:'PlayfairDisplay' }
+
 
 /*--------------------------------------------------------Ordi --------------------------------------------------------------*/
 @media screen and (min-width: 1024px){
-
-
-
 
 
 /**************/
@@ -155,13 +220,13 @@ a.lien-accessoires:hover{color: black;}
 /**************/
 section.accueil{width:100%;height: 92vh;text-align: center;}
 .imgAccueil{position:fixed;min-width:auto;width: 100%;height: 100%;top:0;left:0;z-index:-1;}
-section.accueil article{margin:0 auto;padding: 5px;position: relative;top:20%;width:750px;height: 250px;}
-section.accueil article h2{text-align: center;font-family: 'Roboto-Thin';color:black;}
+section.accueil article{margin:0 auto;padding: 5px;position: relative;top:18%;width:750px;height: 250px;}
 section.accueilSecond{background-color: white;padding-bottom: 10%}
 section.accueilSecond .jumbotron{text-align: center;background-color:white;font-family:'Parisienne';color: #cca789;}
 .jumbotronBg h3,section.accueilSecond .jumbotron p{color: black;font-family:'Roboto-Light'}
 main.accueil .jumbotron h3{font-size: 48px}
 section.accueilSecond .jumbotronBg{background-color: #efe3d5}
+.first{margin-bottom: 60px}
 section.accueilSecond article .card{border: 2px solid #efe3d5;}
 section.accueilSecond article .card-body{text-align: center;}
 blockquote{font-family:'PlayfairDisplay';text-align: center;}
@@ -171,11 +236,11 @@ main.acueil{margin-bottom: 0}
 
 
 
+
 /******************/
 /*PAGE COLLECTION*/
 /******************/
 a.collection-index1{margin:0 auto;}
-section.collections article{margin:5% auto;}
 a.collection-index1:hover,a.collection-index2:hover,a.collection-index3:hover{opacity: .5;}
 .collection-modele{display: flex;}
 
@@ -190,9 +255,9 @@ section.collections article .gallery .position{margin-bottom: 30px}
 
 
 
-/************/
-/*PAGE TENUE */
-/************/
+/********************************/
+/*Modéle show / Accessoire show*/
+/******************************/
 
 section.tenue article{margin-top: 5%;}
 section.tenue article .modèle .card{margin: 10px 0;}
@@ -200,7 +265,9 @@ section.tenue article.second{margin:15% 0;}
 section.tenue .card{border: 2px solid #efe3d5;}
 section.tenue .modalModel .card{border:none;}
 .modèle{margin-top: 15px}
-
+#info1{margin:20% 0;}
+#info2{margin-bottom:20%;}
+#info1 .card, #info2 .card {border: none;}
 
 
 
@@ -265,7 +332,9 @@ section.inscription{height: 50vh;margin-top: 10%}
 /* PANIER  */
 /***********/
 .panier section article{margin-top: 5%}
-.panier .card{margin-top: 5%}
+.panier .card{margin:5% 0}
+a.red{color:darkred}
+
 
 /**************/
 /* Mon PROFIL */
@@ -279,6 +348,10 @@ article.mon-profil .card{border: 1px solid #818181}
 article.mon-profil .card p,article.mon-profil .card a{font-size: 1.2rem}
 
 
+/***************/
+/*CREATION
+****************/
+main.creation .card{border: none;}
 
 
 
@@ -308,7 +381,6 @@ nav{font-size: 18px;}
 section.accueil{width:100%;height: 40vh;text-align: center;}
 .slide{position:fixed;min-width:auto;width: 100%;height: 100%;top:0;left:0;z-index:-1;}
 section.accueil article{margin:0 auto;padding: 5px;position: relative;top:20%;width:750px;}
-section.accueil article h2{text-align: center;font-family: 'Roboto-Thin';color:black;}
 section.accueilSecond{background-color: white;padding-bottom: 10%}
 section.accueilSecond .jumbotron{text-align: center;background-color:white;font-family:'Parisienne';color: #cca789;}
 .jumbotronBg h3,section.accueilSecond .jumbotron p{color: black;font-family:'Roboto-Light'}
@@ -482,7 +554,6 @@ img[alt*="social"]{max-width: 9%}
 section.accueil{width:100%;height: 50vh;text-align: center;}
 .slide{position:fixed;min-width:auto;width: 100%;height: 100%;top:0;left:0;z-index:-1;}
 section.accueil article{margin:0 auto;padding: 5px;position: relative;top:50%;}
-section.accueil article h2{text-align: center;font-family: 'Roboto-Thin';color:black;}
 section.accueilSecond{background-color: white;padding-bottom: 10%}
 section.accueilSecond .jumbotron{text-align: center;background-color:white;font-family:'Parisienne';color: #cca789;}
 .jumbotronBg h3,section.accueilSecond .jumbotron p{color: black;font-family:'Roboto-Light'}
@@ -615,6 +686,14 @@ a.icon-profil{width:50px; height: 50px; border-radius: 100%; background-color: #
 article.mon-profil .card{border: 1px solid #818181}
 
 
+/***********/
+/*ANIMATION*
+***********/
+#home-news{height: 45px;line-height: 45px;overflow:hidden;position:relative;font-size: 15px;font-family:'PlayfairDisplay';}
+
+.home_header strong {font-family:'Roboto-Thin';font-size: 25px;}
+
+
 
 
 
@@ -643,14 +722,6 @@ h3.lastCollection{font-size:25px }
 a.button3{font-size: 24px;color: white;;padding: 10px;width: 242px;height: 62px;text-align: center;}
 
 
-
-
-
-
-
-
-
-
 /************/
 /* Header
 /*************/
@@ -676,9 +747,7 @@ img[alt*="social"]{max-width: 10%}
 /*PAGE ACCUEIL*/
 /**************/
 section.accueil{width:100%;text-align: center;}
-.slide{}
 section.accueil article{margin:20px 0 0 0}
-section.accueil article h2{text-align: center;font-family: 'Roboto-Thin';color:black;}
 section.accueilSecond{background-color: white;padding-bottom: 10%}
 section.accueilSecond .jumbotron{text-align: center;background-color:white;font-family:'Parisienne';color: #cca789;}
 .jumbotronBg h3,section.accueilSecond .jumbotron p{color: black;font-family:'Roboto-Light'}
@@ -686,6 +755,7 @@ section.accueilSecond .jumbotronBg{background-color: #efe3d5}
 section.accueilSecond article .card{border: 3px solid #efe3d5;}
 section.accueilSecond article .card-body{text-align: center;}
 section.accueilSecond article .card-columns{padding: 10% 0 10% 0;column-count:1;}
+
 blockquote{font-family:'PlayfairDisplay';text-align: center;}
 .bgWhite{height: 3vh;}
 a.creation{margin:50px 0;text-align: center;}
@@ -805,6 +875,12 @@ article.mon-profil .card{border: 1px solid #818181}
 
 
 
+/***********/
+/*ANIMATION*
+***********/
+#home-news{height: 45px;line-height: 45px;overflow:hidden;position:relative;font-size: 15px;font-family:'PlayfairDisplay';}
+
+.home_header strong {font-family:'Roboto-Thin';font-size: 25px;}
 
 
 

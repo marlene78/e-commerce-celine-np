@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{model}}{% endblock %}
+
+
+{% block main %}
+
+
+    <main class="container-fluid">
+
+        <!--page :tenue---->
+        <div class="container">
+            <hr>
+            <h2>Composer mon modèle</h2>
+        </div>
+
+        <section class="container tenue">
+
+            <article class="row">
+
+                <div class="galleryTenu col-sm">
+                    <img class="card-img-top" src="{{ vich_uploader_asset(model.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ model.picture.alt }}" >
+                    <a href="{{ path('modele_haut') }}">Retour à la liste des modèles</a>
+                </div>
+
+                <div class="description col-sm">
+
+                    <h3>{{model.nom}}</h3>
+
+                    <form method="post" action="{{ path('add_panier_modele_haut', {'id':model.id}) }}">
+
+                        <div class="form-group">
+                            <label for="tissu">Choisi ton tissu</label>
+                            <select name="tissu" class="form-control tissu">
+                                {% for tissu in model.tissu %}
+                                <option value="{{tissu.nom}}">{{tissu.nom}} - {{tissu.prix}}€</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+
+                        {% if model.finition is empty %}
+                           <p>Aucunes finitions</p>
+                        {% else %}
+                            <div class="form-group">
+                                <label for="finition">Choisi ta finition</label>
+                                <select name="finition" class="form-control finition">
+                                    {% for finition in model.finition %}
+                                        <option value="{{finition.nom}}">{{finition.nom}} - {{finition.prix}}€</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        {% endif %}
+
+
+
+                        <button class="button1">Ajouter au panier</button>
+                    </form>
+
+
+
+
+                </div>
+
+            </article>
+
+
+
+
+
+
+        </section>
+
+
+
+
+
+    </main>
+
+{% endblock %}
+

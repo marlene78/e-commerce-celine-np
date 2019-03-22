@@ -9,23 +9,20 @@
 
     <main class="container-fluid admin">
 
-        <section>
+        <section class="container">
 
-            <div class="container">
-                <hr>
+        
                 <h2>Créer un article</h2>
 
-            </div>
 
-
-            <article class="container">
+            <article>
 
                {{ form_start(createForm) }}
                {{ form_row(createForm.titre) }}
                {{ form_row(createForm.contenu) }}
                {{ form_row(createForm.picture) }}
                {{ form_row(createForm.page) }}
-               <button type="submit" class="btn btn-success">Créer</button>
+               <button type="submit" class="btn btn-beige">Créer</button>
                {{ form_end(createForm) }}
 
             </article>

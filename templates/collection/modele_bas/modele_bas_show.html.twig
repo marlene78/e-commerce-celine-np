@@ -14,72 +14,174 @@
         <h2>Composer ma tenue</h2>
     </div>
 
-    <section class="container tenue">
+    <section class="container tenue" id="showcase">
 
         <article class="row">
 
                 <div class="galleryTenu col-sm">
+
+                   <div class="showcase-left">
                      <img class="card-img-top" src="{{ vich_uploader_asset(model.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ model.picture.alt }}" >
-                     <a href="{{ path('modele_bas') }}">Retour à la liste des modèles</a>
+                   </div>
 
                 </div>
 
-                <div class="description col-sm">
+               <div class="description col-sm">
 
-                    <h3>{{model.nom}}</h3>
-                    <p>À partir de: {{model.prix}}€</p>
+                  <div class="showcase-right">
 
-                    <ul>Matières et Couleurs disponibles:
-                    {% for tissu in model.tissu %} 
-                           <li>{{tissu.nom}}</li>
-                        
-                           <li><img class="card-img-top" src="{{ vich_uploader_asset(tissu.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ tissu.picture.alt }}" style="width:5rem" ></li>
-                       
-                    
-                       {% else %}
-                         Vous ne pouvez pas personnaliser ce modèle 
-                    {% endfor %}
-                    </ul>
+                      <h3>{{model.nom}}</h3>
+
+                      <p>À partir de: {{model.prix}}€</p>
+
+                      <p>{{model.description | raw('html')}}</p>
 
 
-                    <p>{{model.description | raw('html')}}</p>
+                      <div class="d-flex justify-content-between">
+
+
+                        <div class="tissu">
+
+                          <u>Matières et Couleurs disponibles:</u>
                   
-                    <div class="modèle">
 
+                          {% for tissu in model.tissu %}
 
+                          <p>{{tissu.nom}}</p>
 
-                        <a href="{{ path('modele_haut') }}" class="button3">Voir les Modèles haut disponibles</a>
-                        
-                        
-                        
-                        <div class="card">
-                            <blockquote class="blockquote mb-0 card-body">
-                                <p>Personnalise ta tenue</p>
-                            </blockquote>
-                            <footer>consectetur adipiscing elit. Nunc vel dui a est sodales venenatis. Aenean sodales
-                            metus lectus, id ornare ex mattis vitae. Vestibulum quis erat nec leo sagittis cursus quis nec
-                            eros</footer>
-                            <div class="bgWhite"></div>
+                          <p><img src="{{ vich_uploader_asset(tissu.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ tissu.picture.alt }}"></p>
+
+                          {% else %}
+
+                          <p>Auncuns tissus disponibles</p>
+
+                          {% endfor %}
+                                
                         </div>
-                 
 
-                        <a href="{{ path('commande') }}" class="button1">Composer ma tenue</a>
-                        
+
+
+                        <div class="finition">
+
+                  
+                          <u>Finitions disponibles:</u>
+                            
+          
+                          {% for finition in model.finition %}
+                              
+                            <p>{{finition.nom}}</p>
+                                  
+                                   
+                            <p><img class="card-img-top" src="{{ vich_uploader_asset(finition.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ finition.picture.alt }}" style="width:3rem"></p>
+                                   
+                          
+                            {% else %}
+
+                              <p>Aucune finition disponible</p>
+
+                           {% endfor %}
+                                      
+                       </div>
+
+                   
+
                     </div>
 
+
+                </div>
+
+
+
+
+              {% if panierBas[model.id]  is not defined %}
+                 <a href="{{ path('modele_bas_commande',{'slug':model.slug}) }}" class="btn btn-beige showcase-btn">Composer ma tenue</a>
+                        {% else %}
+                 <a href="{{ path('modele_bas_commande',{'slug':model.slug}) }}" class="btn btn-beige showcase-btn">Déjà dans le panier</a>
+              {% endif %}
+
+
+
+
+                <div class="modèle" id="testimonial">    
+                   <div class="card">
+                        <div class="card-body text-center">
+                           <h4>Personnalise ta tenue</h4>
+                        </div>
+                        <footer>
+                            consectetur adipiscing elit. Nunc vel dui a est sodales venenatis. Aenean sodales
+                            metus lectus, id ornare ex mattis vitae. Vestibulum quis erat nec leo sagittis cursus quis nec
+                            eros
+                        </footer>
+                        <div class="bgWhite"></div>
+                    </div>
                 </div>
 
          </article>
 
 
-        <article class="second">
-            <h3>Autres Modèles</h3>
+   
+    </section>
+
+
+     <section class="container">
+
+        <article id="info1">
+
+            <div class="card border-none mb-3">
+              <div class="row no-gutters">
+                <div class="col-md-4 info-left">
+                  <img src="{{asset('img/chelsea-ferenando-158086-unsplash.jpg')}}" class="card-img" alt="les modéles hauts">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body info-right">
+                    <p class="card-text">eget suscipit. Mauris ultricies nisl et laoreet lobortis. Pellentesque venenatis tincidunt congue. Proin cursus quam quis orci laoreet efficitur. Nunc a dictum nisl. Etiam a nulla ut mauris aliquet volutpat. Donec sagittis lectus a accumsan semper. Phasellus tempus vestibulum ultricies.</p>
+                    <p class="card-text">Tu n'a pas encore choisi ton modéle haut ? Découvre la collection...</p>
+                    <a href="{{ path('modele_haut') }}" class="btn btn-beige">Choisi ton modéle haut</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </article>
+
+
+        <article id="info2">
+
+        <div class="card border-none mb-3">
+
+          <div class="row no-gutters">
+
+
+            <div class="col-md-8">
+
+              <div class="card-body info-left">
+                <p class="card-text">Agrémente ta tenue avec des accessoires </p>
+                <a href="{{path('accessoires')}}" class="btn btn-beige">Choisi tes accessoires</a>
+              </div>
+
+            </div>
+
+
+            <div class="col-md-4 info-right">
+              <img src="{{asset('img/sai-de-silva-41031-unsplash.jpg')}}" class="card-img" alt="...">
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+
+      <article class="second">
+            <h4>Autres Modèles</h4>
 
                 <div class="carousel">
                     {% for item in modeles %}
                      <div class="itemCarousel">
                         <a href="{{ path('modele_bas_show', {'slug':item.slug})  }}" title="voir la collection"><img src="{{ vich_uploader_asset(item.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ item.picture.alt }}" style="width:15rem"></a>
-                         <p>{{item.nom}}</p>
                     </div>
                     {% endfor %}
              
@@ -89,8 +191,14 @@
         </article>
 
 
-   
-    </section>
+   </section>
+
+
+
+
+
+
+
 
 
 

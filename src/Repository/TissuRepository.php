@@ -19,6 +19,11 @@ class TissuRepository extends ServiceEntityRepository
         parent::__construct($registry, Tissu::class);
     }
 
+
+
+
+
+
     // /**
     //  * @return Tissu[] Returns an array of Tissu objects
     //  */

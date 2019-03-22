@@ -21,14 +21,12 @@ class HomeController extends AbstractController
 
         $repository =$this->getDoctrine()->getRepository(Page::class);
         $page = $repository->find(4);;
-        $footer = $repository->findFooter();
-        $header = $repository->findHeader();
+  
 
         return $this->render('home/index.html.twig',[
          
-            'page'=>$page, 
-            'footer'=>$footer,
-            'header'=>$header
+            'page'=>$page
+        
         ]);
     }
 

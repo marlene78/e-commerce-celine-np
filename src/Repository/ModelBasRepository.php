@@ -18,6 +18,18 @@ class ModelBasRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, ModelBas::class);
     }
+    public function findArrayBas($array)
+    {
+        return $this->createQueryBuilder('m')
+            ->Select('m')
+            ->Where('m.id IN(:array)')
+            ->setParameter('array', $array)
+            ->getQuery()
+            ->getResult()
+            ;
+
+    }
+
 
     // /**
     //  * @return ModelBas[] Returns an array of ModelBas objects

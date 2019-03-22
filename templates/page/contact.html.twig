@@ -6,36 +6,37 @@
 
 
 {% block header %}
-
-    <header>
+  <header>
         <div class="row justify-content-around">
 
             <div class="logo row  align-items-center">
-                <a href="{{ path("home") }}"><img src="{{ asset('img/logo-3.png' ) }}" alt="logo"></a>
-                <a href="{{ path("home") }}"><h1 class="text-nowrap">Céline NP</h1></a>
+                <a href="{{ path("home") }}" title="accueil"><img src="{{ asset('img/logo-3.png' ) }}" alt="logo"></a>
+                <a href="{{ path("home") }}" title="accueil"><h1 class="text-nowrap">Céline NP</h1></a>
             </div>
 
             <div class="connect row align-items-center">
 
 
                 {% if is_granted('ROLE_USER') %}
-                    <a href="{{ path("compte") }}">Mon compte</a>
 
+                    <div class="dropdown">
+                      <button class="btn button1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ app.user.username }}
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/profile/">Mon profil</a>
                 {% endif %}
 
-                {% if is_granted('ROLE_ADMIN') %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                            <a class="dropdown-item" href="{{ path('admin') }}">Administration</a>
+                    {% endif %}
 
-                    <a href="{{ path('admin') }}"style="padding-left: 8px">Administration</a>
-                {% endif %}
 
-            </div>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                       </div>
 
-            <div class="connect row align-items-center">
-                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-
-                    <a href="{{ path('fos_user_security_logout') }}">
-                        <p>Déconnexion</p>
-                    </a>
+                   </div>
 
                 {% else %}
 
@@ -45,17 +46,22 @@
 
                 {% endif %}
 
-                <a href="panier.html" title="voir mon panier"><img src="{{ asset('img/shopping-bag.png' ) }}" alt="panier"></a>
+             <a href="{{ path('panier_index') }}" title="voir mon panier"><img src="{{ asset('img/shopping-bag.png' ) }}" alt="panier"></a>
 
             </div>
 
 
         </div>
     </header>
+    
     <nav class="row justify-content-center nav-scroller py-1 mb-2">
-    {% for item in footer%}
-        <a href="{{ path(item.url) }}">{{item.titre}}</a>
-    {% endfor %}
+     {{
+            render(controller(
+                'App\\Controller\\PartialController::footer'
+            ))
+      }}
+
+
     </nav>
 
 
@@ -70,15 +76,15 @@
       <div class="container">
           <hr>
           <h2>{{ page.titre }}</h2>
-
        </div>
 
-      <article class="container">
+      <article class="container footer">
             <div class="jumbotron jumbotron-container jumbotronBg">
                 <div class="container">
                     <h3 class="display-6">{{ page.articles.get(0).titre }}</h3>
                     <p class="lead">{{ page.articles.get(0).contenu | raw('html') }}</p>
                 </div>
+               {{ include ('/emails/_FormEmail.html.twig') }}
             </div>
       </article>
 

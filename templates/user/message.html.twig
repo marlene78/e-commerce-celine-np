@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Céline NP {% endblock %}
+
+{% block main %}
+
+    <main class="container-fluid compte">
+
+        <div class="container">
+            <hr>
+            <h2>Me Contacter</h2>
+        </div>
+
+        <section class="container">
+        {{ include ('/emails/_FormEmail.html.twig') }}
+        </section>
+    </main>
+
+{% endblock %}

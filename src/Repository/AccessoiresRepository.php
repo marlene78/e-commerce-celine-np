@@ -19,6 +19,18 @@ class AccessoiresRepository extends ServiceEntityRepository
         parent::__construct($registry, Accessoires::class);
     }
 
+     public function findArrayAccessoire($array)
+    {
+        return $this->createQueryBuilder('a')
+            ->Select('a')
+            ->Where('a.id IN(:array)')
+            ->setParameter('array', $array)
+            ->getQuery()
+            ->getResult()
+            ;
+
+    }
+
     // /**
     //  * @return Accessoires[] Returns an array of Accessoires objects
     //  */

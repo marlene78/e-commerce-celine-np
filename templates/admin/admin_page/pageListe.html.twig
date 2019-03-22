@@ -9,7 +9,7 @@
 <main class="container-fluid admin">
 
     <div class="container">
-        <hr>
+   
         <h2>Liste des pages</h2>
 
         <table class="table">
@@ -25,18 +25,19 @@
             {% for page in pages %}
                 <tr>
                     <th scope="row">{{ page.titre }}</th>
-                    <td scope="row"><a href="{{ path('app_adminpage_pageshow',{ id:page.id}) }}" class="btn btn-secondary">Éditer</a></td>
+                    <td scope="row"><a href="{{ path('app_adminpage_pageshow',{ id:page.id}) }}" class="btn btn-grey">Éditer</a></td>
                 </tr>
             {% endfor %}
             </tbody>
 
         </table>
 
+        <p>Pour créer de nouvelles pages merci de contacter le développeur</p>
+
     </div>
 
-    <div class="container">
-        <a href="{{ path('addPage') }}" class="btn btn-primary">Créer une nouvelle page</a>
-    </div>
+   
+
 
 </main>
 

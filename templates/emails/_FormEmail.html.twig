@@ -1,0 +1,8 @@
+
+{% if not createForm.vars.valid %}
+    <div class="alert alert-danger">Vous n'avez pas bien rempli le formulaire</div>
+{% endif %}
+{{ form_start(createForm) }}
+{{ form_rest(createForm) }}
+<button class="btn btn-grey">Envoyer</button>
+{{ form_end(createForm) }}

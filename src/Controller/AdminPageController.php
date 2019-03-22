@@ -78,7 +78,7 @@ class AdminPageController extends AbstractController
            $em->persist($page);
            $em->flush();
            $this->addFlash('success', 'la page a bien été mise à jour');
-           return $this->redirectToRoute('admin');
+           return $this->redirectToRoute('pageListe');
 
        }
        return $this->render('admin/admin_page/pageEdition.html.twig',[

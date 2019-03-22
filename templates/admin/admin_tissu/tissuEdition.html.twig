@@ -1,0 +1,66 @@
+{% extends '/admin/index.html.twig'%}
+
+{% block title %}Édition{% endblock %}
+
+{% block header %}
+    <header>
+        <div class="row justify-content-around">
+            <div class="logo row  align-items-center">
+                <a href="{{ path("home") }}"><img src="{{ asset('img/logo-3.png' ) }}" alt="logo"></a>
+                <a href="{{ path("home") }}"><h1 class="text-nowrap">Céline NP</h1></a>
+            </div>
+        </div>
+    </header>
+    <nav class="row justify-content-center nav-scroller py-1 mb-2">
+        <a href="{{ path("home") }}">Retour à l'accueil du site</a>
+        <a href="{{ path("admin") }}">Administration</a>
+        <a href="{{ path("tissuliste") }}">Liste des tissus</a>
+    </nav>
+    <div class="container">
+      <hr>
+    
+    </div>
+
+{% endblock %}
+
+
+{% block main %}
+    <main class="container-fluid admin">
+
+        <section class="container">
+
+            <div class="container">
+                <h2>Édition</h2>
+            </div>
+
+            <article class="container">
+
+                {{ form_start(createForm) }}
+                {{ form_row(createForm.nom) }}
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        {{ form_row(createForm.picture) }}
+                    </div>
+
+                    <div class="form-group col-md-6">
+
+                        <img class="card-img-top" src="{{ vich_uploader_asset(tissu.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ tissu.picture.alt }}" >
+                    </div>
+
+                </div>
+                
+                {{ form_row(createForm.prix) }}
+
+                <button type="submit" class="btn btn-grey">Éditer</button>
+                {{ form_end(createForm) }}
+
+            </article>
+        
+
+        </section>
+
+    </main>
+    
+{% endblock %}

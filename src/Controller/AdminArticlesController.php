@@ -33,8 +33,8 @@ class AdminArticlesController extends AbstractController
            $em = $this->getDoctrine()->getManager();
            $em->persist($article);
            $em->flush();
-           $this->addFlash('success', "l'article' a bien été ajouté");
-           return $this->redirectToRoute('admin');
+           $this->addFlash('success', "l'article a bien été ajouté");
+           return $this->redirectToRoute('pageListe');
         }
 
         return $this->render('admin/admin_articles/index.html.twig', [

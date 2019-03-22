@@ -31,13 +31,33 @@
 
                     <div class="modèle">
 
-                        
-                        <a href="{{ path('commande') }}" class="button1">Compose ta tenue</a>
+                        <form action="{{ path('ajoute_panier_accessoire', {id:accessoire.id}) }}" method="post">
+
+                           <div class="form-group">
+                               <label for="quantite">Choisi ta quantité</label>
+                               <select class="form-control form-control-sm" name="quantite">
+                                  {% for i in 1..10 %}
+                                  <option value="{{i}}">{{ i }}</option>
+                                  {% endfor %}
+                                </select>
+                            </div>
+
+
+
+                            {% if panierAccessoire[accessoire.id] is not defined %}
+                                <button class="btn btn-beige">Ajoutez au panier</button>
+                            {% else %}
+                                <a href="{{ path('home') }}" class="btn btn-beige">Déjà dans le panier</a>
+                            {% endif %}
+
+
+                        </form>
                         
                         <div class="card">
-                            <blockquote class="blockquote mb-0 card-body">
-                                <p>Choix des accessoires</p>
-                            </blockquote>
+
+                            <div class="card-body text-center">
+                                <h4>Choix des accessoires</h4>
+                            </dive>
                             <footer>consectetur adipiscing elit. Nunc vel dui a est sodales venenatis. Aenean sodales
                             metus lectus, id ornare ex mattis vitae. Vestibulum quis erat nec leo sagittis cursus quis nec
                             eros</footer>
@@ -56,13 +76,13 @@
 
 
         <article class="second">
-            <h3>Accessoires disponibles</h3>
+            <h4>Accessoires disponibles</h4>
 
                 <div class="carousel">
                     {% for item in accessoires %}
                      <div class="itemCarousel">
                         <a href="{{ path('accessoires_show' ,{slug:item.slug})  }}" title="voir les accessoires"><img src="{{ vich_uploader_asset(item.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ item.picture.alt }}" style="width:15rem"></a>
-                         <p>{{item.nom}}</p>
+                         
                     </div>
                     {% endfor %}
              

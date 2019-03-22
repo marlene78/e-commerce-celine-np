@@ -22,26 +22,31 @@
         <a href="{{ path('accessoires_index') }}">Liste des accessoires</a>
     </nav>
 
+    <div class="container">
+        <hr>    
+    </div>
+
 {% endblock %}
 
 {% block main %}
  <main class="container-fluid admin">
-    <section>
-        <div class="container">
-            <hr>
-            <h2>Édition</h2>
 
-        </div>
-        <article class="container">
+    <section class="container">
+
+    
+        <h2>Édition</h2>
+
+
+        <article>
 
             <div class="form-group col-md-6">
 
                 <img class="card-img-top" src="{{ vich_uploader_asset(accessoire.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ accessoire.picture.alt }}" >
             </div>
 
-    {{ include('/admin/admin_accessoires/_form.html.twig', {'button_label': 'Éditer'}) }}
+            {{ include('/admin/admin_accessoires/_form.html.twig', {'button_label': 'Éditer'}) }}
 
-    </article>
-</section>
+        </article>
+   </section>
 </main>
 {% endblock %}

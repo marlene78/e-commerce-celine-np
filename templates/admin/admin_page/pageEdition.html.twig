@@ -18,6 +18,10 @@
         <a href="{{ path("admin") }}">Administration</a>
         <a href="{{ path("pageListe") }}">Liste des pages</a>
     </nav>
+     <div class="container">
+         <hr>
+
+     /div>
 
 {% endblock %}
 
@@ -25,19 +29,18 @@
 {% block main %}
     <main class="container-fluid admin">
 
-        <section>
-            <div class="container">
-                <hr>
+        <section class="container">
+           
+           
                 <h2>Édition</h2>
 
-            </div>
 
-            <article class="container">
+            <article>
 
                 {{ form_start(createForm) }}
                 {{ form_row(createForm.titre) }}
                 {{ form_row(createForm.picture,{'label':'Image'}) }}
-                <button type="submit" class="btn btn-success">Éditer</button>
+                <button type="submit" class="btn btn-grey">Éditer</button>
                 {{ form_end(createForm) }}
             </article>
 
