@@ -1,12 +1,45 @@
 $(document).ready(function(){
   $('.carousel').slick({
-  	  infinite: true,
+  infinite: true,
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+
+  ]
   });
+
+
+
+ var s = skrollr.init();
+
 });
+
+   
+
+
 
 
 /******Swith accueil*********/
@@ -78,5 +111,40 @@ $(window).load(function() {
         }
       });
     });
+
+     
   
+
+
+  /*****Cache le formulaire d'ajout d'image pour certain article*******/
+$('#article_page').change(function(){
+
+
+ if($('#article_page option:selected').val() == "6" || $('#article_page option:selected').val() == "7"  || $('#article_page option:selected').val() == "8"){
+    
+    $('fieldset').hide();
+
+
+
+  }else{
+    $('#article_picture').show(); 
+  }
+
+
+
+
+
+
+
+}); 
+
+
+
+
+ 
+
+
+
+ 
+
 

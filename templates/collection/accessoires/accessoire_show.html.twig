@@ -45,9 +45,9 @@
 
 
                             {% if panierAccessoire[accessoire.id] is not defined %}
-                                <button class="btn btn-beige">Ajoutez au panier</button>
+                                <button class="btn btn-beige">Ajouter au panier</button>
                             {% else %}
-                                <a href="{{ path('home') }}" class="btn btn-beige">Déjà dans le panier</a>
+                                <a href="{{ path('home') }}" class="btn btn-beige active">Déjà dans le panier</a>
                             {% endif %}
 
 
@@ -57,18 +57,23 @@
 
                             <div class="card-body text-center">
                                 <h4>Choix des accessoires</h4>
-                            </dive>
-                            <footer>consectetur adipiscing elit. Nunc vel dui a est sodales venenatis. Aenean sodales
+                            </div>
+
+                            <footer>
+                            consectetur adipiscing elit. Nunc vel dui a est sodales venenatis. Aenean sodales
                             metus lectus, id ornare ex mattis vitae. Vestibulum quis erat nec leo sagittis cursus quis nec
-                            eros</footer>
+                            eros
+                            </footer>
+
                             <div class="bgWhite"></div>
                         </div>
+
+
+                    </div>
 
                         <a href="{{ path('collection_index') }}" class="button3">Voir les Modèles disponibles</a>
                  
 
-                        
-                    </div>
 
                 </div>
 

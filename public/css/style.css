@@ -129,19 +129,21 @@ Button *
 
 .btn-beige{background-color: rgba(239,227,213,1)}
 .btn-beige:hover{background-color: rgba(239,227,213,.5);}
+.btn-beige .active{background-color: rgba(239,227,213,.5);}
 
 
 
 hr{background-color: #cca789;}
-main{min-height:80vh }
+main{min-height:80vh;margin-bottom: 10% }
 h1{font-family:'DaunPenh';font-size: 36px;color: #D5B59D;padding-top: 15px}
 h2,h3{font-family:'Parisienne';}
 
 h2{color: #cca789;text-align: center;}
 h3.lastCollection{font-family: 'Roboto-Regular';margin-bottom: 25px}
 
-main{margin-bottom: 10%}
-article.footer{margin-top: 10%}
+
+article.footer{margin-top: 5%}
+
 /*------------------------*/
 
 /************/
@@ -190,6 +192,7 @@ main.pageContact article .jumbotronBg{background-color: #efe3d5}
 .buttonAdmin{background-color: #efe3d5;text-align: center;padding: 5px}
 .admin .jumbotron{background-color: #efe3d5;text-align: center; }
 main.admin{margin-top: 5%}
+.hidden_image{display: none;}
 
 
 
@@ -209,6 +212,19 @@ article.mon-profil h3{font-family: 'Roboto-Thin'}
 div .card-facture .card{border: 2px solid color: #D5B59D;}
 .tab-beige{background-color: #D5B59D }
 .tab-font{font-family:'PlayfairDisplay' }
+
+/***************/
+/*CREATION
+****************/
+main.creation section{margin-top:5%;height: auto;}
+main.creation .card{border: none;}
+
+.bloc_creation{display: flex;}
+
+
+
+
+
 
 
 /*--------------------------------------------------------Ordi --------------------------------------------------------------*/
@@ -259,7 +275,7 @@ section.collections article .gallery .position{margin-bottom: 30px}
 /*Modéle show / Accessoire show*/
 /******************************/
 
-section.tenue article{margin-top: 5%;}
+section.tenue article{margin-top: 8%;}
 section.tenue article .modèle .card{margin: 10px 0;}
 section.tenue article.second{margin:15% 0;}
 section.tenue .card{border: 2px solid #efe3d5;}
@@ -332,8 +348,11 @@ section.inscription{height: 50vh;margin-top: 10%}
 /* PANIER  */
 /***********/
 .panier section article{margin-top: 5%}
-.panier .card{margin:5% 0}
+.panier .card{margin-top: 30px}
 a.red{color:darkred}
+
+
+
 
 
 /**************/
@@ -348,10 +367,10 @@ article.mon-profil .card{border: 1px solid #818181}
 article.mon-profil .card p,article.mon-profil .card a{font-size: 1.2rem}
 
 
-/***************/
-/*CREATION
-****************/
-main.creation .card{border: none;}
+
+
+
+
 
 
 
@@ -404,6 +423,8 @@ a.collection-index1{margin:0 auto;}
 section.collections article{margin:5% auto;}
 a.collection-index1:hover,a.collection-index2:hover,a.collection-index3:hover{opacity: .5;}
 .collection-modele{display: flex;}
+img[alt*="index"]{max-width: 100%;}
+img[alt*="haut"]{max-width: 100%;}
 
 
 
@@ -426,6 +447,9 @@ section.tenue article.second{margin:15% 0;}
 section.tenue .card{border: 2px solid #efe3d5;}
 section.tenue .modalModel .card{border:none;}
 .modèle{margin-top: 15px}
+#info1{margin:20% 0;}
+#info2{margin-bottom:20%;}
+#info1 .card, #info2 .card {border: none;}
 
 
 
@@ -486,10 +510,7 @@ section.about article .contenu{width:50%;}
 /***************/
 /* INSCRIPTION */
 /**************/
-section.inscription{
-	height: 50vh; 
-	margin-top: 10%
-}
+section.inscription{height: 50vh; margin-top: 10%}
 
 
 
@@ -502,6 +523,17 @@ a.icon-profil{width:50px; height: 50px; border-radius: 100%; background-color: #
 .fa-address-card,.fa-box-open,.fa-envelope,.fa-ruler-horizontal{position: relative; top:14px;left:16px;}
 article.mon-profil .card{border: 1px solid #818181}
 
+
+
+
+/***********/
+/* PANIER  */
+/***********/
+.panier section article{margin-top: 5%}
+.panier .card{margin-top: 30px}
+.panier .card-deck{display: flex;flex-direction: column;}
+a.red{color:darkred}
+img.img_panier{min-width: 100%}
 
 
 
@@ -580,6 +612,8 @@ a.collection-index1{margin:0 auto;}
 section.collections article{margin:5% auto;}
 a.collection-index1:hover,a.collection-index2:hover,a.collection-index3:hover{opacity: .5;}
 .collection-modele{display: flex;}
+img[alt*="index"]{max-width: 100%;}
+img[alt*="haut"]{max-width: 100%;}
 
 
 
@@ -602,6 +636,9 @@ section.tenue article.second{margin:15% 0;}
 section.tenue .card{border: 2px solid #efe3d5;}
 section.tenue .modalModel .card{border:none;}
 .modèle{margin-top: 15px}
+#info1{margin:20% 0;}
+#info2{margin-bottom:20%;}
+#info1 .card, #info2 .card {border: none;}
 
 
 
@@ -690,10 +727,18 @@ article.mon-profil .card{border: 1px solid #818181}
 /*ANIMATION*
 ***********/
 #home-news{height: 45px;line-height: 45px;overflow:hidden;position:relative;font-size: 15px;font-family:'PlayfairDisplay';}
-
 .home_header strong {font-family:'Roboto-Thin';font-size: 25px;}
 
 
+
+/***********/
+/* PANIER  */
+/***********/
+.panier section article{margin-top: 5%}
+.panier .card{margin-top: 30px}
+.panier .card-deck{display: flex;flex-direction: column;}
+a.red{color:darkred}
+img.img_panier{min-width: 100%}
 
 
 
@@ -795,6 +840,10 @@ section.tenue article.second{margin:15% 0;}
 section.tenue .card{border: 2px solid #efe3d5;}
 section.tenue .modalModel .card{border:none;}
 .modèle{margin-top: 15px}
+#info1{margin:20% 0;}
+#info2{margin-bottom:20%;}
+#info1 .card, #info2 .card {border: none;}
+
 
 
 
@@ -879,8 +928,18 @@ article.mon-profil .card{border: 1px solid #818181}
 /*ANIMATION*
 ***********/
 #home-news{height: 45px;line-height: 45px;overflow:hidden;position:relative;font-size: 15px;font-family:'PlayfairDisplay';}
-
 .home_header strong {font-family:'Roboto-Thin';font-size: 25px;}
+
+
+/***********/
+/* PANIER  */
+/***********/
+.panier section article{margin-top: 5%}
+.panier .card{margin-top: 30px}
+.panier .card-deck{display: flex;flex-direction: column;}
+a.red{color:darkred}
+img.img_panier{min-width: 50%}
+
 
 
 

@@ -1,6 +1,6 @@
 {% extends '/admin/index.html.twig'%}
 
-{% block title %}admin {{page.titre}} {{ page.titre }}{% endblock %}
+{% block title %}admin {{page.titre}}{% endblock %}
 
 {% block header %}
 
@@ -100,14 +100,7 @@
             </tbody>
 
         </table>
-        {# revoir l'affichage du bouton#}
-            {% if page.id(5) %}
-
-                <a href="{{ path('addarticle') }}" class="btn btn-beige">Ajouter un article</a>
-                {% else %}
-                  <p>Pour ajouter un nouvel article à cette page merci de contacter le développeur.</p>
-            {% endif %}
-
+       
     </div>
 </main>
 

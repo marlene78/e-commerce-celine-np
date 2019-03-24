@@ -14,12 +14,12 @@
 
         <article class="container">
 
-            <div class="row">
+            <div class="row justify-content-between">
 
-                <div class="card col-sm">
+                <div class="card col-sm-6">
 
                     {% if user.userIdentity is not empty %}
-                        <div class="identity">
+                        <div class="identity pt-5 pb-5">
                             <h4>Vos informations</h4>
                             <p>{{ user.userIdentity.nom }}</p>
                             <p>{{ user.userIdentity.prenom }}</p>
@@ -30,30 +30,30 @@
                             <p>{{ user.userIdentity.codePostal }}</p>
                             <p>{{ user.userIdentity.ville }}</p>
                             <p>{{ user.userIdentity.telephone }}</p>
-                            <a href="{{ path('user_identity_edit',{id:user.userIdentity.id}) }}">Modifier</a>
+                            <a href="{{ path('user_identity_edit',{id:user.userIdentity.id}) }}" class="btn btn-beige" >Modifier</a>
 
                         </div>
                     {% else %}
                         <div class="identity">
-                            <a href="{{ path('add_user_identity') }}">Renseigner vos informations</a>
+                            <a href="{{ path('add_user_identity') }}" class="btn btn-beige">Renseigner vos informations</a>
                         </div>
 
                     {% endif %}
                 </div>
 
-                <div class="card col-sm">
+                <div class="card col-sm-6">
 
 
                     {% if user.mensurations is not empty %}
 
-                        <div class="mensurations">
+                        <div class="mensurations pt-5 pb-5">
                             <h4>Vos Mensurations </h4>
-                            <p>{{ user.mensurations.taille }}</p>
-                            <p>{{ user.mensurations.tourDePoitrine }}</p>
-                            <p>{{ user.mensurations.tourDeHanche }}</p>
-                            <p>{{ user.mensurations.tourDeTaille }}</p>
-                            <p>{{ user.mensurations.tourDeCuisse }}</p>
-                            <a href="{{ path('mensurations_edit' , {id:user.mensurations.id}) }}">Modifier</a>
+                            <p>Taille: {{ user.mensurations.taille }}</p>
+                            <p>Tour de poitrine: {{ user.mensurations.tourDePoitrine }}</p>
+                            <p>Tour de hanche: {{ user.mensurations.tourDeHanche }}</p>
+                            <p>Tour de taille: {{ user.mensurations.tourDeTaille }}</p>
+                            <p>Tour de cuisse: {{ user.mensurations.tourDeCuisse }}</p>
+                            <a href="{{ path('mensurations_edit' , {id:user.mensurations.id}) }}" class="btn btn-beige">Modifier</a>
                         </div>
                     {% else %}
                         <div class="mensurations">
@@ -67,6 +67,7 @@
 
 
             </div>
+            <br>
 
             {% if user.mensurations is not empty and user.userIdentity is not empty%}
 

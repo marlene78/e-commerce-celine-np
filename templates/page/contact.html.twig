@@ -80,13 +80,16 @@
 
       <article class="container footer">
             <div class="jumbotron jumbotron-container jumbotronBg">
+            {% for Page in page.articles %}
                 <div class="container">
-                    <h3 class="display-6">{{ page.articles.get(0).titre }}</h3>
-                    <p class="lead">{{ page.articles.get(0).contenu | raw('html') }}</p>
+                    <h3 class="display-6">{{ Page.titre }}</h3>
+                    <p class="lead">{{ Page.contenu | raw('html') }}</p>
                 </div>
+            {% endfor %}
                {{ include ('/emails/_FormEmail.html.twig') }}
             </div>
       </article>
+
 
    </section>
 

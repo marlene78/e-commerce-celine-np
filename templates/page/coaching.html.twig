@@ -14,14 +14,15 @@
         </div>
 
         <img class="container-fluid" src="{{ vich_uploader_asset(page.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ page.picture.alt }}">
+
+        {% for article in page.articles %}
           
         <div class="ItemTextCoaching container">
-            <p>{{ page.articles.get(0).contenu | raw('html') }}</p>
+            <p>{{ article.contenu | raw('html') }}</p>
         </div>
 
-        <div class="ItemContactCoaching container">
-            <p>{{ page.articles.get(1).contenu | raw('html') }}</p>
-        </div>
+        {% endfor %}
+
 
     </section>
 

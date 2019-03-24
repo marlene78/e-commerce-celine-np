@@ -4,19 +4,36 @@
 
 
 {% block main %}
+
     <main class="container-fluid admin">
-        <section>
-            <div class="container">
-                <hr>
+
+        <section class="container">
+    
                 <h2>Édition</h2>
 
-            </div>
-            <article class="container">
+            <article>
 
                 {{ form_start(createForm) }}
                 {{ form_row(createForm.titre) }}
                 {{ form_row(createForm.contenu) }}
-                {{ form_row(createForm.picture,{'label':'Image'}) }}
+
+                {% if article.picture is empty %}
+
+
+                    {{ form_row(createForm.picture,{
+
+                         'label':"Vous ne pouvez pas ajouter d'image pour cet article",
+                         'attr': {'class':'hidden_image'}
+                         }) 
+                    }}
+
+                {% else %}
+
+                 {{ form_row(createForm.picture,{'label':'Image'}) }}
+
+                {% endif %}
+
+
                 {{ form_row(createForm.page) }}
                 <button type="submit" class="btn btn-grey">Éditer</button>
                 {{ form_end(createForm) }}

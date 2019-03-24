@@ -172,9 +172,16 @@
 
               <div class="row no-gutters">
 
+
+                <div class="col-md-8 info-left">
+                  <img src="{{asset('img/tamara-bellis-465584-unsplash.jpg') }}" class="card-img" alt="les accessoires">
+                </div>
+
+
+
                 <div class="col-md-4">
 
-                  <div class="card-body info-left">
+                  <div class="card-body info-right">
                     <p class="card-text">Agrémente ta tenue avec des accessoires </p>
                     <a href="{{path('accessoires')}}" class="btn btn-beige">Choisi tes accessoires</a>
                   </div>
@@ -182,11 +189,7 @@
                 </div>
 
 
-                <div class="col-md-8 info-right">
-                  <img src="{{asset('img/tamara-bellis-465584-unsplash.jpg') }}" class="card-img" alt="les accessoires">
-                </div>
-
-
+               
                
               </div>
 
@@ -207,7 +210,7 @@
             <a href="{{ path('modele_haut_show', {'slug':item.slug})  }}" title="voir la collection"><img src="{{ vich_uploader_asset(item.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ item.picture.alt }}" style="width:15rem"></a>
           </div>
 
-          {% endfor %}
+        {% endfor %}
              
       </div>
 

@@ -1,7 +1,29 @@
 {% extends '/admin/index.html.twig'%}
 
 
-{% block title %}ajout article{% endblock %}
+{% block title %}Créer un article{% endblock %}
+
+
+{% block header %}
+    <header>
+        <div class="row justify-content-around">
+            <div class="logo row  align-items-center">
+                <a href="{{ path("home") }}"><img src="{{ asset('img/logo-3.png' ) }}" alt="logo"></a>
+                <a href="{{ path("home") }}"><h1 class="text-nowrap">Céline NP</h1></a>
+            </div>
+        </div>
+    </header>
+    <nav class="row justify-content-center nav-scroller py-1 mb-2">
+        <a href="{{ path("home") }}">Retour à l'accueil du site</a>
+        <a href="{{ path("admin") }}">Administration</a>
+        <a href="{{ path("pageListe") }}">Liste des pages</a>
+    </nav>
+     <div class="container">
+         <hr>
+
+     </div>
+
+{% endblock %}
 
 
 
@@ -20,8 +42,18 @@
                {{ form_start(createForm) }}
                {{ form_row(createForm.titre) }}
                {{ form_row(createForm.contenu) }}
-               {{ form_row(createForm.picture) }}
+
                {{ form_row(createForm.page) }}
+
+
+               {{ form_row(createForm.picture) }}
+
+          
+     
+
+
+
+
                <button type="submit" class="btn btn-beige">Créer</button>
                {{ form_end(createForm) }}
 

@@ -26,7 +26,8 @@ class ArticleType extends AbstractType
             ))
 
             ->add('picture',ImageType::class,[
-             'required'=>false
+             'required'=>false,
+             'label'=>'Image'
          ])
 
            ->add('page', EntityType::class,[

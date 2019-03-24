@@ -13,198 +13,209 @@
     {% set TotalPanierBas = 0 %}
     {% set TotalPanierAccessoire = 0 %}
 
-    <main class="container-fluid panier">
+<main class="container-fluid panier">
 
 
-        <div class="container">
-            <hr>
-            <h2>Mon panier</h2>
-        </div>
+    <div class="container">
+        <hr>
+        <h2>Mon panier</h2>
+    </div>
 
-        <article class="container">
+    <section class="container">
 
-            <div class="row">
+        <article>
 
 
-                <div class="contenu_panier col-sm">
+            {% if modelehaut|length == 0 and modelebas| length == 0 and accessoires | length == 0 %}
 
-                {% if modelehaut|length == 0 and modelebas| length == 0 and accessoires | length == 0 %}
-
-                <div class="container">
+               <div class="container">
                     <p>Panier vide</p>
-                    <a href="{{ path('collection_index') }}" class="btn btn-grey">Continuer mes achats</a>
+                     <a href="{{ path('collection_index') }}" class="btn btn-grey">Continuer mes achats</a>
                 </div>
 
-                {% else %}
-                <div class="card">
+            {% else %}
 
-                    <div class="card-body">
+                <div class="card-deck">
 
-                       <h5 class="card-title">Mon Modéle Haut</h5>
+                        <div class="card">
 
-                        {% if modelehaut is empty %}
-                            <a href="{{ path('modele_haut') }}">Choisi ton modèle haut</a>
+                            <div class="card-body">
 
-                            {% else %}
-                            <table class="table table-hover table-borderless">
-                                <thead>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">Modéle</th>
-                                    <th scope="col">Tissu</th>
-                                    <th scope="col">Finition</th>
-                                    <th scope="col">Prix</th>
-                                    <th scope="col"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for modeles in modelehaut %}
-                                <tr>
-                                <td><img class="card-img-top" src="{{ vich_uploader_asset(modeles.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ modeles.picture.alt }}" ></td>
-                                   <td>{{ panierHaut[modeles.id].Nom}}</td>
-                                   <td>{{ panierHaut[modeles.id].tissu}}</td>
-                                   <td>{{ panierHaut[modeles.id].finition }}</td>
-                                   <td>{{ panierHaut[modeles.id].total_modele_haut }}</td>
-                                   <td><a href="{{ path('delete_panier_modele_haut',{id:modeles.id}) }}" class="red"><i class="far fa-trash-alt"></i></a></td>
-                                </tr>
-                                    {% set TotalPanierHaut =  TotalPanierHaut + panierHaut[modeles.id].total_modele_haut  %}
-                                {% endfor %}
-                                <p></p>
-                                </tbody>
-                            </table>
+                               <h5 class="card-title">Mon Modéle Haut</h5>
 
+                                {% if modelehaut is empty %}
+                                    <a href="{{ path('modele_haut') }}">Choisi ton modèle haut</a>
 
-                        {% endif %}
-                     </div>
-                </div>
-
-    
-
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Mon Modéle bas</h5>
-                        {% if modelebas is empty %}
-                            <a href="{{ path('modele_bas') }}">Choisi ton modèle bas</a>
-                        {% else %}
-                            <table class="table table-hover table-borderless">
-                                <thead>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">Modéle bas</th>
-                                    <th scope="col">Tissu</th>
-                                    <th scope="col">Finition</th>
-                                    <th scope="col">Prix</th>
-                                    <th scope="col"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                {% for modeles in modelebas %}
-                                    <tr>
-                                        <td><img class="card-img-top" src="{{ vich_uploader_asset(modeles.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ modeles.picture.alt }}" ></td>
-                                        <td>{{ panierBas[modeles.id].Nom }}</td>
-                                        <td>{{ panierBas[modeles.id].tissu }}</td>
-                                        <td>{{ panierBas[modeles.id].finition }}</td>
-                                        <td>{{ panierBas[modeles.id].total_modele_bas }}€</td>
-                                        <td><a href="{{ path('delete_panier_modele_bas',{id:modeles.id}) }}" class="red"><i class="far fa-trash-alt"></i></a></td>
-                                    </tr>
-                                    {% set TotalPanierBas =  TotalPanierBas + panierBas[modeles.id].total_modele_bas  %}
-                                {% endfor %}
-
-                                </tbody>
-                            </table>
-
-                        {% endif %}
-                    </div>
-                </div>
+                                    {% else %}
+                                    <table class="table  table-borderless">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col"></th>
+                                            <th scope="col">Modéle</th>
+                                            <th scope="col">Tissu</th>
+                                            <th scope="col">Finition</th>
+                                            <th scope="col">Prix</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for modeles in modelehaut %}
+                                        <tr>
+                                        <td><img class="card-img-top" src="{{ vich_uploader_asset(modeles.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ modeles.picture.alt }}"  class="img_panier" ></td>
+                                           <td>{{ panierHaut[modeles.id].Nom}}</td>
+                                           <td>{{ panierHaut[modeles.id].tissu}}</td>
+                                           <td>{{ panierHaut[modeles.id].finition }}</td>
+                                           <td>{{ panierHaut[modeles.id].total_modele_haut }}</td>
+                                           <td><a href="{{ path('delete_panier_modele_haut',{id:modeles.id}) }}" class="red"><i class="far fa-trash-alt"></i></a></td>
+                                        </tr>
+                                            {% set TotalPanierHaut =  TotalPanierHaut + panierHaut[modeles.id].total_modele_haut  %}
+                                        {% endfor %}
+                                        <p></p>
+                                        </tbody>
+                                    </table>
 
 
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Mes Accessoires</h5>
+                                {% endif %}
+                             </div>
+                        </div>
 
-                        {% if accessoires is empty %}
-                            <a href="{{ path('accessoires') }}">Choisi tes accessoires</a>
-                            {% else %}
-                            <table class="table table-hover table-borderless">
-                                <thead>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">Nom</th>
-                                    <th scope="col">Quantité</th>
-                                    <th scope="col">Prix</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for accessoire in accessoires %}
-                                    <tr>
-                                      <td><img class="card-img-top" src="{{ vich_uploader_asset(accessoire.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ accessoire.picture.alt }}" ></td>
-                                      <td>{{ panierAccessoire[accessoire.id].Nom }}</td>
-                                      <td>{{ panierAccessoire[accessoire.id].quantite }}</td>
-                                      <td>{{ panierAccessoire[accessoire.id].prix_total_accessoire }}€</td>
-                                      <td><a href="{{ path('delete_panier_accessoire' , {id:accessoire.id}) }}" class="red"><i class="far fa-trash-alt"></i></a></td>
-                                    </tr>
-                                    {% set TotalPanierAccessoire = TotalPanierAccessoire + panierAccessoire[accessoire.id].prix_total_accessoire %}
-                                {% endfor %}
+            
 
-                                </tbody>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Mon Modéle bas</h5>
+                                {% if modelebas is empty %}
+                                    <a href="{{ path('modele_bas') }}">Choisi ton modèle bas</a>
+                                {% else %}
+                                    <table class="table table-borderless">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col"></th>
+                                            <th scope="col">Modéle</th>
+                                            <th scope="col">Tissu</th>
+                                            <th scope="col">Finition</th>
+                                            <th scope="col">Prix</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
 
-                            </table>
-                        {% endif %}
-                    </div>
-                </div>
+                                        {% for modeles in modelebas %}
+                                            <tr>
+                                                <td><img class="card-img-top" src="{{ vich_uploader_asset(modeles.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ modeles.picture.alt }}"  class="img_panier"></td>
+                                                <td>{{ panierBas[modeles.id].Nom }}</td>
+                                                <td>{{ panierBas[modeles.id].tissu }}</td>
+                                                <td>{{ panierBas[modeles.id].finition }}</td>
+                                                <td>{{ panierBas[modeles.id].total_modele_bas }}€</td>
+                                                <td><a href="{{ path('delete_panier_modele_bas',{id:modeles.id}) }}" class="red"><i class="far fa-trash-alt"></i></a></td>
+                                            </tr>
+                                            {% set TotalPanierBas =  TotalPanierBas + panierBas[modeles.id].total_modele_bas  %}
+                                        {% endfor %}
 
-            </div>
+                                        </tbody>
+                                    </table>
 
-            <div class="card col-sm">
-               <div class="card-body">
-
-                   <div class="card-text">
-                       <h5>Sous-total</h5>
-                       {% set sousTotalPanier = TotalPanierAccessoire +  TotalPanierBas + TotalPanierHaut  %}
-                       <p>{{ sousTotalPanier }}€</p>
-                   </div>
-
-                   <div class="card-text">
-                       <h5>Livraison</h5>
-                       <p>Gratuite</p>
-                   </div>
-
-                   <hr>
-
-                   <a href="{{ path('user_commande') }}" class="btn btn-grey">Valider</a>
-
-                 <p class="card-text">Nous Acceptons:</p>
-               </div>
-            </div>
-
-        </div>
-
-        {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
 
 
 
+                      
 
 
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Mes Accessoires</h5>
+
+                                {% if accessoires is empty %}
+                                    <a href="{{ path('accessoires') }}">Choisi tes accessoires</a>
+                                    {% else %}
+                                    <table class="table table-borderless">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col"></th>
+                                            <th scope="col">Nom</th>
+                                            <th scope="col">Quantité</th>
+                                            <th scope="col">Prix</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for accessoire in accessoires %}
+                                            <tr>
+                                              <td><img class="card-img-top" src="{{ vich_uploader_asset(accessoire.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ accessoire.picture.alt }}" class="img_panier"></td>
+                                              <td>{{ panierAccessoire[accessoire.id].Nom }}</td>
+                                              <td>{{ panierAccessoire[accessoire.id].quantite }}</td>
+                                              <td>{{ panierAccessoire[accessoire.id].prix_total_accessoire }}€</td>
+                                              <td><a href="{{ path('delete_panier_accessoire' , {id:accessoire.id}) }}" class="red"><i class="far fa-trash-alt"></i></a></td>
+                                            </tr>
+                                            {% set TotalPanierAccessoire = TotalPanierAccessoire + panierAccessoire[accessoire.id].prix_total_accessoire %}
+                                        {% endfor %}
+
+                                        </tbody>
+
+                                    </table>
+                                {% endif %}
+                            </div>
+                        </div>
+
+          
+             </div>
 
             <div class="card">
-                 <div class="card-body">
+
+                <div class="card-body">
+
+                    <div class="card-text">
+                        <strong>Livraison</strong>
+                        <h5>Gratuite</h5>
+                    </div>
+
+                    <div class="card-text">
+                        <strong>Total</strong>
+                        {% set sousTotalPanier = TotalPanierAccessoire +  TotalPanierBas + TotalPanierHaut  %}
+                        <h5>{{ sousTotalPanier }}€</h5>
+                    </div>
+
+                     <hr>
+
+                    <a href="{{ path('user_commande') }}" class="btn btn-grey">Valider</a>
+               </div>
+               
+            </div>
+
+
+             
+
+            {% endif %}
+
+           
+
+        </article>
+
+
+        <article>
+
+            <div class="card">
+                <div class="card-body">
                     <h5 class="card-title">Livraison</h5>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rhoncus diam nec volutpat facilisis. Praesent condimentum, sem sed rutrum efficitur, metus justo finibus arcu, sed convallis magna dui lobortis dui. Fusce sed mauris fringilla, interdum purus ac, accumsan ligula.</p>
-                 </div>
+                </div>
             </div>
 
             <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Retour et Remboursement</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rhoncus diam nec volutpat facilisis. Praesent condimentum, sem sed rutrum efficitur, metus justo finibus arcu, sed convallis magna dui lobortis dui. Fusce sed mauris fringilla, interdum purus ac, accumsan ligula.</p>
+                    <h5 class="card-title">Retour et Remboursement</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rhoncus diam nec volutpat facilisis. Praesent condimentum, sem sed rutrum efficitur, metus justo finibus arcu, sed convallis magna dui lobortis dui. Fusce sed mauris fringilla, interdum purus ac, accumsan ligula.</p>
                 </div>
-            </div>
-
-
-
+           </div>
 
         </article>
+
+    </section>
+
+
+
 
     </main>
 

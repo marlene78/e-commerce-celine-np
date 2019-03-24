@@ -1,4 +1,4 @@
-{% extends '/admin/footer.html.twig'%}
+{% extends '/admin/index.html.twig'%}
 
 {% block title %}UserCommande{% endblock %}
 
@@ -17,6 +17,9 @@
         <a href="{{ path("admin") }}">Administration</a>
         <a href="{{ path('user_commande_index') }}">Liste des commandes</a>
     </nav>
+    <div class="container">
+        <hr>
+    </div>
 
 {% endblock %}
 
@@ -42,7 +45,7 @@
             <h6 class="card-subtitle mb-2 text-muted">Commande n° {{user_commande.reference}} Date:{{ user_commande.date ? user_commande.date|date('d-m-Y') : '' }}</h6>
           </div>
           <h5>{{ user_commande.etat }}</h5>
-          <a href="{{path('admin_user')}}">Voir la fiche de {{ user_commande.user.userIdentity.prenom}}</a>
+          <a href="{{path('admin_user')}}">Voir la liste des utilisateurs</a>
 
         </div>
 

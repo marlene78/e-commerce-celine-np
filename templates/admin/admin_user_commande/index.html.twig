@@ -1,4 +1,4 @@
-{% extends '/admin/footer.html.twig'%}
+{% extends '/admin/index.html.twig'%}
 
 
 {% block title %}Gestion des commandes{% endblock %}
@@ -16,15 +16,18 @@
         <a href="{{ path("home") }}">Retour à l'accueil du site</a>
         <a href="{{ path("admin") }}">Administration</a>
     </nav>
+    <div class="container">
+       <hr>
+    </div>
 
 {% endblock %}
 
 {% block main%}
-<main class="container-fluid">
+<main class="container-fluid admin">
 
 
     <section class="container">
-        <hr>
+        
         <h2>Commandes</h2>
 
     <table class="table table-responsive-xl">
@@ -43,7 +46,7 @@
         {% for user_commande in user_commandes %}
             <tr>
                 <td>{{ user_commande.reference }}</td>
-                <td>{{ user_commande.date ? user_commande.date|date('d-m-Y H:i:s') : '' }}</td>
+                <td>{{ user_commande.date ? user_commande.date|date('d-m-Y') : '' }}</td>
                 <td>{{ user_commande.valider ? 'Yes' : 'No' }}</td>
                 <td>{{ user_commande.etat }}</td>
                 <td>{{ user_commande.total }}€</td>

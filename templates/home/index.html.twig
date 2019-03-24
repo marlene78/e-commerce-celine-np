@@ -71,10 +71,10 @@
 
 
               <div class="card">
-                <img class="card-img-top" src="{{asset('img/tamara-bellis-403583-unsplash.jpg')}}" alt="les modèles bas">     
+               <img class="card-img-top" src="{{ vich_uploader_asset(page.articles.get(3).picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ page.articles.get(3).picture.alt }}"> 
                 <div class="card-body">
-                  <h3 class="card-title">Les Modèles bas</h3>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vestibulum rhoncus magna,velit dapibus aliquet consequat, nisi mauris vehicula purus.</p>
+                  <h3 class="card-title">{{ page.articles.get(3).titre | raw('html')}}</h3>
+                  <p class="card-text">{{ page.articles.get(3).contenu | raw('html')}}</p>
                   <a href="{{path('modele_bas')}}" class="btn btn-beige">Je découvre</a>
                 </div>
                
@@ -82,10 +82,10 @@
 
 
               <div class="card">
-                <img class="card-img-top" src="{{asset('img/modelhaut.jpg')}}" alt="les modéles hauts">
+               <img class="card-img-top" src="{{ vich_uploader_asset(page.articles.get(4).picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ page.articles.get(4).picture.alt }}"> 
                 <div class="card-body">
-                  <h3 class="card-title">les Modéles Hauts</h3>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vestibulum rhoncus magna. Nulla facilisi unc efficitur, velit dapibus aliquet consequat, nisi mauris vehicula purus.</p>
+                  <h3 class="card-title">{{ page.articles.get(4).titre | raw('html')}}</h3>
+                  <p class="card-text">{{ page.articles.get(4).contenu | raw('html')}}</p>
                   <a href="{{path('modele_haut')}}" class="btn btn-beige">Je découvre</a>
                 </div>
               </div>
@@ -101,19 +101,19 @@
 
               <div class="card">
                  <blockquote class="blockquote mb-0 card-body">
-                  <p>"I am in the right place at the right time, doing the right thing"</p>
+                  <p>{{ page.articles.get(2).contenu | raw('html')}}</p>
                  </blockquote>
-                 <footer>Louise Hay</footer>
+                 <footer>{{ page.articles.get(2).titre | raw('html')}}</footer>
                  <div class="bgWhite"></div>
               </div>
 
 
 
               <div class="card">
-                <img class="card-img-top" src="{{asset('img/s-o-c-i-a-l-c-u-t-1072401-unsplash.jpg')}}" alt="les accessoires">
+               <img class="card-img-top" src="{{ vich_uploader_asset(page.articles.get(5).picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ page.articles.get(5).picture.alt }}"> 
                 <div class="card-body">
-                  <h3 class="card-title">Les Accessoires</h3>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vestibulum rhoncus magna. Nulla facilisi,Nunc efficitur, velit dapibus aliquet consequat, nisi mauris vehicula purus.</p>
+                  <h3 class="card-title">{{ page.articles.get(5).titre | raw('html')}}</h3>
+                  <p class="card-text">{{ page.articles.get(5).contenu | raw('html')}}</p>
                   <a href="{{path('accessoires')}}" class="btn btn-beige">Je découvre</a>
                 </div>
               </div>

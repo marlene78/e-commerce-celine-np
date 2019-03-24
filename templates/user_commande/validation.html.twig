@@ -19,6 +19,11 @@
      
     </nav>
 
+    <div class="container">
+      <hr>
+     
+    </div>
+
 {% endblock %}
 
 {% block main %}
@@ -32,13 +37,12 @@
 
     <main class="container-fluid panier">
 
+      <section class="container">
 
-        <div class="container">
-            <hr>
-            <h2>Validation</h2>
-        </div>
+        <h2>Validation</h2>
+ 
 
-        <article class="container">
+        <article>
 
             <table class="table table-responsive-xl">
 
@@ -55,14 +59,14 @@
                   {% for modeles in modelehaut %}
 
                   <tr>
-                    <th scope="col">Modéle Haut</th>
+                    <th>Modéle Haut</th>
                     <td></td>
                     <td></td>
                     <td>{{ panierHaut[modeles.id].total_modele_haut }}€</td>
                   </tr>
 
                   <tr>
-                    <th scope="col">{{ panierHaut[modeles.id].Nom}}</th>
+                    <td>{{ panierHaut[modeles.id].Nom}}</th>
                     <td>{{ panierHaut[modeles.id].Prix}}€</td>
                     <td>1</td>
                   </tr>
@@ -89,14 +93,14 @@
                 {% for modeles in modelebas %}
 
                   <tr>
-                    <th scope="col">Modéle Bas</th>
+                    <th>Modéle Bas</th>
                     <td></td>
                     <td></td>
                     <td>{{ panierBas[modeles.id].total_modele_bas }}€</td>
                   </tr>
 
                   <tr>
-                    <th scope="col">{{ panierBas[modeles.id].Nom }}</th>
+                    <td>{{ panierBas[modeles.id].Nom }}</th>
                     <td>{{ panierBas[modeles.id].Prix }}</td>
                     <td>1</td>
                   </tr>
@@ -183,7 +187,7 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <th><a href="{{ path('delete_Usercommande') }}">Annuler</a></th>
+                  <th><a href="{{ path('delete_Usercommande') }}" class="btn btn-grey">Annuler</a></th>
                 </tr>
               
               </tbody>
@@ -193,20 +197,9 @@
 
          
     
-
-
-
-
-
-
-
-
-
-
-
-
-
         </article>
+
+      </section>
 
     </main>
 

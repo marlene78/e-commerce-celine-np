@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ModelBasRepository")
@@ -23,17 +24,21 @@ class ModelBas
 
     /**
      * @ORM\Column(type="string", length=255)
+     *@Assert\NotBlank()
      */
     private $nom;
 
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
+     *@Assert\NotBlank()
      */
     private $picture;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min = 2,max = 255)
+     *@Assert\NotBlank()
      */
     private $description;
 
@@ -46,11 +51,13 @@ class ModelBas
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tissu", inversedBy="modelBas")
+     * @Assert\NotBlank()
      */
     private $tissu;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Finitions", inversedBy="modelBas")
+     * @Assert\NotBlank()
      */
     private $finition;
 

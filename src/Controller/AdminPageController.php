@@ -32,6 +32,8 @@ class AdminPageController extends AbstractController
 
 
 
+  // Méthode d'ajout de page, non accessible par l'admin
+
     /**
      * @Route("addPage", name="addPage")
      * @param Request $request
@@ -82,7 +84,7 @@ class AdminPageController extends AbstractController
 
        }
        return $this->render('admin/admin_page/pageEdition.html.twig',[
-           'createForm'=>$form->createView(),
+           'createForm'=>$form->createView()
           
        ]);
 
