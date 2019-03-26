@@ -9,8 +9,8 @@
 
         <div class="container">
             <hr>
-            <h2>Céline NP</h2>
-            <h2>Styliste de mode</h2>
+            <h3>Céline NP</h3>
+            <h4>Styliste de mode</h4>
         </div>
 
 
@@ -18,32 +18,46 @@
         <section class="about container">
 
 
-            <article class="container">
-                <img src="{{ vich_uploader_asset(page.articles.get(0).picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ page.articles.get(0).picture.alt }}">
-
-                <div class="contenu">
-                    <h3>{{ page.articles.get(0).titre }}</h3>
-                    <p>{{ page.articles.get(0).contenu | raw('html') }}</p>
-                    <a href="{{ path('creation') }}" class="button1">Découvre mes créations</a>
-
+            <div class="card mb-3">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                   <img src="{{ vich_uploader_asset(page.articles.get(0).picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ page.articles.get(0).picture.alt }}" class="img1_about">
                 </div>
-
-            </article>
-
-
-
-            <article class="container">
-
-
-                <div class="contenu">
-                    <h3>{{ page.articles.get(1).titre }}</h3>
-                    <p>{{ page.articles.get(1).contenu | raw('html') }}</p>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ page.articles.get(0).titre }}</h5>
+                    <p class="card-text">{{ page.articles.get(0).contenu | raw('html') }}</p>
+                   <a href="{{ path('creation') }}" class="btn btn-beige">Découvre mes créations</a>
+                  </div>
                 </div>
+              </div>
+            </div>
 
-                <img src="{{ vich_uploader_asset(page.articles.get(1).picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ page.articles.get(1).picture.alt }}">
+             
+            <div class="card mb-3" style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                   <img src="{{ vich_uploader_asset(page.articles.get(1).picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ page.articles.get(1).picture.alt }}" class="img2_about">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ page.articles.get(1).titre }}</h5>
+                    <p class="card-text style="width:18rem">{{ page.articles.get(1).contenu | raw('html') }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
-            </article>
+
+
+
+
+
+
+
+
+
 
         </section>
 

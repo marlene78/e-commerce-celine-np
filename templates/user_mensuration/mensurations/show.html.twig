@@ -11,9 +11,11 @@
         <h2>Mes mensurations</h2>
     </div>
 
+    <br>
+
     <section class="container">
 
-    <table class="table">
+    <table class="table table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
         <tbody>
       
             <tr>
@@ -41,7 +43,14 @@
     </table>
 
 
-    {{ include('/user_mensuration/mensurations/_delete_form.html.twig') }}
+    {#{{ include('/user_mensuration/mensurations/_delete_form.html.twig') }}#}
+
+   <br>
+
+     <a href="javascript:history.back()">Retour</a>
+
+
+
     </section>
 </main>
 {% endblock %}

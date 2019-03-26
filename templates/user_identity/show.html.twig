@@ -11,10 +11,12 @@
     <h2>Ton Profil</h2>
   </div>
 
+  <br>
+
   <section class="container">
 
 
-    <table class="table">
+    <table class="table table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
         <tbody>
     
             <tr>
@@ -34,7 +36,7 @@
                 <td>{{ user_identity.adresse }}</td>
             </tr>
             <tr>
-                <th>CodePostal</th>
+                <th>Code Postal</th>
                 <td>{{ user_identity.codePostal }}</td>
             </tr>
             <tr>
@@ -57,7 +59,9 @@
         </tbody>
     </table>
     
-    {{ include('user_identity/_delete_form.html.twig') }}
+    {# {{ include('user_identity/_delete_form.html.twig') }}#}
+     <a href="javascript:history.back()">Retour</a>
+     <p>Pour supprimer votre compte merci de nous contacter</p>
 </section>
 </main>
 {% endblock %}

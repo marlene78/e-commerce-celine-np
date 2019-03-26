@@ -20,22 +20,36 @@
                   
                        {% for accessoire in accessoires %}
                        <div class=" col-sm-6 col-xl-4 position">
+
+                        {% if panierAccessoire[accessoire.id] is not defined %}
                             <div class="card">
-                                <img class="card-img-top" src="{{ vich_uploader_asset(accessoire.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ accessoire.picture.alt }}" >
+                                    <img class="card-img-top" src="{{ vich_uploader_asset(accessoire.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ accessoire.picture.alt }}" >
 
-                                <div class="card-body">
-                                    <p class="card-text">{{ accessoire.nom }}</p>
-                                    <p class="card-text">Prix:{{ accessoire.prix }}€</p>
+                                    <div class="card-body">
+                                        <p class="card-text">{{ accessoire.nom }}</p>
+                                        <p class="card-text">Prix:{{ accessoire.prix }}€</p>
 
-                                </div>
+                                    </div>
 
-                                {% if panierAccessoire[accessoire.id] is not defined %}
                                     <a href="{{ path('accessoires_show',{'slug':accessoire.slug}) }}" class="button1">Je découvre</a>
-                                    {% else %}
-                                        <a href="{{ path('accessoires_show',{'slug':accessoire.slug}) }}" class="button1">Déjà dans le panier</a>
-                                {% endif %}
+                             </div>
 
-                            </div>
+                            {% else %}
+                              <div class="card panier_active">
+
+                                        <img class="card-img-top" src="{{ vich_uploader_asset(accessoire.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ accessoire.picture.alt }}" >
+
+                                        <div class="card-body">
+                                            <p class="card-text">{{ accessoire.nom }}</p>
+                                            <p class="card-text">Prix:{{ accessoire.prix }}€</p>
+
+                                        </div>
+
+                                        <a href="" class="button1 active">Déjà dans le panier</a>
+                                </div>
+                         {% endif %}
+
+
                         </div>
                     {% endfor %}
                 </div>

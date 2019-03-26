@@ -20,22 +20,35 @@
                   
                        {% for model in models %}
                        <div class=" col-sm-6 col-xl-4 position">
-                            <div class="card">
-                                <img class="card-img-top" src="{{ vich_uploader_asset(model.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ model.picture.alt }}" >
 
-                                <div class="card-body">
-                                    <p class="card-text">{{ model.nom }}</p>
-                                    <p class="card-text">À partir de: {{ model.prix }}€</p>
+                            {% if panierHaut[model.id]  is not defined %}
+                                <div class="card">
+                                    <img class="card-img-top" src="{{ vich_uploader_asset(model.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ model.picture.alt }}" >
 
-                                </div>
-                                {% if panierHaut[model.id]  is not defined %}
+                                    <div class="card-body">
+                                        <p class="card-text">{{ model.nom }}</p>
+                                        <p class="card-text">À partir de: {{ model.prix }}€</p>
+
+                                    </div>
+
                                     <a href="{{ path('modele_haut_show',{'slug':model.slug}) }}" class="button1">Je découvre</a>
+                                </div>
+
                                     {% else %}
-                                        <a href="{{ path('modele_haut_show',{'slug':model.slug}) }}" class="button1">Déjà dans le panier</a>
+
+                                    <div class="card panier_active">
+                                        <img class="card-img-top" src="{{ vich_uploader_asset(model.picture, 'imageFile','App\\Entity\\Image') }}" alt="{{ model.picture.alt }}" >
+
+                                        <div class="card-body">
+                                            <p class="card-text">{{ model.nom }}</p>
+                                            <p class="card-text">À partir de: {{ model.prix }}€</p>
+
+                                        </div>
+                                        <a href="" class="button1 active">Déjà dans le panier</a>
+                                    </div>
                                 {% endif %}
 
 
-                            </div>
                         </div>
                     {% endfor %}
                 </div> 

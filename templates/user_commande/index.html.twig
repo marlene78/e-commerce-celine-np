@@ -14,59 +14,65 @@
 
         <article class="container">
 
-            <div class="row justify-content-between">
 
-                <div class="card col-sm-6">
+            <div class="card mb-3">
 
-                    {% if user.userIdentity is not empty %}
-                        <div class="identity pt-5 pb-5">
-                            <h4>Vos informations</h4>
-                            <p>{{ user.userIdentity.nom }}</p>
-                            <p>{{ user.userIdentity.prenom }}</p>
-                            <p>{{ user.userIdentity.pays }}</p>
-                            <p>{{ user.userIdentity.region }}</p>
-                            <p>{{ user.userIdentity.departement }}</p>
-                            <p>{{ user.userIdentity.adresse }}</p>
-                            <p>{{ user.userIdentity.codePostal }}</p>
-                            <p>{{ user.userIdentity.ville }}</p>
-                            <p>{{ user.userIdentity.telephone }}</p>
-                            <a href="{{ path('user_identity_edit',{id:user.userIdentity.id}) }}" class="btn btn-beige" >Modifier</a>
+              <div class="row no-gutters">
 
-                        </div>
-                    {% else %}
-                        <div class="identity">
-                            <a href="{{ path('add_user_identity') }}" class="btn btn-beige">Renseigner vos informations</a>
+                <div class="col-md-4">
+                 
+                </div>
+
+                <div class="col-md-8">
+
+                {% if user.userIdentity is not empty %}
+                  <div class="card-body">
+                    <h5 class="card-title">Vos informations</h5>
+                    <p class="card-text">{{ user.userIdentity.nom }}&nbsp;{{ user.userIdentity.prenom }}</p>
+                    <p class="card-text">{{ user.userIdentity.adresse }}&nbsp;{{ user.userIdentity.codePostal }}&nbsp;{{ user.userIdentity.ville }}</p>
+                    <p class="card-text">{{ user.userIdentity.pays }}&nbsp;{{ user.userIdentity.telephone }}</p>   
+                     <a href="{{ path('user_identity_edit',{id:user.userIdentity.id}) }}" class="btn btn-beige" >Modifier</a>
+                  </div>
+                  
+                   {% else %}
+                        <div class="card-body">
+                            <a href="{{ path('user_identity_new') }}" class="btn btn-beige">Renseigner vos informations</a>
                         </div>
 
                     {% endif %}
                 </div>
-
-                <div class="card col-sm-6">
-
-
-                    {% if user.mensurations is not empty %}
-
-                        <div class="mensurations pt-5 pb-5">
-                            <h4>Vos Mensurations </h4>
-                            <p>Taille: {{ user.mensurations.taille }}</p>
-                            <p>Tour de poitrine: {{ user.mensurations.tourDePoitrine }}</p>
-                            <p>Tour de hanche: {{ user.mensurations.tourDeHanche }}</p>
-                            <p>Tour de taille: {{ user.mensurations.tourDeTaille }}</p>
-                            <p>Tour de cuisse: {{ user.mensurations.tourDeCuisse }}</p>
-                            <a href="{{ path('mensurations_edit' , {id:user.mensurations.id}) }}" class="btn btn-beige">Modifier</a>
-                        </div>
-                    {% else %}
-                        <div class="mensurations">
-                            <a href="{{ path('mensurations_new')}}" class="btn btn-beige">Clique ici pour ajouter tes mensurations</a>
-                        </div>
-
-                    {% endif %}
-
-
-                </div>
-
-
+              </div>
             </div>
+
+            <div class="card mb-3">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                 
+                </div>
+
+                <div class="col-md-8">
+
+                  {% if user.mensurations is not empty %}
+                  <div class="card-body">
+                    <h5 class="card-title">Vos Mensurations</h5>
+                    <p class="card-text">Taille: {{ user.mensurations.taille }} &nbsp; Tour de poitrine: {{ user.mensurations.tourDePoitrine }}</p>
+                    <p class="card-text">Tour de hanche: {{ user.mensurations.tourDeHanche }}&nbsp; Tour de taille: {{ user.mensurations.tourDeTaille }}</p>
+                    <p class="card-text">Tour de cuisse: {{ user.mensurations.tourDeCuisse }}</p>
+                     <a href="{{ path('mensurations_edit' , {id:user.mensurations.id}) }}" class="btn btn-beige">Modifier</a>
+                  </div>
+
+                   {% else %}
+                    <div class="card-body">
+                        <a href="{{ path('mensurations_new')}}" class="btn btn-beige">Clique ici pour ajouter tes mensurations</a>
+                    </div>
+
+                    {% endif %}
+
+                </div>
+              </div>
+            </div>
+
+
             <br>
 
             {% if user.mensurations is not empty and user.userIdentity is not empty%}
@@ -75,7 +81,7 @@
 
             {% else %}
                 
-                <p>Renseigne tes informations</p>
+                <p>Pour valider ta commande renseigne tes informations de livraison ainsi que tes mensurations</p>
               
             {% endif %}
 

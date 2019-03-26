@@ -20,7 +20,17 @@
 
 <p>Date de la commande : {{ UserCommande.date | date('d/m/Y') }}</p>
 
-<p>Référence : {{ UserCommande.reference }}</p>
+<p>Nom: {{user.userIdentity.nom}}</p>
+
+<p>Prénom: {{user.userIdentity.prenom}}</p>
+
+<p>Adresse: {{user.userIdentity.adresse}}&nbsp;{{user.userIdentity.codePostal}}&nbsp;{{ user.userIdentity.ville }}</p>
+
+<p>Département / Pays : {{ user.userIdentity.departement }}&nbsp;{{ user.userIdentity.pays }}</p>
+<p>N°Téléphone: {{ user.userIdentity.telephone }}</p>
+
+
+<p>Référence Commande: {{ UserCommande.reference }}</p>
 
 
 {% for modele in UserCommande.commande.panierHaut%}
@@ -66,7 +76,7 @@
 
 
 <p>Montant Commande : {{ UserCommande.total }}€</p>
-
+<p>Etat: {{ UserCommande.etat }}</p>
 
 
 

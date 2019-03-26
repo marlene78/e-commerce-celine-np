@@ -55,10 +55,11 @@ class MensurationsController extends AbstractController
      */
     public function show(Mensurations $mensuration): Response
     {
-
+        
 
         return $this->render('user_mensuration/mensurations/show.html.twig', [
-            'mensuration' => $mensuration
+            'mensuration' => $mensuration,
+
       
         ]);
     }

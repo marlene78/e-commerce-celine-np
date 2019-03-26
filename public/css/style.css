@@ -9,58 +9,6 @@
  }
 
 
-/**********
-ANIMATIONS*
-**********/
-
-#home-news{height: 45px;line-height: 45px;overflow:hidden;position:relative;font-size: 30px;font-family:'PlayfairDisplay';}
-.home_header {position:absolute;width:100%;z-index:99;}
-.home_header_on {z-index:100;}
-.home_header strong {font-family:'Roboto-Thin';font-size: 40px;}
-.home_header span, .home_header strong {position:relative;top:-50px;}
-.home_header strong ,.home_header_on strong:nth-child(1),
-.home_header_on strong:nth-child(2),
-.home_header_on strong:nth-child(3),
-.home_header_out strong:nth-child(1),
-.home_header_out strong:nth-child(2),
-.home_header_out strong:nth-child(3){
-	font-weight: normal;
-}
-.home_header_on *:nth-child(1){
-	 top: 0;
-	-webkit-transition: top .6s ease-in-out;
-	-moz-transition: top .6s ease-in-out;
-	 transition: top .6s ease-in-out;
-}
-
-.home_header_on *:nth-child(2) {
-	top: 0;
-	-webkit-transition: top .6s ease-in-out .15s;
-	-moz-transition: top .6s ease-in-out .15s;
-	transition: top .6s ease-in-out .15s;
-}.home_header_on *:nth-child(3) {
-	top: 0;
-	-webkit-transition: top .6s ease-in-out .3s;
-	-moz-transition: top .6s ease-in-out .3s;
-	transition: top .6s ease-in-out .3s;
-}.home_header_out *:nth-child(1) {
-	top: 50px;
-	-webkit-transition: top .6s ease-in-out;
-	-webkit-transition: top .6s ease-in-out;
-	-moz-transition: top .6s ease-in-out;
-}.home_header_out *:nth-child(2) {
-	top: 50px;
-	-webkit-transition: top .6s ease-in-out .15s;
-	-moz-transition: top .6s ease-in-out .15s;
-	transition: top .6s ease-in-out .15s;
-}.home_header_out *:nth-child(3) {
-	top: 50px;
-	-webkit-transition: top .6s ease-in-out .3s;
-	-moz-transition: top .6s ease-in-out .3s;
-	transition: top .6s ease-in-out .3s;
-}
-
-
 
 
 
@@ -120,6 +68,8 @@ a.button2:hover{color: white}
 .button3:hover{background-color:rgba(129,129,129,.8)}
 a.button3,input.button3{font-size: 24px;color: white;padding: 10px;width: 442px;height: 62px;text-align: center;text-transform: uppercase;}
 a.button3:hover{color: white;}
+a.button3{padding-top: 12px}
+
 
 /*******
 Button *
@@ -129,7 +79,11 @@ Button *
 
 .btn-beige{background-color: rgba(239,227,213,1)}
 .btn-beige:hover{background-color: rgba(239,227,213,.5);}
-.btn-beige .active{background-color: rgba(239,227,213,.5);}
+.active,.active:hover{background-color: #cca789;cursor: no-drop;}
+.panier_active {opacity: .5}
+.panier_icone_active{border-bottom: 5px solid #cca789}
+
+
 
 
 
@@ -137,12 +91,14 @@ hr{background-color: #cca789;}
 main{min-height:80vh;margin-bottom: 10% }
 h1{font-family:'DaunPenh';font-size: 36px;color: #D5B59D;padding-top: 15px}
 h2,h3{font-family:'Parisienne';}
-
 h2{color: #cca789;text-align: center;}
+h2.slogan,h2.profil{font-family: 'Roboto-Thin';color: black;}
 h3.lastCollection{font-family: 'Roboto-Regular';margin-bottom: 25px}
 
 
 article.footer{margin-top: 5%}
+
+
 
 /*------------------------*/
 
@@ -155,6 +111,16 @@ img[alt*="panier"]{width:34px;height:37px;}
 nav{font-size: 22px;background: rgba(255,255,255,.8)}
 nav a{padding: 0 10px}
 
+
+/***************/
+/* PAGE ABOUT  */
+/***************/
+main.pageAbout{margin-bottom: 10%}
+main.pageAbout h3{font-family: 'Roboto-Light';color: black;}
+section.about{margin-top: 40px}
+section.about .card:nth-child(2){border: none;}
+.img1_about{width: 18rem}
+.img2_about{width: 12rem}
 
 
 
@@ -216,10 +182,9 @@ div .card-facture .card{border: 2px solid color: #D5B59D;}
 /***************/
 /*CREATION
 ****************/
-main.creation section{margin-top:5%;height: auto;}
+main.creation section{margin-top:5%;}
 main.creation .card{border: none;}
 
-.bloc_creation{display: flex;}
 
 
 
@@ -229,6 +194,8 @@ main.creation .card{border: none;}
 
 /*--------------------------------------------------------Ordi --------------------------------------------------------------*/
 @media screen and (min-width: 1024px){
+
+
 
 
 /**************/
@@ -259,6 +226,7 @@ main.acueil{margin-bottom: 0}
 a.collection-index1{margin:0 auto;}
 a.collection-index1:hover,a.collection-index2:hover,a.collection-index3:hover{opacity: .5;}
 .collection-modele{display: flex;}
+.collection_index_mobile{display: none;}
 
 
 
@@ -312,17 +280,6 @@ section.coaching .ItemTextCoaching,.ItemContactCoaching{text-align: center;font-
 
 
 
-/***************/
-/* PAGE ABOUT  */
-/***************/
-main.pageAbout{margin-bottom: 20%}
-main.pageAbout h2,main.pageAbout  h3{font-family: 'Roboto-Light';color: black}
-main.pageAbout h2{text-align: left;}
-section.about{}
-section.about article{ display: flex;margin-top: 5%;justify-content: space-between;}
-section.about article img{max-width: 40%}
-section.about article .contenu{width:50%;}
-
 
 /**************/
 /* MON COMPTE */
@@ -371,9 +328,6 @@ article.mon-profil .card p,article.mon-profil .card a{font-size: 1.2rem}
 
 
 
-
-
-
 }
 
 
@@ -383,6 +337,7 @@ article.mon-profil .card p,article.mon-profil .card a{font-size: 1.2rem}
 /*---------------------------------------------------tablette-----------------------------------------------------------*/
 
 @media screen and (min-width:721px) and (max-width: 1023px){
+
 
 
 /************/
@@ -425,6 +380,7 @@ a.collection-index1:hover,a.collection-index2:hover,a.collection-index3:hover{op
 .collection-modele{display: flex;}
 img[alt*="index"]{max-width: 100%;}
 img[alt*="haut"]{max-width: 100%;}
+.collection_index_mobile{display: none;}
 
 
 
@@ -475,17 +431,7 @@ section.coaching .ItemTextCoaching,.ItemContactCoaching{text-align: center;font-
 
 
 
-/***************/
-/* PAGE ABOUT  */
-/***************/
-main.pageAbout{margin-bottom: 20%}
-main.pageAbout h2,main.pageAbout  h3{font-family: 'Roboto-Light';color: black}
-main.pageAbout h2{text-align: left;}
-section.about{}
-section.about article{ display: flex;margin-top: 5%;justify-content: space-between;}
-section.about article img{max-width: 40%}
-section.about article .contenu{width:50%;}
-
+.img1_about{width: 16rem; padding-right: 15px}
 
 
 
@@ -531,18 +477,8 @@ article.mon-profil .card{border: 1px solid #818181}
 /***********/
 .panier section article{margin-top: 5%}
 .panier .card{margin-top: 30px}
-.panier .card-deck{display: flex;flex-direction: column;}
 a.red{color:darkred}
 img.img_panier{min-width: 100%}
-
-
-
-
-
-
-
-
-
 
 
 
@@ -557,6 +493,9 @@ img.img_panier{min-width: 100%}
 
 /*-----------------------------------------------tablettexs------------------------------------------------*/
 @media screen and (min-width: 481px) and (max-width: 720px ){
+
+
+
 
 
 
@@ -610,10 +549,7 @@ main.acueil{margin-bottom: 0}
 /******************/
 a.collection-index1{margin:0 auto;}
 section.collections article{margin:5% auto;}
-a.collection-index1:hover,a.collection-index2:hover,a.collection-index3:hover{opacity: .5;}
-.collection-modele{display: flex;}
-img[alt*="index"]{max-width: 100%;}
-img[alt*="haut"]{max-width: 100%;}
+.collecton_index_desktop{display: none}
 
 
 
@@ -669,16 +605,6 @@ section.coaching .ItemTextCoaching,.ItemContactCoaching{text-align: center;font-
 
 
 
-/***************/
-/* PAGE ABOUT  */
-/***************/
-main.pageAbout{margin-bottom: 20%}
-main.pageAbout h2,main.pageAbout  h3{font-family: 'Roboto-Light';color: black}
-main.pageAbout h2{text-align: left;}
-section.about{}
-section.about article{ display: flex;margin-top: 5%;flex-direction: column;}
-section.about article img{max-width: 100%}
-section.about article .contenu{width:100%;}
 
 
 
@@ -736,10 +662,7 @@ article.mon-profil .card{border: 1px solid #818181}
 /***********/
 .panier section article{margin-top: 5%}
 .panier .card{margin-top: 30px}
-.panier .card-deck{display: flex;flex-direction: column;}
 a.red{color:darkred}
-img.img_panier{min-width: 100%}
-
 
 
 
@@ -764,9 +687,12 @@ h3.lastCollection{font-size:25px }
 .jumbotronBg p{font-size: 16px;text-align: left;}
 
 
-a.button3{font-size: 24px;color: white;;padding: 10px;width: 242px;height: 62px;text-align: center;}
-
-
+.button3{background-color:rgba(129,129,129,1);text-transform: uppercase}
+.button3:hover{background-color:rgba(129,129,129,.8)}
+a.button3,input.button3{font-size: 20px;color: white;padding: 10px;height: 62px;width:210px;text-align: center;text-transform: uppercase;}
+a.button3:hover{color: white;}
+a.button3{padding-top: 15px}
+input.request{height: 62px; width: auto;font-size: 18px}
 /************/
 /* Header
 /*************/
@@ -783,6 +709,7 @@ nav{font-size: 15px;}
 /*********/
 img[alt*="social"]{max-width: 10%}
 .contact{display: flex;flex-wrap: wrap;}
+.nav_footer{font-size: 13px}
 
 
 
@@ -812,13 +739,8 @@ main.acueil{margin-bottom: 0}
 /*PAGE COLLECTION*/
 /******************/
 main.mobile{margin: 0}
-a.collection-index1{margin:0 auto;}
 section.collections article{margin:20% auto 0 auto}
-a.collection-index1:hover,a.collection-index2:hover,a.collection-index3:hover{opacity: .5;}
-.collection-modele{display: flex;flex-wrap: nowrap;align-items: center;}
-img[alt*="index"]{max-width: 100%;}
-img[alt*="haut"]{max-width: 100%;}
-
+.collecton_index_desktop{display: none}
 
 
 /**************************/
@@ -868,17 +790,11 @@ section.coaching .ItemTextCoaching,.ItemContactCoaching{text-align: center;font-
 .ItemContactCoaching {margin-bottom: 10%;text-align: center;}
 
 
-
 /***************/
 /* PAGE ABOUT  */
 /***************/
-main.pageAbout{margin-bottom: 20%}
-main.pageAbout h2,main.pageAbout  h3{font-family: 'Roboto';color: black}
-main.pageAbout h2{text-align: left;}
-section.about{}
-section.about article{ display: flex;margin-top: 5%;flex-direction: column;}
-section.about article img{max-width: 100%}
-section.about article .contenu{width:100%;}
+.img1_about{min-width: 100%}
+.img2_about{min-width: 100%}
 
 
 
@@ -906,10 +822,7 @@ section.about article .contenu{width:100%;}
 /***************/
 /* INSCRIPTION */
 /**************/
-section.inscription{
-	height: 50vh; 
-	margin-top: 10%
-}
+section.inscription{height: 50vh; margin-top: 10%}
 
 
 
@@ -925,20 +838,12 @@ article.mon-profil .card{border: 1px solid #818181}
 
 
 /***********/
-/*ANIMATION*
-***********/
-#home-news{height: 45px;line-height: 45px;overflow:hidden;position:relative;font-size: 15px;font-family:'PlayfairDisplay';}
-.home_header strong {font-family:'Roboto-Thin';font-size: 25px;}
-
-
-/***********/
 /* PANIER  */
 /***********/
 .panier section article{margin-top: 5%}
 .panier .card{margin-top: 30px}
-.panier .card-deck{display: flex;flex-direction: column;}
 a.red{color:darkred}
-img.img_panier{min-width: 50%}
+
 
 
 

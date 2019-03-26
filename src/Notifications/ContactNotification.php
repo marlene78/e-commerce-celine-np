@@ -36,8 +36,8 @@ class ContactNotification
     public function  notify(Contact $contact)
     {
         $message = (new \Swift_Message('Sujet:'.' '.$contact->getSujet()))
-                   ->setFrom('test@test.fr')
-                   ->setTo('contact@test.fr')
+                   ->setFrom('noreponse@celinenp.fr')
+                   ->setTo('contact@marlenelingisi.fr')
                    ->setReplyTo($contact->getEmail())
                    ->setBody($this->environment->render('emails/contact.html.twig',[
                        'contact'=>$contact

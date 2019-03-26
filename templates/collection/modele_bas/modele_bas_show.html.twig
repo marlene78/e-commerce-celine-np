@@ -96,7 +96,7 @@
               {% if panierBas[model.id]  is not defined %}
                  <a href="{{ path('modele_bas_commande',{'slug':model.slug}) }}" class="btn btn-beige showcase-btn">Composer ma tenue</a>
                         {% else %}
-                 <a href="{{ path('modele_bas_commande',{'slug':model.slug}) }}" class="btn btn-beige showcase-btn">Déjà dans le panier</a>
+                 <a href="{{ path('modele_bas_commande',{'slug':model.slug}) }}" class="btn btn-beige showcase-btn active">Déjà dans le panier</a>
               {% endif %}
 
 
@@ -151,18 +151,16 @@
 
           <div class="row no-gutters">
 
-            <div class="col-md-4">
-
-              <div class="card-body info-left">
-                <p class="card-text">Agrémente ta tenue avec des accessoires </p>
-                <a href="{{path('accessoires')}}" class="btn btn-beige">Choisi tes accessoires</a>
-              </div>
-
+            <div class="col-md-8 info-left">
+             <img src="{{asset('img/sai-de-silva-41031-unsplash.jpg')}}" class="card-img" alt="...">
             </div>
 
 
-            <div class="col-md-8 info-right">
-              <img src="{{asset('img/sai-de-silva-41031-unsplash.jpg')}}" class="card-img" alt="...">
+            <div class="col-md-4">
+               <div class="card-body  info-right">
+                <p class="card-text">Agrémente ta tenue avec des accessoires </p>
+                <a href="{{path('accessoires')}}" class="btn btn-beige">Choisi tes accessoires</a>
+              </div>
             </div>
 
           </div>
