@@ -1,4 +1,4 @@
-{% extends '/admin/footer.html.twig'%}
+{% extends '/admin/index.html.twig'%}
 
 
 {% block title %}Mise à jour{% endblock %}
@@ -16,6 +16,9 @@
         <a href="{{ path("home") }}">Retour à l'accueil du site</a>
         <a href="{{ path("admin") }}">Administration</a>
     </nav>
+    <div class="container">
+       <hr>
+    </div>
 
 {% endblock %}
 
@@ -24,7 +27,7 @@
 
 
     <section class="container">
-        <hr>
+     
         <h2>Mise à jour de la commande n° {{  user_commande.reference}}</h2>
 
 

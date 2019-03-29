@@ -15,7 +15,7 @@ class FinitionsType extends AbstractType
             ->add('nom')
             ->add('prix')
              ->add('picture',ImageType::class,[
-                'required'=>false,
+                'required'=>true,
                  'label'=>'Image'
                 ])
 

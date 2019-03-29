@@ -45,8 +45,16 @@
                     </a>
 
                 {% endif %}
+                  {% if app.session.get('panierHaut') is not empty or app.session.get('panierBas') is not empty or app.session.get('panierAccessoire') is not empty %}
 
-             <a href="{{ path('panier_index') }}" title="voir mon panier"><img src="{{ asset('img/shopping-bag.png' ) }}" alt="panier"></a>
+                   <a href="{{ path('panier_index') }}" title="voir mon panier" class="panier_icone_active"><img src="{{ asset('img/shopping-bag.png' ) }}" alt="panier"></a>
+               
+                    {% else %}
+    
+                      <a href="{{ path('panier_index') }}" title="voir mon panier"><img src="{{ asset('img/shopping-bag.png' ) }}" alt="panier"></a>
+
+                    {% endif %}
+               
 
             </div>
 

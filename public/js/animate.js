@@ -97,29 +97,6 @@ $(document).ready(function(){
   
 
 
-  /*****Cache le formulaire d'ajout d'image pour certain article*******/
-$('#article_page').change(function(){
-
-
- if($('#article_page option:selected').val() == "6" || $('#article_page option:selected').val() == "7"  || $('#article_page option:selected').val() == "8"){
-    
-    $('fieldset').hide();
-
-
-
-  }else{
-    $('#article_picture').show(); 
-  }
-
-
-
-
-
-
-
-}); 
-
-
 
 
  

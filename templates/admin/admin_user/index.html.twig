@@ -57,16 +57,25 @@
                 <tbody>
                 {% for Users in user %}
                 <tr>
-                    <th scope="row">{{ Users.userIdentity.nom }}</th>
+                {% if Users.userIdentity is not  empty %}
+                  <th scope="row">{{Users.userIdentity.nom}}</th>
                     <td>{{ Users.userIdentity.prenom }}</td>
                     <td>{{ Users.email }}</td>
-                    <td>{{ Users.userIdentity.telephone }}</td>
-                
-                    <td>{{ Users.mensurations.taille }}</td>
+                    <td>{{ Users.userIdentity.telephone }}</td>   
+                  {% else %}
+                  <th>{{Users.username}} n'a pas encore renseigné ses informations</th>
+                  
+                {% endif %}
+                {% if Users.mensurations is not empty %}
+                  <td>{{ Users.mensurations.taille }}</td>
                     <td>{{ Users.mensurations.tourDePoitrine }}</td>
                     <td>{{ Users.mensurations.tourDeHanche }}</td>
                     <td>{{ Users.mensurations.tourDeTaille }}</td>
                     <td>{{ Users.mensurations.tourDeCuisse }}</td>
+                {% else %}
+                  <th>{{Users.username}} n'a pas encore renseigné ses mensurations</th>
+                  
+                {% endif %}
                 
               {% endfor %}
                 </tr>

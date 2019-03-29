@@ -8,42 +8,42 @@
 {% block main %}
 <main class="container-fluid admin">
 
-    <div class="container">
+   <section class="collections container">
 
         <h2>Liste des tissus</h2>
 
-    </div>
 
-    <article class="container">
+        <article class="container">
 
-        <table class="table table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+            <table class="table table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
 
-            <thead>
-            <tr>
-                <th scope="col">Nom</th>
-                <th>Édition</th>
-                <th>Suppression</th>
-            </tr>
-            </thead>
-
-            <tbody>
-            {% for tissu in tissus %}
+                <thead>
                 <tr>
-                    <th scope="row">{{ tissu.nom }}</th>
-                    <td scope="row"><a href="{{ path('edit_tissu',{'slug':tissu.slug}) }}" class="btn btn-grey">Éditer</a></td>
-                    <td><a href="{{ path('delete_tissu' ,{'slug':tissu.slug}) }}" class="btn btn-danger">Supprimer</a></td>
+                    <th scope="col">Nom</th>
+                    <th>Édition</th>
+                    <th>Suppression</th>
                 </tr>
-              {% else %}
-                <p>Vous n'avez pas encore crée de tissu</p>
-            {% endfor %}
-     
-            </tbody>
+                </thead>
 
-        </table>
+                <tbody>
+                {% for tissu in tissus %}
+                    <tr>
+                        <th scope="row">{{ tissu.nom }}</th>
+                        <td scope="row"><a href="{{ path('edit_tissu',{'slug':tissu.slug}) }}" class="btn btn-grey">Éditer</a></td>
+                        <td><a href="{{ path('delete_tissu' ,{'slug':tissu.slug}) }}" class="btn btn-danger">Supprimer</a></td>
+                    </tr>
+                  {% else %}
+                    <p>Vous n'avez pas encore crée de tissu</p>
+                {% endfor %}
+         
+                </tbody>
 
-        <a href="{{ path('addTissu') }}" class="btn btn-beige">Ajouter un tissu</a>
+            </table>
 
-    </article>
+        
+        </article>
+         <a href="{{ path('addTissu') }}" class="btn btn-beige">Ajouter un tissu</a>
+    </section>
 
     
 </main>

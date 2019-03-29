@@ -18,7 +18,7 @@ class ModelBasType extends AbstractType
             
             ->add('nom')
              ->add('picture',ImageType::class,[
-                'required'=>false,
+                'required'=>true,
                  'label'=>'Image'
                 ])
 

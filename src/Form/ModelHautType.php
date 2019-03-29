@@ -20,7 +20,7 @@ class ModelHautType extends AbstractType
         $builder
             ->add('nom')
              ->add('picture',ImageType::class,[
-                'required'=>false, 
+                'required'=>true, 
                 'label'=>'Image'
                 ])
 
